@@ -1,32 +1,176 @@
-/* purgecss start ignore */
+@import url("../public/fonts/fonts.css");
+
 @tailwind base;
 @tailwind components;
-/* purgecss end ignore */
 @tailwind utilities;
 
 html,
 body {
   padding: 0;
   margin: 0;
-  font-family: -apple-system, BlinkMacSystemFont, Segoe UI, Roboto, Oxygen,
-    Ubuntu, Cantarell, Fira Sans, Droid Sans, Helvetica Neue, sans-serif;
-}
-
-a {
-  color: inherit;
-  text-decoration: none;
+  font-family: "GilmerRegular";
 }
 
 * {
-  box-sizing: border-box;
+  box-sizing: inherit;
+  font-family: "GilmerRegular";
 }
 
-@media (prefers-color-scheme: dark) {
-  html {
-    color-scheme: dark;
+ul,
+li {
+  list-style: none;
+  margin: 0;
+  padding: 0;
+}
+
+a {
+  display: inline;
+  text-decoration: none;
+  transition: .3s;
+}
+
+a:hover {
+  text-decoration: none;
+}
+
+h1,
+h2,
+h3,
+h4,
+h5,
+h6,
+p {
+  margin: 0px;
+  padding: 0px;
+}
+
+@media (max-width:992px) {
+
+  h1 br,
+  h2 br,
+  h3 br,
+  h4 br,
+  h5 br,
+  h6 br,
+  p br {
+    display: none;
   }
-  body {
-    color: white;
-    background: black;
-  }
+}
+
+
+
+.heading-h2 {
+  font-size: 34px;
+  line-height: 48px;
+  font-family: 'GilmerBold';
+}
+
+.heading-h3 {
+  font-size: 28px;
+  line-height: 36px;
+  font-family: 'GilmerBold';
+}
+
+.heading-M {
+  font-size: 18px;
+  line-height: 28px;
+  font-family: 'GilmerMedium';
+}
+
+.heading-MB {
+  font-size: 18px;
+  line-height: 28px;
+  font-family: 'GilmerBold';
+}
+
+.heading-S {
+  font-size: 16px;
+  line-height: 24px;
+  font-family: 'GilmerMedium';
+}
+
+.heading-SB {
+  font-size: 16px;
+  line-height: 24px;
+  font-family: 'GilmerBold';
+}
+
+.heading-XS {
+  font-size: 14px;
+  line-height: 20px;
+  font-family: 'GilmerMedium';
+}
+
+.heading-XSB {
+  font-size: 14px;
+  line-height: 20px;
+  font-family: 'GilmerBold';
+}
+
+.heading-XXS {
+  font-size: 12px;
+  line-height: 16px;
+  font-family: 'GilmerMedium';
+}
+
+.heading-XXSB {
+  font-size: 12px;
+  line-height: 16px;
+  font-family: 'GilmerBold';
+}
+
+input {
+  width: 100%;
+  transition: .3s;
+}
+
+.search-input::-webkit-search-cancel-button {
+  content: 'X';
+  position: relative;
+  right: 0px;
+  padding-left: 10px;
+  -webkit-appearance: none;
+  height: 24px;
+  width: 24px;
+  background-image: url('/svg/search-close-icon.svg');
+  background-size: contain;
+  background-position: right;
+  background-repeat: no-repeat;
+  border-radius: 100%;
+}
+
+.search-input:focus {
+  background-color: white;
+  border: 1px solid #ECEEF1;
+  outline: none;
+}
+
+.theme-btn {
+  font-size: 16px;
+  line-height: 28px;
+  font-family: 'GilmerBold';
+  padding: 16px 24px;
+  color: white;
+  background-color: #376FFF;
+  border-radius: 8px;
+  transition: .3s;
+}
+
+.theme-btn:hover {
+  background-color: #1C3475;
+}
+
+
+.cta-footer-main {
+  position: relative;
+}
+
+.cta-footer-main::after {
+  content: '';
+  position: absolute;
+  bottom: 0;
+  z-index: -1;
+  width: 100%;
+  height: 70%;
+  background-color: #1C3475;
 }
