@@ -1,4 +1,5 @@
 import React from "react";
+import Image from 'next/image';
 
 
 const Cta = () => {
@@ -13,8 +14,10 @@ const Cta = () => {
                     <input className="theme-btn2 w-[auto] focus:outline-none" type="submit" name="submit" value={"Subscribe"} />
                 </div>
             </form>
-            <img className="absolute object-cover top-0 left-0" width="230px" height="220px" src="/svg/cta-bg-shape1.svg" alt="Shape" />
-            <img className="absolute object-cover bottom-0 right-0" width="230px" height="220px" src="/svg/cta-bg-shape2.svg" alt="Shape" />
+            <div className="bg-shapes-otr">
+                <Image className="cta-shape1" width="230px" height="220px" src="/svg/cta-bg-shape1.svg" alt="Shape" />
+                <Image className="cta-shape2" width="230px" height="220px" src="/svg/cta-bg-shape2.svg" alt="Shape" />
+            </div>
         </div>
     )
 }
