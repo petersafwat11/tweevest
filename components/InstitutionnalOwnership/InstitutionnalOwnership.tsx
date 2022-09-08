@@ -1,4 +1,5 @@
 import React from "react";
+import Image from 'next/image';
 import ChartComponent1 from "../ChartComponent1/ChartComponent1";
 
 
@@ -10,22 +11,48 @@ const InstitutionnalOwnership = () => {
                     <li className="filter-li">
                         <button className="filter-btn relative flex items-center bg-grey2 hover:bg-primarylight px-[16px] py-[8px] rounded-[50px] gap-[8px]">
                             <p className="heading-S text-textcolor">Earning Growth</p>
-                            <img className="close-icon object-cover" width="20px" height="20px" src="/svg/close-circle.svg" alt="Shape" />
-                            <img className="plus-icon absolute object-cover" width="20px" height="20px" src="/svg/plus-icon.svg" alt="Shape" />
+                            <div className="close-icon flex">
+                                <Image className="object-cover" width="20px" height="20px" src="/svg/close-circle.svg" alt="Shape" />
+                            </div>
+                            <div className="plus-icon absolute flex">
+                                <Image className="object-cover" width="20px" height="20px" src="/svg/plus-icon.svg" alt="Shape" />
+                            </div>
                         </button>
                     </li>
                     <li className="filter-li">
                         <button className="filter-btn relative flex items-center bg-grey2 hover:bg-primarylight px-[16px] py-[8px] rounded-[50px] gap-[8px]">
                             <p className="heading-S text-textcolor">Sales Growth</p>
-                            <img className="close-icon object-cover" width="20px" height="20px" src="/svg/close-circle.svg" alt="Shape" />
-                            <img className="plus-icon absolute object-cover" width="20px" height="20px" src="/svg/plus-icon.svg" alt="Shape" />
+                            <div className="close-icon flex">
+                                <Image className="object-cover" width="20px" height="20px" src="/svg/close-circle.svg" alt="Shape" />
+                            </div>
+                            <div className="plus-icon absolute flex">
+                                <Image className="object-cover" width="20px" height="20px" src="/svg/plus-icon.svg" alt="Shape" />
+                            </div>
                         </button>
                     </li>
                     <li className="filter-li">
                         <button className="filter-btn relative flex items-center bg-grey2 hover:bg-primarylight px-[16px] py-[8px] rounded-[50px] gap-[8px]">
                             <p className="heading-S text-textcolor">Add</p>
-                            <img className="close-icon object-cover" width="20px" height="20px" src="/svg/close-circle.svg" alt="Shape" />
-                            <img className="plus-icon absolute object-cover" width="20px" height="20px" src="/svg/plus-icon.svg" alt="Shape" />
+                            <div className="close-icon flex">
+                                <Image className="object-cover" width="20px" height="20px" src="/svg/close-circle.svg" alt="Shape" />
+                            </div>
+                            <div className="plus-icon absolute flex">
+                                <Image className="object-cover" width="20px" height="20px" src="/svg/plus-icon.svg" alt="Shape" />
+                            </div>
+                            <div className="drop-down-otr absolute top-[70px] left-0 pt-[24px] z-[999]">
+                                <ul className="drop-down-ul w-[220px] bg-white border-[1px] border-border rounded-8 overflow-hidden shadow-Shadow2">
+                                    <li className="drop-down-li text-left flex">
+                                        <a href="" className="drop-down-a heading-S p-[16px] text-dark w-[100%] bg-white hover:bg-primary hover:text-white">
+                                            EV/sales
+                                        </a>
+                                    </li>
+                                    <li className="drop-down-li text-left flex">
+                                        <a href="" className="drop-down-a heading-S p-[16px] text-dark w-[100%] bg-white hover:bg-primary hover:text-white">
+                                            Net Margin
+                                        </a>
+                                    </li>
+                                </ul>
+                            </div>
                         </button>
                     </li>
                 </ul>
@@ -37,7 +64,9 @@ const InstitutionnalOwnership = () => {
                             <div className="Fundamentals-heading-inr flex-1 flex items-center gap-[16px]">
                                 <p className="heading-SB text-dark flex items-center">
                                     Fundamentals Snapshot
-                                    <img className="object-contain ml-[8px]" width="16px" height="16px" src="/svg/info-circle.svg" alt="Shape" />
+                                    <span className="ml-[8px] flex">
+                                        <Image className="object-contain" width="16px" height="16px" src="/svg/info-circle.svg" alt="Shape" />
+                                    </span>
                                 </p>
                                 <p className="heading-XXSB text-dark flex items-center">
                                     <span className="w-[24px] h-[8px] border-[1px] border-border2 bg-grey1 rounded-[50px] mr-[6px]"></span>
@@ -49,8 +78,12 @@ const InstitutionnalOwnership = () => {
                                 </p>
                             </div>
                             <button className="Show-Graph relative flex items-center bg-grey1 hover:bg-primary p-[8px] rounded-8 gap-[8px]">
-                                <img className="graph-icon1 object-cover" width="20px" height="20px" src="/svg/show-graph-icon.svg" alt="Shape" />
-                                <img className="graph-icon2 absolute object-cover" width="20px" height="20px" src="/svg/show-graph-icon-white.svg" alt="Shape" />
+                                <div className="graph-icon1 flex">
+                                    <Image className="object-cover" width="20px" height="20px" src="/svg/show-graph-icon.svg" alt="Shape" />
+                                </div>
+                                <div className="graph-icon2 absolute flex">
+                                    <Image className="object-cover" width="20px" height="20px" src="/svg/show-graph-icon-white.svg" alt="Shape" />
+                                </div>
                                 <p className="heading-S text-dark">Show Graph</p>
                             </button>
                         </div>
@@ -192,7 +225,9 @@ const InstitutionnalOwnership = () => {
                             <div className="Fundamentals-heading-inr flex-1 flex items-center gap-[16px]">
                                 <p className="heading-SB text-dark flex items-center">
                                     Sales Growth
-                                    <img className="object-contain ml-[8px]" width="16px" height="16px" src="/svg/info-circle.svg" alt="Shape" />
+                                    <span className="ml-[8px] flex">
+                                        <Image className="object-contain" width="16px" height="16px" src="/svg/info-circle.svg" alt="Shape" />
+                                    </span>
                                 </p>
                                 <p className="heading-XXSB text-dark flex items-center">
                                     <span className="w-[24px] h-[8px] border-[1px] border-border2 bg-grey1 rounded-[50px] mr-[6px]"></span>
@@ -204,8 +239,12 @@ const InstitutionnalOwnership = () => {
                                 </p>
                             </div>
                             <button className="Show-Graph relative flex items-center bg-grey1 hover:bg-primary p-[8px] rounded-8 gap-[8px]">
-                                <img className="graph-icon1 object-cover" width="20px" height="20px" src="/svg/show-graph-icon.svg" alt="Shape" />
-                                <img className="graph-icon2 absolute object-cover" width="20px" height="20px" src="/svg/show-graph-icon-white.svg" alt="Shape" />
+                                <div className="graph-icon1 flex">
+                                    <Image className="object-cover" width="20px" height="20px" src="/svg/show-graph-icon.svg" alt="Shape" />
+                                </div>
+                                <div className="graph-icon2 absolute flex">
+                                    <Image className="object-cover" width="20px" height="20px" src="/svg/show-graph-icon-white.svg" alt="Shape" />
+                                </div>
                                 <p className="heading-S text-dark">Show Graph</p>
                             </button>
                         </div>
@@ -347,12 +386,18 @@ const InstitutionnalOwnership = () => {
                             <div className="Fundamentals-heading-inr flex-1 flex items-center gap-[16px]">
                                 <p className="heading-SB text-dark flex items-center">
                                     Return on Equity
-                                    <img className="object-contain ml-[8px]" width="16px" height="16px" src="/svg/info-circle.svg" alt="Shape" />
+                                    <span className="ml-[8px] flex">
+                                        <Image className="object-contain" width="16px" height="16px" src="/svg/info-circle.svg" alt="Shape" />
+                                    </span>
                                 </p>
                             </div>
                             <button className="Show-Graph relative flex items-center bg-grey1 hover:bg-primary p-[8px] rounded-8 gap-[8px]">
-                                <img className="graph-icon1 object-cover" width="20px" height="20px" src="/svg/show-graph-icon.svg" alt="Shape" />
-                                <img className="graph-icon2 absolute object-cover" width="20px" height="20px" src="/svg/show-graph-icon-white.svg" alt="Shape" />
+                                <div className="graph-icon1 flex">
+                                    <Image className="object-cover" width="20px" height="20px" src="/svg/show-graph-icon.svg" alt="Shape" />
+                                </div>
+                                <div className="graph-icon2 absolute flex">
+                                    <Image className="object-cover" width="20px" height="20px" src="/svg/show-graph-icon-white.svg" alt="Shape" />
+                                </div>
                                 <p className="heading-S text-dark">Show Graph</p>
                             </button>
                         </div>
@@ -361,9 +406,9 @@ const InstitutionnalOwnership = () => {
                                 <p className="question-text heading-XS text-dark text-center mb-[4px] bg-transparent">
                                     Q1.19
                                 </p>
-                                <div className="box-inr py-[12px] px-[9px] bg-transparent border-[1px] border-grey1 rounded-8">
+                                <div className="box-inr py-[12px] px-[11px] bg-transparent border-[1px] border-grey1 rounded-8">
                                     <div className="arrow-otr flex items-center justify-center mb-[6px]">
-                                        <img className="object-contain" width="16px" height="16px" src="/svg/arrow-green.svg" alt="arrow" />
+                                        <Image className="object-contain" width="16px" height="16px" src="/svg/arrow-green.svg" alt="arrow" />
                                     </div>
                                     <p className="percent-text text-center heading-SB text-green">
                                         +58%
@@ -374,9 +419,9 @@ const InstitutionnalOwnership = () => {
                                 <p className="question-text heading-XS text-dark text-center mb-[4px] bg-transparent">
                                     Q2.19
                                 </p>
-                                <div className="box-inr py-[12px] px-[9px] bg-transparent border-[1px] border-grey1 rounded-8">
+                                <div className="box-inr py-[12px] px-[11px] bg-transparent border-[1px] border-grey1 rounded-8">
                                     <div className="arrow-otr flex items-center justify-center mb-[6px]">
-                                        <img className="object-contain" width="16px" height="16px" src="/svg/arrow-red.svg" alt="arrow" />
+                                        <Image className="object-contain" width="16px" height="16px" src="/svg/arrow-red.svg" alt="arrow" />
                                     </div>
                                     <p className="percent-text text-center heading-SB text-green">
                                         +58%
@@ -387,9 +432,9 @@ const InstitutionnalOwnership = () => {
                                 <p className="question-text heading-XS text-dark text-center mb-[4px] bg-transparent">
                                     Q3.19
                                 </p>
-                                <div className="box-inr py-[12px] px-[9px] bg-transparent border-[1px] border-grey1 rounded-8">
+                                <div className="box-inr py-[12px] px-[11px] bg-transparent border-[1px] border-grey1 rounded-8">
                                     <div className="arrow-otr flex items-center justify-center mb-[6px]">
-                                        <img className="object-contain" width="16px" height="16px" src="/svg/arrow-green.svg" alt="arrow" />
+                                        <Image className="object-contain" width="16px" height="16px" src="/svg/arrow-green.svg" alt="arrow" />
                                     </div>
                                     <p className="percent-text text-center heading-SB text-green">
                                         +58%
@@ -400,9 +445,9 @@ const InstitutionnalOwnership = () => {
                                 <p className="question-text heading-XS text-dark text-center mb-[4px] bg-transparent">
                                     Q4.19
                                 </p>
-                                <div className="box-inr py-[12px] px-[9px] bg-transparent border-[1px] border-grey1 rounded-8">
+                                <div className="box-inr py-[12px] px-[11px] bg-transparent border-[1px] border-grey1 rounded-8">
                                     <div className="arrow-otr flex items-center justify-center mb-[6px]">
-                                        <img className="object-contain" width="16px" height="16px" src="/svg/arrow-red.svg" alt="arrow" />
+                                        <Image className="object-contain" width="16px" height="16px" src="/svg/arrow-red.svg" alt="arrow" />
                                     </div>
                                     <p className="percent-text text-center heading-SB text-green">
                                         +58%
@@ -413,9 +458,9 @@ const InstitutionnalOwnership = () => {
                                 <p className="question-text heading-XS text-dark text-center mb-[4px] bg-transparent">
                                     Q1.20
                                 </p>
-                                <div className="box-inr py-[12px] px-[9px] bg-transparent border-[1px] border-grey1 rounded-8">
+                                <div className="box-inr py-[12px] px-[11px] bg-transparent border-[1px] border-grey1 rounded-8">
                                     <div className="arrow-otr flex items-center justify-center mb-[6px]">
-                                        <img className="object-contain" width="16px" height="16px" src="/svg/arrow-green.svg" alt="arrow" />
+                                        <Image className="object-contain" width="16px" height="16px" src="/svg/arrow-green.svg" alt="arrow" />
                                     </div>
                                     <p className="percent-text text-center heading-SB text-green">
                                         +58%
@@ -426,9 +471,9 @@ const InstitutionnalOwnership = () => {
                                 <p className="question-text heading-XS text-dark text-center mb-[4px] bg-transparent">
                                     Q2.20
                                 </p>
-                                <div className="box-inr py-[12px] px-[9px] bg-transparent border-[1px] border-grey1 rounded-8">
+                                <div className="box-inr py-[12px] px-[11px] bg-transparent border-[1px] border-grey1 rounded-8">
                                     <div className="arrow-otr flex items-center justify-center mb-[6px]">
-                                        <img className="object-contain" width="16px" height="16px" src="/svg/arrow-green.svg" alt="arrow" />
+                                        <Image className="object-contain" width="16px" height="16px" src="/svg/arrow-green.svg" alt="arrow" />
                                     </div>
                                     <p className="percent-text text-center heading-SB text-green">
                                         +58%
@@ -439,9 +484,9 @@ const InstitutionnalOwnership = () => {
                                 <p className="question-text heading-XS text-dark text-center mb-[4px] bg-transparent">
                                     Q3.20
                                 </p>
-                                <div className="box-inr py-[12px] px-[9px] bg-transparent border-[1px] border-grey1 rounded-8">
+                                <div className="box-inr py-[12px] px-[11px] bg-transparent border-[1px] border-grey1 rounded-8">
                                     <div className="arrow-otr flex items-center justify-center mb-[6px]">
-                                        <img className="object-contain" width="16px" height="16px" src="/svg/arrow-green.svg" alt="arrow" />
+                                        <Image className="object-contain" width="16px" height="16px" src="/svg/arrow-green.svg" alt="arrow" />
                                     </div>
                                     <p className="percent-text text-center heading-SB text-green">
                                         +58%
@@ -452,9 +497,9 @@ const InstitutionnalOwnership = () => {
                                 <p className="question-text heading-XS text-dark text-center mb-[4px] bg-transparent">
                                     Q4.20
                                 </p>
-                                <div className="box-inr py-[12px] px-[9px] bg-transparent border-[1px] border-grey1 rounded-8">
+                                <div className="box-inr py-[12px] px-[11px] bg-transparent border-[1px] border-grey1 rounded-8">
                                     <div className="arrow-otr flex items-center justify-center mb-[6px]">
-                                        <img className="object-contain" width="16px" height="16px" src="/svg/arrow-green.svg" alt="arrow" />
+                                        <Image className="object-contain" width="16px" height="16px" src="/svg/arrow-green.svg" alt="arrow" />
                                     </div>
                                     <p className="percent-text text-center heading-SB text-green">
                                         +58%
@@ -465,9 +510,9 @@ const InstitutionnalOwnership = () => {
                                 <p className="question-text heading-XS text-dark text-center mb-[4px] bg-transparent">
                                     Q1.21
                                 </p>
-                                <div className="box-inr py-[12px] px-[9px] bg-transparent border-[1px] border-grey1 rounded-8">
+                                <div className="box-inr py-[12px] px-[11px] bg-transparent border-[1px] border-grey1 rounded-8">
                                     <div className="arrow-otr flex items-center justify-center mb-[6px]">
-                                        <img className="object-contain" width="16px" height="16px" src="/svg/arrow-green.svg" alt="arrow" />
+                                        <Image className="object-contain" width="16px" height="16px" src="/svg/arrow-green.svg" alt="arrow" />
                                     </div>
                                     <p className="percent-text text-center heading-SB text-green">
                                         +58%
@@ -478,9 +523,9 @@ const InstitutionnalOwnership = () => {
                                 <p className="question-text heading-XS text-dark text-center mb-[4px] bg-transparent">
                                     Q2.21
                                 </p>
-                                <div className="box-inr py-[12px] px-[9px] bg-transparent border-[1px] border-grey1 rounded-8">
+                                <div className="box-inr py-[12px] px-[11px] bg-transparent border-[1px] border-grey1 rounded-8">
                                     <div className="arrow-otr flex items-center justify-center mb-[6px]">
-                                        <img className="object-contain" width="16px" height="16px" src="/svg/arrow-green.svg" alt="arrow" />
+                                        <Image className="object-contain" width="16px" height="16px" src="/svg/arrow-green.svg" alt="arrow" />
                                     </div>
                                     <p className="percent-text text-center heading-SB text-green">
                                         +58%
@@ -494,12 +539,18 @@ const InstitutionnalOwnership = () => {
                             <div className="Fundamentals-heading-inr flex-1 flex items-center gap-[16px]">
                                 <p className="heading-SB text-dark flex items-center">
                                     Institutionnal Ownership
-                                    <img className="object-contain ml-[8px]" width="16px" height="16px" src="/svg/info-circle.svg" alt="Shape" />
+                                    <span className="ml-[8px] flex">
+                                        <Image className="object-contain" width="16px" height="16px" src="/svg/info-circle.svg" alt="Shape" />
+                                    </span>
                                 </p>
                             </div>
                             <button className="Show-Graph relative flex items-center bg-grey1 hover:bg-primary p-[8px] rounded-8 gap-[8px]">
-                                <img className="graph-icon1 object-cover" width="20px" height="20px" src="/svg/show-graph-icon.svg" alt="Shape" />
-                                <img className="graph-icon2 absolute object-cover" width="20px" height="20px" src="/svg/show-graph-icon-white.svg" alt="Shape" />
+                                <div className="graph-icon1 flex">
+                                    <Image className="object-cover" width="20px" height="20px" src="/svg/show-graph-icon.svg" alt="Shape" />
+                                </div>
+                                <div className="graph-icon2 absolute flex">
+                                    <Image className="object-cover" width="20px" height="20px" src="/svg/show-graph-icon-white.svg" alt="Shape" />
+                                </div>
                                 <p className="heading-S text-dark">Show Graph</p>
                             </button>
                         </div>
@@ -508,9 +559,9 @@ const InstitutionnalOwnership = () => {
                                 <p className="question-text heading-XS text-dark text-center mb-[4px] bg-transparent">
                                     Q1.19
                                 </p>
-                                <div className="box-inr py-[15px] px-[13px] bg-transparent border-[1px] border-grey1 rounded-8">
+                                <div className="box-inr py-[15px] px-[14px] bg-transparent border-[1px] border-grey1 rounded-8">
                                     <div className="arrow-otr flex items-center justify-center mb-[6px]">
-                                        <img className="object-contain" width="16px" height="16px" src="/svg/arrow-green.svg" alt="arrow" />
+                                        <Image className="object-contain" width="16px" height="16px" src="/svg/arrow-green.svg" alt="arrow" />
                                     </div>
                                     <p className="percent-text text-center heading-SB text-dark2">
                                         1000
@@ -521,9 +572,9 @@ const InstitutionnalOwnership = () => {
                                 <p className="question-text heading-XS text-dark text-center mb-[4px] bg-transparent">
                                     Q2.19
                                 </p>
-                                <div className="box-inr py-[6px] px-[13px] bg-transparent border-[1px] border-grey1 rounded-8">
+                                <div className="box-inr py-[6px] px-[14px] bg-transparent border-[1px] border-grey1 rounded-8">
                                     <div className="arrow-otr flex items-center justify-center">
-                                        <img className="object-contain" width="16px" height="16px" src="/svg/arrow-green.svg" alt="arrow" />
+                                        <Image className="object-contain" width="16px" height="16px" src="/svg/arrow-green.svg" alt="arrow" />
                                     </div>
                                     <p className="percent-text text-center heading-SB text-dark2 my-[4px]">
                                         1200
@@ -537,9 +588,9 @@ const InstitutionnalOwnership = () => {
                                 <p className="question-text heading-XS text-dark text-center mb-[4px] bg-transparent">
                                     Q3.19
                                 </p>
-                                <div className="box-inr py-[6px] px-[13px] bg-transparent border-[1px] border-grey1 rounded-8">
+                                <div className="box-inr py-[6px] px-[14px] bg-transparent border-[1px] border-grey1 rounded-8">
                                     <div className="arrow-otr flex items-center justify-center">
-                                        <img className="object-contain" width="16px" height="16px" src="/svg/arrow-green.svg" alt="arrow" />
+                                        <Image className="object-contain" width="16px" height="16px" src="/svg/arrow-green.svg" alt="arrow" />
                                     </div>
                                     <p className="percent-text text-center heading-SB text-dark2 my-[4px]">
                                         1200
@@ -553,9 +604,9 @@ const InstitutionnalOwnership = () => {
                                 <p className="question-text heading-XS text-dark text-center mb-[4px] bg-transparent">
                                     Q4.19
                                 </p>
-                                <div className="box-inr py-[6px] px-[13px] bg-transparent border-[1px] border-grey1 rounded-8">
+                                <div className="box-inr py-[6px] px-[14px] bg-transparent border-[1px] border-grey1 rounded-8">
                                     <div className="arrow-otr flex items-center justify-center">
-                                        <img className="object-contain" width="16px" height="16px" src="/svg/arrow-red.svg" alt="arrow" />
+                                        <Image className="object-contain" width="16px" height="16px" src="/svg/arrow-red.svg" alt="arrow" />
                                     </div>
                                     <p className="percent-text text-center heading-SB text-dark2 my-[4px]">
                                         1200
@@ -569,9 +620,9 @@ const InstitutionnalOwnership = () => {
                                 <p className="question-text heading-XS text-dark text-center mb-[4px] bg-transparent">
                                     Q1.20
                                 </p>
-                                <div className="box-inr py-[6px] px-[13px] bg-transparent border-[1px] border-grey1 rounded-8">
+                                <div className="box-inr py-[6px] px-[14px] bg-transparent border-[1px] border-grey1 rounded-8">
                                     <div className="arrow-otr flex items-center justify-center">
-                                        <img className="object-contain" width="16px" height="16px" src="/svg/arrow-red.svg" alt="arrow" />
+                                        <Image className="object-contain" width="16px" height="16px" src="/svg/arrow-red.svg" alt="arrow" />
                                     </div>
                                     <p className="percent-text text-center heading-SB text-dark2 my-[4px]">
                                         1200
@@ -585,9 +636,9 @@ const InstitutionnalOwnership = () => {
                                 <p className="question-text heading-XS text-dark text-center mb-[4px] bg-transparent">
                                     Q2.20
                                 </p>
-                                <div className="box-inr py-[15px] px-[13px] bg-transparent border-[1px] border-grey1 rounded-8">
+                                <div className="box-inr py-[15px] px-[14px] bg-transparent border-[1px] border-grey1 rounded-8">
                                     <div className="arrow-otr flex items-center justify-center mb-[6px]">
-                                        <img className="object-contain" width="16px" height="16px" src="/svg/arrow-green.svg" alt="arrow" />
+                                        <Image className="object-contain" width="16px" height="16px" src="/svg/arrow-green.svg" alt="arrow" />
                                     </div>
                                     <p className="percent-text text-center heading-SB text-dark2">
                                         1300
@@ -598,9 +649,9 @@ const InstitutionnalOwnership = () => {
                                 <p className="question-text heading-XS text-dark text-center mb-[4px] bg-transparent">
                                     Q3.20
                                 </p>
-                                <div className="box-inr py-[15px] px-[13px] bg-transparent border-[1px] border-grey1 rounded-8">
+                                <div className="box-inr py-[15px] px-[14px] bg-transparent border-[1px] border-grey1 rounded-8">
                                     <div className="arrow-otr flex items-center justify-center mb-[6px]">
-                                        <img className="object-contain" width="16px" height="16px" src="/svg/arrow-green.svg" alt="arrow" />
+                                        <Image className="object-contain" width="16px" height="16px" src="/svg/arrow-green.svg" alt="arrow" />
                                     </div>
                                     <p className="percent-text text-center heading-SB text-dark2">
                                         1000
@@ -611,9 +662,9 @@ const InstitutionnalOwnership = () => {
                                 <p className="question-text heading-XS text-dark text-center mb-[4px] bg-transparent">
                                     Q4.20
                                 </p>
-                                <div className="box-inr py-[15px] px-[13px] bg-transparent border-[1px] border-grey1 rounded-8">
+                                <div className="box-inr py-[15px] px-[14px] bg-transparent border-[1px] border-grey1 rounded-8">
                                     <div className="arrow-otr flex items-center justify-center mb-[6px]">
-                                        <img className="object-contain" width="16px" height="16px" src="/svg/arrow-green.svg" alt="arrow" />
+                                        <Image className="object-contain" width="16px" height="16px" src="/svg/arrow-green.svg" alt="arrow" />
                                     </div>
                                     <p className="percent-text text-center heading-SB text-dark2">
                                         1000
@@ -624,9 +675,9 @@ const InstitutionnalOwnership = () => {
                                 <p className="question-text heading-XS text-dark text-center mb-[4px] bg-transparent">
                                     Q1.21
                                 </p>
-                                <div className="box-inr py-[15px] px-[13px] bg-transparent border-[1px] border-grey1 rounded-8">
+                                <div className="box-inr py-[15px] px-[14px] bg-transparent border-[1px] border-grey1 rounded-8">
                                     <div className="arrow-otr flex items-center justify-center mb-[6px]">
-                                        <img className="object-contain" width="16px" height="16px" src="/svg/arrow-green.svg" alt="arrow" />
+                                        <Image className="object-contain" width="16px" height="16px" src="/svg/arrow-green.svg" alt="arrow" />
                                     </div>
                                     <p className="percent-text text-center heading-SB text-dark2">
                                         1000
@@ -637,9 +688,9 @@ const InstitutionnalOwnership = () => {
                                 <p className="question-text heading-XS text-dark text-center mb-[4px] bg-transparent">
                                     Q2.21
                                 </p>
-                                <div className="box-inr py-[15px] px-[13px] bg-transparent border-[1px] border-grey1 rounded-8">
+                                <div className="box-inr py-[15px] px-[14px] bg-transparent border-[1px] border-grey1 rounded-8">
                                     <div className="arrow-otr flex items-center justify-center mb-[6px]">
-                                        <img className="object-contain" width="16px" height="16px" src="/svg/arrow-green.svg" alt="arrow" />
+                                        <Image className="object-contain" width="16px" height="16px" src="/svg/arrow-green.svg" alt="arrow" />
                                     </div>
                                     <p className="percent-text text-center heading-SB text-dark2">
                                         1000

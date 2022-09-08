@@ -21,8 +21,8 @@ body {
 ul,
 li {
   list-style: none;
-  margin: 0;
-  padding: 0;
+  margin: 0 !important;
+  padding: 0 !important;
 }
 
 a {
@@ -42,8 +42,8 @@ h4,
 h5,
 h6,
 p {
-  margin: 0px;
-  padding: 0px;
+  margin: 0 !important;
+  padding: 0 !important;
 }
 
 @media (max-width:992px) {
@@ -177,6 +177,7 @@ input {
 }
 
 .theme-btn:hover {
+  color: white;
   background-color: #1C3475;
 }
 
@@ -192,8 +193,8 @@ input {
 }
 
 .theme-btn2:hover {
-  color: white;
-  background-color: #1C3475;
+  color: white !important;
+  background-color: #1C3475 !important;
 }
 
 
@@ -211,6 +212,9 @@ input {
   background-color: #1C3475;
 }
 
+.cta-main .heading {
+  margin-bottom: 32px !important;
+}
 
 .cta-main .form-main .input {
   color: white;
@@ -220,11 +224,30 @@ input {
   color: white;
 }
 
+.cta-main .bg-shapes-otr {
+  display: flex;
+  justify-content: space-between;
+  position: absolute;
+  left: 0;
+  top: 0;
+  width: 100%;
+  height: 100%;
+}
+
+.cta-main .bg-shapes-otr .cta-shape1 {
+  object-fit: contain;
+  object-position: top left;
+}
+
+.cta-main .bg-shapes-otr .cta-shape2 {
+  object-fit: contain;
+  object-position: bottom right;
+}
 
 
 .InstitutionnalOwnership-main .filter-btn,
 .InstitutionnalOwnership-main .filter-btn p,
-.InstitutionnalOwnership-main .filter-btn img {
+.InstitutionnalOwnership-main .filter-btn div {
   transition: .3s;
 }
 
@@ -250,9 +273,29 @@ input {
   visibility: hidden;
 }
 
+.InstitutionnalOwnership-main .filter-btn:hover .drop-down-otr {
+  top: 36px;
+  opacity: 1;
+  visibility: visible;
+}
+
+.InstitutionnalOwnership-main .filter-btn .drop-down-otr {
+  opacity: 0;
+  visibility: hidden;
+  transition: .3s;
+}
+
+.InstitutionnalOwnership-main .filter-btn .drop-down-ul .drop-down-li:not(:last-child) {
+  border-bottom: 1px solid #ECEEF1;
+}
+
+.InstitutionnalOwnership-main .filter-btn .drop-down-ul .drop-down-a {
+  transition: .3s;
+}
+
 .InstitutionnalOwnership-main .Show-Graph,
 .InstitutionnalOwnership-main .Show-Graph p,
-.InstitutionnalOwnership-main .Show-Graph img {
+.InstitutionnalOwnership-main .Show-Graph div {
   transition: .3s;
 }
 
@@ -284,6 +327,10 @@ input {
   transition: .3s;
 }
 
+.InstitutionnalOwnership-main .Fundamentals-boxes-otr .box-otr .question-text {
+  margin-bottom: 6px !important;
+}
+
 .InstitutionnalOwnership-main .Fundamentals-boxes-otr .box-otr:hover .box-inr {
   background-color: white;
   box-shadow: 0px 12px 20px rgba(0, 0, 0, 0.08);
@@ -300,7 +347,89 @@ input {
 }
 
 
+.footer-main .copy-text a {
+  color: #D1D5DB;
+  transition: .3s;
+}
 
+.footer-main .copy-text a:hover {
+  color: white;
+}
+
+.TabsComponent-main .ant-tabs::before {
+  display: none;
+}
+
+.TabsComponent-main .ant-tabs .ant-tabs-nav {
+  padding: 0 75px !important;
+  border-top: 1px solid #ECEEF1;
+  border-bottom: 1px solid #ECEEF1;
+  margin-bottom: 58px;
+}
+
+.TabsComponent-main .ant-tabs .ant-tabs-nav .ant-tabs-tab-btn {
+  font-size: 18px;
+  line-height: 28px;
+  font-family: 'GilmerBold';
+  color: #727FA4;
+}
+
+.TabsComponent-main .ant-tabs .ant-tabs-tab-active .ant-tabs-tab-btn {
+  color: #1C3475;
+}
+
+.TabsComponent-main .Slide-box-inr .apple-content-otr .heading,
+.TabsComponent-main .Slide-box-inr .usd-price-otr .heading {
+  margin-bottom: 8px !important;
+}
+
+.TabsComponent-main .Slide-box-inr .usd-price-otr .heading span {
+  margin-left: 4px;
+}
+
+.TabsComponent-main .Slide-box-inr .performance-otr .Performance-heading,
+.TabsComponent-main .Slide-box-inr .stock-otr .stock-heading {
+  margin-bottom: 16px !important;
+}
+
+.TabsComponent-main .Slide-box-inr .performance-otr .performance-box-text {
+  margin-bottom: 4px !important;
+}
+
+.TabsComponent-main .Slide-box-inr .stock-otr .stock-li:not(:last-child) {
+  padding-bottom: 8px !important;
+  border-bottom: 1px solid #ECEEF1;
+}
+
+.TabsComponent-main .Slide-box-inr .stock-otr .stock-li:not(:first-child) {
+  padding-top: 8px !important;
+}
+
+.TabsComponent-main .ant-carousel .slick-slider .slick-dots {
+  display: flex !important;
+  align-items: center;
+  gap: 10px;
+}
+
+.TabsComponent-main .ant-carousel .slick-slider .slick-dots li {
+  width: 8px !important;
+  height: 8px !important;
+}
+
+.TabsComponent-main .ant-carousel .slick-slider .slick-dots li button {
+  width: 8px !important;
+  height: 8px !important;
+  background-color: #B6BBC9 !important;
+  border-radius: 100%;
+}
+
+.TabsComponent-main .ant-carousel .slick-slider .slick-dots .slick-active button {
+  background-color: #376FFF !important;
+}
+
+.TabsComponent-main .ant-carousel .slick-dots-bottom {
+  bottom: 40px;
+}
 
 
 
