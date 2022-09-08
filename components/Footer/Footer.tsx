@@ -3,7 +3,7 @@ import React from "react";
 
 const Footer = () => {
     return (
-        <footer className="flex items-center justify-between bg-dark px-[75px] py-[28px]">
+        <footer className="footer-main flex items-center justify-between bg-dark px-[75px] py-[28px]">
             <a href='' className='logo-otr'>
                 <img className="object-contain object-left" width="160px" height="38px" src="/brand-logo-footer.png" alt="logo" />
             </a>

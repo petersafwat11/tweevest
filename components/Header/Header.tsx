@@ -3,7 +3,7 @@ import React from "react";
 
 const Header = () => {
     return (
-        <header className="flex items-center gap-[32px] justify-between px-[75px] py-[28px]">
+        <header className="header-main flex items-center gap-[32px] justify-between px-[75px] py-[28px]">
             <a href='' className='logo-otr'>
                 <img className="object-contain object-left" width="160px" height="38px" src="/brand-logo.png" alt="logo" />
             </a>
@@ -23,12 +23,12 @@ const Header = () => {
                     </li>
                     <li className="menu-li">
                         <a href="" className="menu-a heading-S text-dark">
-                            Screener
+                            Watchlist
                         </a>
                     </li>
                     <li className="menu-li">
                         <a href="" className="menu-a heading-S text-dark">
-                            Screener
+                            About
                         </a>
                     </li>
                 </ul>
