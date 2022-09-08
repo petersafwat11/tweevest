@@ -4,6 +4,8 @@
 @tailwind components;
 @tailwind utilities;
 
+
+
 html,
 body {
   padding: 0;
@@ -71,6 +73,18 @@ p {
   font-family: 'GilmerBold';
 }
 
+.heading-L {
+  font-size: 20px;
+  line-height: 32px;
+  font-family: 'GilmerMedium';
+}
+
+.heading-LB {
+  font-size: 20px;
+  line-height: 32px;
+  font-family: 'GilmerBold';
+}
+
 .heading-M {
   font-size: 18px;
   line-height: 28px;
@@ -121,6 +135,8 @@ p {
 
 input {
   width: 100%;
+  border: none;
+  outline: none;
   transition: .3s;
 }
 
@@ -137,6 +153,10 @@ input {
   background-position: right;
   background-repeat: no-repeat;
   border-radius: 100%;
+}
+
+.search-input {
+  border: 1px solid #ECEEF1;
 }
 
 .search-input:focus {
@@ -160,6 +180,22 @@ input {
   background-color: #1C3475;
 }
 
+.theme-btn2 {
+  font-size: 16px;
+  line-height: 28px;
+  font-family: 'GilmerBold';
+  padding: 16px 24px;
+  color: #376FFF;
+  background-color: white;
+  border: none;
+  transition: .3s;
+}
+
+.theme-btn2:hover {
+  color: white;
+  background-color: #1C3475;
+}
+
 
 .cta-footer-main {
   position: relative;
@@ -173,4 +209,170 @@ input {
   width: 100%;
   height: 70%;
   background-color: #1C3475;
+}
+
+
+.cta-main .form-main .input {
+  color: white;
+}
+
+.cta-main .form-main .input::placeholder {
+  color: white;
+}
+
+
+
+.InstitutionnalOwnership-main .filter-btn,
+.InstitutionnalOwnership-main .filter-btn p,
+.InstitutionnalOwnership-main .filter-btn img {
+  transition: .3s;
+}
+
+.InstitutionnalOwnership-main .filter-btn:hover p {
+  color: white;
+}
+
+.InstitutionnalOwnership-main .filter-btn:hover .plus-icon {
+  opacity: 1;
+  visibility: visible;
+}
+
+.InstitutionnalOwnership-main .filter-btn:hover .close-icon {
+  opacity: 0;
+  visibility: hidden;
+}
+
+.InstitutionnalOwnership-main .filter-btn .plus-icon {
+  right: 16px;
+  top: 50%;
+  transform: translateY(-50%);
+  opacity: 0;
+  visibility: hidden;
+}
+
+.InstitutionnalOwnership-main .Show-Graph,
+.InstitutionnalOwnership-main .Show-Graph p,
+.InstitutionnalOwnership-main .Show-Graph img {
+  transition: .3s;
+}
+
+.InstitutionnalOwnership-main .Show-Graph:hover p {
+  color: white;
+}
+
+.InstitutionnalOwnership-main .Show-Graph:hover .graph-icon2 {
+  opacity: 1;
+  visibility: visible;
+}
+
+.InstitutionnalOwnership-main .Show-Graph:hover .graph-icon1 {
+  opacity: 0;
+  visibility: hidden;
+}
+
+.InstitutionnalOwnership-main .Show-Graph .graph-icon2 {
+  left: 8px;
+  top: 50%;
+  transform: translateY(-50%);
+  opacity: 0;
+  visibility: hidden;
+}
+
+.InstitutionnalOwnership-main .Fundamentals-boxes-otr .box-otr,
+.InstitutionnalOwnership-main .Fundamentals-boxes-otr .box-otr p,
+.InstitutionnalOwnership-main .Fundamentals-boxes-otr .box-otr .box-inr {
+  transition: .3s;
+}
+
+.InstitutionnalOwnership-main .Fundamentals-boxes-otr .box-otr:hover .box-inr {
+  background-color: white;
+  box-shadow: 0px 12px 20px rgba(0, 0, 0, 0.08);
+}
+
+.InstitutionnalOwnership-main .Fundamentals-boxes-otr .box-otr:nth-child(9) .box-inr,
+.InstitutionnalOwnership-main .Fundamentals-boxes-otr .box-otr:nth-child(10) .box-inr {
+  background-color: #DDF9EF;
+}
+
+.InstitutionnalOwnership-main .Return-boxes-otr .box-otr:nth-child(9) .box-inr,
+.InstitutionnalOwnership-main .Return-boxes-otr .box-otr:nth-child(10) .box-inr {
+  background-color: white;
+}
+
+
+
+
+
+
+
+@media (max-width:1440px) {
+  .cta-main {
+    max-width: 768px;
+  }
+
+  .menu-action-otr,
+  .menu-ul {
+    gap: 20px;
+  }
+}
+
+@media (max-width:1200px) {
+
+  .header-main,
+  .footer-main {
+    padding: 28px 15px;
+  }
+
+  .Search-otr {
+    width: 400px;
+  }
+
+  .InstitutionnalOwnership-main {
+    padding: 0 15px 0 15px;
+  }
+}
+
+
+@media (max-width:992px) {
+  .header-main .Search-otr {
+    display: none;
+  }
+
+  .header-main .menu-action-otr {
+    display: none;
+  }
+
+  .chart-row {
+    flex-direction: column;
+  }
+
+  .Institutionnal-data-otr,
+  .Institutionnal-chart-otr {
+    width: 100% !important;
+  }
+
+  .cta-main {
+    max-width: 100%;
+    border-radius: 0;
+    margin: 72px 0 0 0;
+    padding: 48px 30px 72px 30px;
+  }
+}
+
+
+@media (max-width:575px) {
+
+  .Fundamentals-otr .Fundamentals-heading-otr {
+    flex-direction: column;
+    align-items: flex-start;
+  }
+
+  .cta-main {
+    padding: 48px 15px 72px 15px;
+  }
+
+  .footer-main {
+    flex-direction: column;
+    gap: 16px;
+  }
 }
