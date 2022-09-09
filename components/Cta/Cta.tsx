@@ -2,7 +2,7 @@ import React from "react";
 import Image from 'next/image';
 
 
-const Cta = () => {
+export const Cta = () => {
     return (
         <div className="cta-main relative bg-primary p-[96px] rounded-24 overflow-hidden mt-[128px] mb-[100px] max-w-[1170px] mx-[auto]">
             <h2 className="heading heading-h2 text-white text-center mb-[32px]">
@@ -21,5 +21,3 @@ const Cta = () => {
         </div>
     )
 }
-
-export default Cta

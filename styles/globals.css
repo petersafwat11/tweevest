@@ -4,7 +4,7 @@
 @tailwind components;
 @tailwind utilities;
 
-
+@import 'antd/dist/antd.css';
 
 html,
 body {
@@ -197,6 +197,9 @@ input {
   background-color: #1C3475 !important;
 }
 
+.header-main .menu-action-otr .menu-ul .menu-li:first-child p {
+  padding: 4px 8px !important;
+}
 
 .cta-footer-main {
   position: relative;
@@ -367,7 +370,28 @@ input {
   margin-bottom: 58px;
 }
 
+.TabsComponent-main .ant-tabs .ant-tabs-nav::before {
+  display: none;
+}
+
+.TabsComponent-main .ant-tabs .ant-tabs-nav .ant-tabs-nav-list {
+  gap: 48px;
+}
+
+.TabsComponent-main .ant-tabs-top>.ant-tabs-nav .ant-tabs-ink-bar {
+  height: 5px;
+  background-color: #376FFF;
+  border-radius: 16px 16px 0 0;
+}
+
+.TabsComponent-main .ant-tabs .ant-tabs-nav .ant-tabs-tab {
+  position: relative;
+  padding: 24px 0;
+  margin-left: 0;
+}
+
 .TabsComponent-main .ant-tabs .ant-tabs-nav .ant-tabs-tab-btn {
+  position: relative;
   font-size: 18px;
   line-height: 28px;
   font-family: 'GilmerBold';
@@ -377,6 +401,7 @@ input {
 .TabsComponent-main .ant-tabs .ant-tabs-tab-active .ant-tabs-tab-btn {
   color: #1C3475;
 }
+
 
 .TabsComponent-main .Slide-box-inr .apple-content-otr .heading,
 .TabsComponent-main .Slide-box-inr .usd-price-otr .heading {
@@ -431,17 +456,129 @@ input {
   bottom: 40px;
 }
 
+.Institutionnal-chart-otr .recharts-layer .recharts-cartesian-axis-tick-line,
+.Institutionnal-chart-otr .recharts-layer .recharts-cartesian-axis-line,
+.Institutionnal-chart-otr .recharts-cartesian-grid .recharts-cartesian-grid-vertical {
+  display: none;
+}
 
 
+.LineChart-box-otr .chart-otr .recharts-responsive-container .recharts-wrapper {
+  border-left: 1px solid #B6BBC9;
+}
+
+.BarChart-box-otr .earning-revenue-otr .chart-otr .recharts-legend-wrapper {
+  display: none;
+}
+
+.BarChart-box-otr .earning-revenue-otr .chart-otr .recharts-bar-rectangle:nth-child(1) .recharts-rectangle {
+  fill: #00C2FF;
+}
+
+.BarChart-box-otr .earning-revenue-otr .chart-otr .recharts-bar-rectangle:nth-child(2) .recharts-rectangle {
+  fill: #376FFF;
+}
+
+.BarChart-box-otr .earning-revenue-otr .chart-otr .recharts-xAxis {
+  display: none;
+}
+
+.BarChart-box-otr .earning-revenue-otr .chart-otr .recharts-cartesian-axis-tick-line {
+  display: none;
+}
+
+.BarChart-box-otr .earning-revenue-otr .chart-otr .recharts-cartesian-axis-tick tspan:nth-child(2) {
+  display: none;
+}
+
+.BarChart-box-otr .earning-revenue-otr .chart-otr .recharts-label-list g:nth-child(2) {
+  display: none;
+}
+
+.BarChart-box-otr .dropdown-chart-otr .recharts-legend-wrapper {
+  display: none;
+}
+
+.BarChart-box-otr .dropdown-chart-otr .recharts-bar-rectangle:nth-child(1) .recharts-rectangle {
+  fill: #00C2FF;
+}
+
+.BarChart-box-otr .dropdown-chart-otr .recharts-bar-rectangle:nth-child(2) .recharts-rectangle {
+  fill: #FFC221;
+}
+
+.BarChart-box-otr .dropdown-chart-otr .recharts-bar-rectangle:nth-child(3) .recharts-rectangle {
+  fill: #EB5757;
+}
+
+.BarChart-box-otr .dropdown-chart-otr .recharts-bar-rectangle:nth-child(4) .recharts-rectangle {
+  fill: #55C2A3;
+}
+
+.BarChart-box-otr .dropdown-chart-otr .recharts-bar-rectangle:nth-child(5) .recharts-rectangle {
+  fill: #376FFF;
+}
+
+.BarChart-box-otr .dropdown-chart-otr .recharts-xAxis {
+  display: none;
+}
+
+.BarChart-box-otr .dropdown-chart-otr .recharts-cartesian-axis-tick-line {
+  display: none;
+}
+
+.BarChart-box-otr .dropdown-chart-otr .recharts-cartesian-axis-tick tspan:nth-child(2) {
+  display: none;
+}
+
+.BarChart-box-otr .dropdown-chart-otr .recharts-cartesian-axis {
+  display: none;
+}
+
+.BarChart-box-otr .dropdown-chart-otr .recharts-label-list g:nth-child(2) {
+  display: none;
+}
+
+.BarChart-box-otr .drop-chart-otr .line-dash {
+  left: 44%;
+  bottom: 0;
+  transform: translateX(-50%);
+  height: 72%;
+  width: 1px;
+  border: 1px dashed #ffc42150;
+}
+
+.TabsComponent-main .ant-tabs-nav-operations {
+  display: none !important;
+}
+
+
+@media (max-width:1600px) and (min-width: 1200px) {}
 
 @media (max-width:1440px) {
   .cta-main {
     max-width: 768px;
   }
 
+  .TabsComponent-main .TabsComponent-row {
+    flex-wrap: wrap;
+  }
+
+  .TabsComponent-main .TabsComponent-row .tabComponent-box {
+    width: 31.5%;
+  }
+
   .menu-action-otr,
   .menu-ul {
     gap: 20px;
+  }
+
+  .header-main .Search-otr {
+    width: 350px;
+  }
+
+  .Slide-box-otr .performance-otr .performance-box {
+    width: 30%;
   }
 }
 
@@ -450,6 +587,23 @@ input {
   .header-main,
   .footer-main {
     padding: 28px 15px;
+  }
+
+  .TabsComponent-main .ant-tabs .ant-tabs-nav {
+    padding: 0 15px !important;
+  }
+
+  .TabsComponent-main .TabsComponent-row {
+    padding: 0 15px;
+  }
+
+  .TabsComponent-main .TabsComponent-row .tabComponent-box {
+    width: 31%;
+  }
+
+  .BarChart-box-otr .static-box,
+  .ForcastComponent-box-otr .static-box {
+    width: 48% !important;
   }
 
   .Search-otr {
@@ -465,6 +619,10 @@ input {
 @media (max-width:992px) {
   .header-main .Search-otr {
     display: none;
+  }
+
+  .TabsComponent-main .TabsComponent-row .tabComponent-box {
+    width: 48%;
   }
 
   .header-main .menu-action-otr {
@@ -488,8 +646,20 @@ input {
   }
 }
 
+@media (max-width:768px) {
+  .TabsComponent-main .TabsComponent-row .tabComponent-box {
+    width: 100%;
+  }
+}
 
 @media (max-width:575px) {
+  .InstitutionnalOwnership-main .filter-btn .drop-down-otr {
+    left: -45px;
+  }
+
+  .InstitutionnalOwnership-main .filter-btn .drop-down-otr .drop-down-ul {
+    width: 160px;
+  }
 
   .Fundamentals-otr .Fundamentals-heading-otr {
     flex-direction: column;
@@ -503,5 +673,17 @@ input {
   .footer-main {
     flex-direction: column;
     gap: 16px;
+  }
+}
+
+@media (max-width:530px) {
+  .InstitutionnalOwnership-main .filter-btn .drop-down-otr {
+    left: -16px;
+  }
+}
+
+@media (max-width:420px) {
+  .Slide-box-otr .performance-otr .performance-box {
+    width: 30%;
   }
 }
