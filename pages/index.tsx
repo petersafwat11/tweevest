@@ -1,9 +1,9 @@
 import type { NextPage } from 'next';
-import Header from '../components/Header/Header';
-import InstitutionnalOwnership from '../components/InstitutionnalOwnership/InstitutionnalOwnership';
-import Cta from '../components/Cta/Cta';
-import TabsComponent from '../components/TabsComponent/TabsComponent';
-import Footer from '../components/Footer/Footer';
+import { Header } from '../components';
+import { InstitutionnalOwnership } from '../components';
+import { Cta } from '../components';
+import { TabsComponent } from '../components';
+import { Footer } from '../components';
 import styles from '../styles/Home.module.css';
 
 const Home: NextPage = () => {

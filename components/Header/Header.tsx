@@ -2,7 +2,7 @@ import React from "react";
 import Image from 'next/image';
 
 
-const Header = () => {
+export const Header = () => {
     return (
         <header className="header-main flex items-center gap-[32px] justify-between px-[75px] py-[28px]">
             <a href='' className='logo-otr'>
@@ -44,5 +44,3 @@ const Header = () => {
         </header>
     )
 }
-
-export default Header

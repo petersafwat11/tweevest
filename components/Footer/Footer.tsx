@@ -2,7 +2,7 @@ import React from "react";
 import Image from 'next/image';
 
 
-const Footer = () => {
+export const Footer = () => {
     return (
         <footer className="footer-main flex items-center justify-between bg-dark px-[75px] py-[28px]">
             <a href='' className='logo-otr'>
@@ -38,5 +38,3 @@ const Footer = () => {
         </footer>
     )
 }
-
-export default Footer
