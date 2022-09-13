@@ -6,46 +6,6 @@
 
 @import 'antd/dist/antd.css';
 
-html,
-body {
-  padding: 0;
-  margin: 0;
-  font-family: "GilmerRegular";
-}
-
-* {
-  box-sizing: inherit;
-  font-family: "GilmerRegular";
-}
-
-ul,
-li {
-  list-style: none;
-  margin: 0 !important;
-  padding: 0 !important;
-}
-
-a {
-  display: inline;
-  text-decoration: none;
-  transition: .3s;
-}
-
-a:hover {
-  text-decoration: none;
-}
-
-h1,
-h2,
-h3,
-h4,
-h5,
-h6,
-p {
-  margin: 0 !important;
-  padding: 0 !important;
-}
-
 @media (max-width:992px) {
 
   h1 br,
@@ -59,89 +19,8 @@ p {
   }
 }
 
-
-
-.heading-h2 {
-  font-size: 34px;
-  line-height: 48px;
-  font-family: 'GilmerBold';
-}
-
-.heading-h3 {
-  font-size: 28px;
-  line-height: 36px;
-  font-family: 'GilmerBold';
-}
-
-.heading-L {
-  font-size: 20px;
-  line-height: 32px;
-  font-family: 'GilmerMedium';
-}
-
-.heading-LB {
-  font-size: 20px;
-  line-height: 32px;
-  font-family: 'GilmerBold';
-}
-
-.heading-M {
-  font-size: 18px;
-  line-height: 28px;
-  font-family: 'GilmerMedium';
-}
-
-.heading-MB {
-  font-size: 18px;
-  line-height: 28px;
-  font-family: 'GilmerBold';
-}
-
-.heading-S {
-  font-size: 16px;
-  line-height: 24px;
-  font-family: 'GilmerMedium';
-}
-
-.heading-SB {
-  font-size: 16px;
-  line-height: 24px;
-  font-family: 'GilmerBold';
-}
-
-.heading-XS {
-  font-size: 14px;
-  line-height: 20px;
-  font-family: 'GilmerMedium';
-}
-
-.heading-XSB {
-  font-size: 14px;
-  line-height: 20px;
-  font-family: 'GilmerBold';
-}
-
-.heading-XXS {
-  font-size: 12px;
-  line-height: 16px;
-  font-family: 'GilmerMedium';
-}
-
-.heading-XXSB {
-  font-size: 12px;
-  line-height: 16px;
-  font-family: 'GilmerBold';
-}
-
-input {
-  width: 100%;
-  border: none;
-  outline: none;
-  transition: .3s;
-}
-
 .search-input::-webkit-search-cancel-button {
-  content: 'X';
+  content: '';
   position: relative;
   right: 0px;
   padding-left: 10px;
@@ -155,188 +34,18 @@ input {
   border-radius: 100%;
 }
 
-.search-input {
-  border: 1px solid #ECEEF1;
-}
-
-.search-input:focus {
-  background-color: white;
-  border: 1px solid #ECEEF1;
-  outline: none;
-}
-
-.theme-btn {
-  font-size: 16px;
-  line-height: 28px;
-  font-family: 'GilmerBold';
-  padding: 16px 24px;
-  color: white;
-  background-color: #376FFF;
-  border-radius: 8px;
-  transition: .3s;
-}
-
-.theme-btn:hover {
-  color: white;
-  background-color: #1C3475;
-}
-
-.theme-btn2 {
-  font-size: 16px;
-  line-height: 28px;
-  font-family: 'GilmerBold';
-  padding: 16px 24px;
-  color: #376FFF;
-  background-color: white;
-  border: none;
-  transition: .3s;
-}
-
-.theme-btn2:hover {
-  color: white !important;
-  background-color: #1C3475 !important;
-}
-
-.header-main .menu-action-otr .menu-ul .menu-li:first-child p {
-  padding: 4px 8px !important;
-}
-
-.cta-footer-main {
-  position: relative;
-}
-
-.cta-footer-main::after {
-  content: '';
-  position: absolute;
-  bottom: 0;
-  z-index: -1;
-  width: 100%;
-  height: 70%;
-  background-color: #1C3475;
-}
-
-.cta-main .heading {
-  margin-bottom: 32px !important;
-}
-
-.cta-main .form-main .input {
-  color: white;
-}
-
-.cta-main .form-main .input::placeholder {
-  color: white;
-}
-
-.cta-main .bg-shapes-otr {
-  display: flex;
-  justify-content: space-between;
-  position: absolute;
-  left: 0;
-  top: 0;
-  width: 100%;
-  height: 100%;
-}
-
-.cta-main .bg-shapes-otr .cta-shape1 {
-  object-fit: contain;
-  object-position: top left;
-}
-
-.cta-main .bg-shapes-otr .cta-shape2 {
-  object-fit: contain;
-  object-position: bottom right;
-}
-
-
+.header-main .burger-icon-otr,
+.InstitutionnalOwnership-main .filter-btn .drop-down-ul .drop-down-a,
+.InstitutionnalOwnership-main .Show-Graph,
+.InstitutionnalOwnership-main .Show-Graph p,
+.InstitutionnalOwnership-main .Show-Graph div,
+.InstitutionnalOwnership-main .Fundamentals-boxes-otr .box-otr,
+.InstitutionnalOwnership-main .Fundamentals-boxes-otr .box-otr p,
+.InstitutionnalOwnership-main .Fundamentals-boxes-otr .box-otr .box-inr,
 .InstitutionnalOwnership-main .filter-btn,
 .InstitutionnalOwnership-main .filter-btn p,
 .InstitutionnalOwnership-main .filter-btn div {
   transition: .3s;
-}
-
-.InstitutionnalOwnership-main .filter-btn:hover p {
-  color: white;
-}
-
-.InstitutionnalOwnership-main .filter-btn:hover .plus-icon {
-  opacity: 1;
-  visibility: visible;
-}
-
-.InstitutionnalOwnership-main .filter-btn:hover .close-icon {
-  opacity: 0;
-  visibility: hidden;
-}
-
-.InstitutionnalOwnership-main .filter-btn .plus-icon {
-  right: 16px;
-  top: 50%;
-  transform: translateY(-50%);
-  opacity: 0;
-  visibility: hidden;
-}
-
-.InstitutionnalOwnership-main .filter-btn:hover .drop-down-otr {
-  top: 36px;
-  opacity: 1;
-  visibility: visible;
-}
-
-.InstitutionnalOwnership-main .filter-btn .drop-down-otr {
-  opacity: 0;
-  visibility: hidden;
-  transition: .3s;
-}
-
-.InstitutionnalOwnership-main .filter-btn .drop-down-ul .drop-down-li:not(:last-child) {
-  border-bottom: 1px solid #ECEEF1;
-}
-
-.InstitutionnalOwnership-main .filter-btn .drop-down-ul .drop-down-a {
-  transition: .3s;
-}
-
-.InstitutionnalOwnership-main .Show-Graph,
-.InstitutionnalOwnership-main .Show-Graph p,
-.InstitutionnalOwnership-main .Show-Graph div {
-  transition: .3s;
-}
-
-.InstitutionnalOwnership-main .Show-Graph:hover p {
-  color: white;
-}
-
-.InstitutionnalOwnership-main .Show-Graph:hover .graph-icon2 {
-  opacity: 1;
-  visibility: visible;
-}
-
-.InstitutionnalOwnership-main .Show-Graph:hover .graph-icon1 {
-  opacity: 0;
-  visibility: hidden;
-}
-
-.InstitutionnalOwnership-main .Show-Graph .graph-icon2 {
-  left: 8px;
-  top: 50%;
-  transform: translateY(-50%);
-  opacity: 0;
-  visibility: hidden;
-}
-
-.InstitutionnalOwnership-main .Fundamentals-boxes-otr .box-otr,
-.InstitutionnalOwnership-main .Fundamentals-boxes-otr .box-otr p,
-.InstitutionnalOwnership-main .Fundamentals-boxes-otr .box-otr .box-inr {
-  transition: .3s;
-}
-
-.InstitutionnalOwnership-main .Fundamentals-boxes-otr .box-otr .question-text {
-  margin-bottom: 6px !important;
-}
-
-.InstitutionnalOwnership-main .Fundamentals-boxes-otr .box-otr:hover .box-inr {
-  background-color: white;
-  box-shadow: 0px 12px 20px rgba(0, 0, 0, 0.08);
 }
 
 .InstitutionnalOwnership-main .Fundamentals-boxes-otr .box-otr:nth-child(9) .box-inr,
@@ -349,154 +58,13 @@ input {
   background-color: white;
 }
 
-
-.footer-main .copy-text a {
-  color: #D1D5DB;
-  transition: .3s;
-}
-
-.footer-main .copy-text a:hover {
-  color: white;
-}
-
-.TabsComponent-main .ant-tabs::before {
-  display: none;
-}
-
-.TabsComponent-main .ant-tabs .ant-tabs-nav {
-  padding: 0 75px !important;
-  border-top: 1px solid #ECEEF1;
-  border-bottom: 1px solid #ECEEF1;
-  margin-bottom: 58px;
-}
-
-.TabsComponent-main .ant-tabs .ant-tabs-nav::before {
-  display: none;
-}
-
-.TabsComponent-main .ant-tabs .ant-tabs-nav .ant-tabs-nav-list {
-  gap: 48px;
-}
-
-.TabsComponent-main .ant-tabs-top>.ant-tabs-nav .ant-tabs-ink-bar {
-  height: 5px;
-  background-color: #376FFF;
-  border-radius: 16px 16px 0 0;
-}
-
-.TabsComponent-main .ant-tabs .ant-tabs-nav .ant-tabs-tab {
-  position: relative;
-  padding: 24px 0;
-  margin-left: 0;
-}
-
-.TabsComponent-main .ant-tabs .ant-tabs-nav .ant-tabs-tab-btn {
-  position: relative;
-  font-size: 18px;
-  line-height: 28px;
-  font-family: 'GilmerBold';
-  color: #727FA4;
-}
-
-.TabsComponent-main .ant-tabs .ant-tabs-tab-active .ant-tabs-tab-btn {
-  color: #1C3475;
-}
-
-
-.TabsComponent-main .Slide-box-inr .apple-content-otr .heading,
-.TabsComponent-main .Slide-box-inr .usd-price-otr .heading {
-  margin-bottom: 8px !important;
-}
-
-.TabsComponent-main .Slide-box-inr .usd-price-otr .heading span {
-  margin-left: 4px;
-}
-
-.TabsComponent-main .Slide-box-inr .performance-otr .Performance-heading,
-.TabsComponent-main .Slide-box-inr .stock-otr .stock-heading {
-  margin-bottom: 16px !important;
-}
-
-.TabsComponent-main .Slide-box-inr .performance-otr .performance-box-text {
-  margin-bottom: 4px !important;
-}
-
-.TabsComponent-main .Slide-box-inr .stock-otr .stock-li:not(:last-child) {
-  padding-bottom: 8px !important;
-  border-bottom: 1px solid #ECEEF1;
-}
-
-.TabsComponent-main .Slide-box-inr .stock-otr .stock-li:not(:first-child) {
-  padding-top: 8px !important;
-}
-
-.TabsComponent-main .ant-carousel .slick-slider .slick-dots {
-  display: flex !important;
-  align-items: center;
-  gap: 10px;
-}
-
-.TabsComponent-main .ant-carousel .slick-slider .slick-dots li {
-  width: 8px !important;
-  height: 8px !important;
-}
-
-.TabsComponent-main .ant-carousel .slick-slider .slick-dots li button {
-  width: 8px !important;
-  height: 8px !important;
-  background-color: #B6BBC9 !important;
-  border-radius: 100%;
-}
-
-.TabsComponent-main .ant-carousel .slick-slider .slick-dots .slick-active button {
-  background-color: #376FFF !important;
-}
-
-.TabsComponent-main .ant-carousel .slick-dots-bottom {
-  bottom: 40px;
-}
-
-.Institutionnal-chart-otr .recharts-layer .recharts-cartesian-axis-tick-line,
-.Institutionnal-chart-otr .recharts-layer .recharts-cartesian-axis-line,
-.Institutionnal-chart-otr .recharts-cartesian-grid .recharts-cartesian-grid-vertical {
-  display: none;
-}
-
-
-.LineChart-box-otr .chart-otr .recharts-responsive-container .recharts-wrapper {
-  border-left: 1px solid #B6BBC9;
-}
-
-.BarChart-box-otr .earning-revenue-otr .chart-otr .recharts-legend-wrapper {
-  display: none;
-}
-
+/* 
 .BarChart-box-otr .earning-revenue-otr .chart-otr .recharts-bar-rectangle:nth-child(1) .recharts-rectangle {
   fill: #00C2FF;
 }
 
 .BarChart-box-otr .earning-revenue-otr .chart-otr .recharts-bar-rectangle:nth-child(2) .recharts-rectangle {
   fill: #376FFF;
-}
-
-.BarChart-box-otr .earning-revenue-otr .chart-otr .recharts-xAxis {
-  display: none;
-}
-
-.BarChart-box-otr .earning-revenue-otr .chart-otr .recharts-cartesian-axis-tick-line {
-  display: none;
-}
-
-.BarChart-box-otr .earning-revenue-otr .chart-otr .recharts-cartesian-axis-tick tspan:nth-child(2) {
-  display: none;
-}
-
-.BarChart-box-otr .earning-revenue-otr .chart-otr .recharts-label-list g:nth-child(2) {
-  display: none;
-}
-
-.BarChart-box-otr .dropdown-chart-otr .recharts-legend-wrapper {
-  display: none;
 }
 
 .BarChart-box-otr .dropdown-chart-otr .recharts-bar-rectangle:nth-child(1) .recharts-rectangle {
@@ -517,173 +85,181 @@ input {
 
 .BarChart-box-otr .dropdown-chart-otr .recharts-bar-rectangle:nth-child(5) .recharts-rectangle {
   fill: #376FFF;
-}
+} */
 
-.BarChart-box-otr .dropdown-chart-otr .recharts-xAxis {
-  display: none;
-}
-
-.BarChart-box-otr .dropdown-chart-otr .recharts-cartesian-axis-tick-line {
-  display: none;
-}
-
-.BarChart-box-otr .dropdown-chart-otr .recharts-cartesian-axis-tick tspan:nth-child(2) {
-  display: none;
-}
-
-.BarChart-box-otr .dropdown-chart-otr .recharts-cartesian-axis {
-  display: none;
-}
-
-.BarChart-box-otr .dropdown-chart-otr .recharts-label-list g:nth-child(2) {
-  display: none;
-}
-
-.BarChart-box-otr .drop-chart-otr .line-dash {
-  left: 44%;
-  bottom: 0;
-  transform: translateX(-50%);
-  height: 72%;
-  width: 1px;
-  border: 1px dashed #ffc42150;
-}
-
+.Institutionnal-chart-otr .recharts-layer .recharts-cartesian-axis-tick-line,
+.Institutionnal-chart-otr .recharts-layer .recharts-cartesian-axis-line,
+.Institutionnal-chart-otr .recharts-cartesian-grid .recharts-cartesian-grid-vertical,
+.BarChart-box-otr .earning-revenue-otr .chart-otr .recharts-legend-wrapper,
+.BarChart-box-otr .dropdown-chart-otr .recharts-legend-wrapper,
+.BarChart-box-otr .earning-revenue-otr .chart-otr .recharts-xAxis,
+.BarChart-box-otr .earning-revenue-otr .chart-otr .recharts-cartesian-axis-tick-line,
+.BarChart-box-otr .earning-revenue-otr .chart-otr .recharts-cartesian-axis-tick tspan:nth-child(2),
+.BarChart-box-otr .earning-revenue-otr .chart-otr .recharts-label-list g:nth-child(2),
+.BarChart-box-otr .dropdown-chart-otr .recharts-xAxis,
+.BarChart-box-otr .dropdown-chart-otr .recharts-cartesian-axis-tick-line,
+.BarChart-box-otr .dropdown-chart-otr .recharts-cartesian-axis-tick tspan:nth-child(2),
+.BarChart-box-otr .dropdown-chart-otr .recharts-cartesian-axis,
+.BarChart-box-otr .dropdown-chart-otr .recharts-label-list g:nth-child(2),
 .TabsComponent-main .ant-tabs-nav-operations {
   display: none !important;
 }
 
 
-@media (max-width:1600px) and (min-width: 1200px) {}
-
-@media (max-width:1440px) {
-  .cta-main {
-    max-width: 768px;
-  }
-
-  .TabsComponent-main .TabsComponent-row {
-    flex-wrap: wrap;
-  }
-
-  .TabsComponent-main .TabsComponent-row .tabComponent-box {
-    width: 31.5%;
-  }
-
-  .menu-action-otr,
-  .menu-ul {
-    gap: 20px;
-  }
-
-  .header-main .Search-otr {
-    width: 350px;
-  }
-
-  .Slide-box-otr .performance-otr .performance-box {
-    width: 30%;
-  }
+.FundamentalBox .box-inr .arrow-green,
+.FundamentalBox .box-inr .arrow-red,
+.FundamentalBox .box-inr .percent-text3 {
+  display: none;
 }
 
-@media (max-width:1200px) {
 
-  .header-main,
-  .footer-main {
-    padding: 28px 15px;
-  }
+.FundamentalBox .red-text-box .percent-text {
+  color: #EB5757;
+}
 
+.FundamentalBox .red-text-box .arrow-green,
+.FundamentalBox .red-text-box .arrow-red,
+.FundamentalBox .red-text-box .percent-text3 {
+  display: none;
+}
+
+
+
+.FundamentalBox .green-background-box {
+  background-color: #E2F3FF;
+}
+
+.FundamentalBox .green-background-box .arrow-green,
+.FundamentalBox .green-background-box .arrow-red,
+.FundamentalBox .green-background-box .percent-text3 {
+  display: none;
+}
+
+
+
+
+.FundamentalBox .red-arrow-box {
+  padding: 12px 10px;
+  background-color: transparent;
+  border: 1px solid #ECEEF1;
+}
+
+.FundamentalBox .red-arrow-box .percent-text {
+  color: #727FA4;
+  margin-bottom: 0;
+}
+
+.FundamentalBox .red-arrow-box .percent-text2,
+.FundamentalBox .red-arrow-box .percent-text3 {
+  display: none;
+}
+
+.FundamentalBox .red-arrow-box .arrow-red {
+  display: flex;
+}
+
+.FundamentalBox .red-arrow-box .arrow-green {
+  display: none;
+}
+
+
+
+
+.FundamentalBox .red-arrow-box-text {
+  padding: 6px 12px;
+  background-color: transparent;
+  border: 1px solid #ECEEF1;
+}
+
+.FundamentalBox .red-arrow-box-text .arrow-red {
+  display: flex;
+}
+
+.FundamentalBox .red-arrow-box-text .arrow-green {
+  display: none;
+}
+
+.FundamentalBox .red-arrow-box-text .arrow-red,
+.FundamentalBox .red-arrow-box-text .percent-text {
+  color: #727FA4;
+  margin-bottom: 0;
+}
+
+.FundamentalBox .red-arrow-box-text .percent-text2 {
+  display: none;
+}
+
+.FundamentalBox .red-arrow-box-text .percent-text3 {
+  display: block;
+  color: #EB5757;
+}
+
+
+.FundamentalBox .green-arrow-box-text {
+  padding: 6px 12px;
+  background-color: transparent;
+  border: 1px solid #ECEEF1;
+}
+
+.FundamentalBox .green-arrow-box-text .arrow-green {
+  display: flex;
+}
+
+.FundamentalBox .green-arrow-box-text .arrow-red {
+  display: none;
+}
+
+.FundamentalBox .green-arrow-box-text .arrow-green,
+.FundamentalBox .green-arrow-box-text .percent-text {
+  color: #727FA4;
+  margin-bottom: 0;
+}
+
+.FundamentalBox .green-arrow-box-text .percent-text2 {
+  display: none;
+}
+
+.FundamentalBox .green-arrow-box-text .percent-text3 {
+  display: block;
+  color: #55C2A3;
+}
+
+
+.FundamentalBox .green-arrow-box {
+  padding: 12px 10px !important;
+  background-color: transparent;
+  border: 1px solid #ECEEF1;
+}
+
+.FundamentalBox .green-arrow-box .arrow-green {
+  display: flex;
+  margin-bottom: 6px;
+}
+
+.FundamentalBox .green-arrow-box .arrow-red {
+  display: none;
+}
+
+.FundamentalBox .green-arrow-box .percent-text {
+  color: #727FA4;
+  margin-bottom: 0;
+}
+
+.FundamentalBox .green-arrow-box .percent-text2,
+.FundamentalBox .green-arrow-box .percent-text3 {
+  display: none;
+}
+
+@media (max-width:1279px) {
   .TabsComponent-main .ant-tabs .ant-tabs-nav {
     padding: 0 15px !important;
   }
-
-  .TabsComponent-main .TabsComponent-row {
-    padding: 0 15px;
-  }
-
-  .TabsComponent-main .TabsComponent-row .tabComponent-box {
-    width: 31%;
-  }
-
-  .BarChart-box-otr .static-box,
-  .ForcastComponent-box-otr .static-box {
-    width: 48% !important;
-  }
-
-  .Search-otr {
-    width: 400px;
-  }
-
-  .InstitutionnalOwnership-main {
-    padding: 0 15px 0 15px;
-  }
 }
 
 
-@media (max-width:992px) {
-  .header-main .Search-otr {
-    display: none;
-  }
-
-  .TabsComponent-main .TabsComponent-row .tabComponent-box {
-    width: 48%;
-  }
-
-  .header-main .menu-action-otr {
-    display: none;
-  }
-
-  .chart-row {
-    flex-direction: column;
-  }
-
-  .Institutionnal-data-otr,
-  .Institutionnal-chart-otr {
-    width: 100% !important;
-  }
-
-  .cta-main {
-    max-width: 100%;
-    border-radius: 0;
-    margin: 72px 0 0 0;
-    padding: 48px 30px 72px 30px;
-  }
-}
-
-@media (max-width:768px) {
-  .TabsComponent-main .TabsComponent-row .tabComponent-box {
-    width: 100%;
-  }
-}
-
-@media (max-width:575px) {
-  .InstitutionnalOwnership-main .filter-btn .drop-down-otr {
-    left: -45px;
-  }
-
-  .InstitutionnalOwnership-main .filter-btn .drop-down-otr .drop-down-ul {
-    width: 160px;
-  }
-
-  .Fundamentals-otr .Fundamentals-heading-otr {
-    flex-direction: column;
-    align-items: flex-start;
-  }
-
-  .cta-main {
-    padding: 48px 15px 72px 15px;
-  }
-
-  .footer-main {
-    flex-direction: column;
-    gap: 16px;
-  }
-}
-
-@media (max-width:530px) {
-  .InstitutionnalOwnership-main .filter-btn .drop-down-otr {
-    left: -16px;
-  }
-}
-
-@media (max-width:420px) {
-  .Slide-box-otr .performance-otr .performance-box {
-    width: 30%;
+@media (max-width:1023px) {
+  .header-main .search-input::-webkit-search-cancel-button {
+    width: 20px;
+    height: 20px;
   }
 }
