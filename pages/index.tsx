@@ -12,7 +12,7 @@ const Home: NextPage = () => {
       <Header />
       <TabsComponent />
       <InstitutionnalOwnership />
-      <div className='cta-footer-main'>
+      <div className='cta-footer-main relative'>
         <Cta />
         <Footer />
       </div>

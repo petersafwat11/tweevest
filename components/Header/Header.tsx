@@ -1,36 +1,42 @@
 import React from "react";
 import Image from 'next/image';
+import { SearchInput } from "..";
 
 
 export const Header = () => {
     return (
-        <header className="header-main flex items-center gap-[32px] justify-between px-[75px] py-[28px]">
-            <a href='' className='logo-otr'>
-                <Image className="object-contain object-left" width="160px" height="38px" src="/brand-logo.png" alt="logo" />
-            </a>
-            <div className="Search-otr relative flex w-[600px]">
-                <div className="flex absolute left-[16px] top-[50%] translate-y-[-50%]">
-                    <Image className="object-contain" width="24px" height="24px" src="/svg/search-icon.svg" alt="logo" />
+        <header className="header-main flex items-center gap-[32px] justify-between px-[75px] py-[28px] xl:px-[15px] sm:gap-[24px] sm:flex-row-reverse">
+            <a href='' className='logo-otr flex items-center gap-[24px]'>
+                <div className="burger-icon-otr hidden lg:flex cursor-pointer">
+                    <Image className="object-contain" width="40px" height="40px" src="/menu-icon.svg" alt="menu-icon" />
                 </div>
-                <input className="search-input heading-S py-[16px] pl-[56px] pr-[16px] w-[100%] bg-grey1 rounded-8 border-[1px] border-border" type="search" name="search" placeholder="Search  Company Status" />
+                <div className="logo-img flex sm:hidden">
+                    <Image className="object-contain object-left" width="140px" height="38px" src="/brand-logo.png" alt="logo" />
+                </div>
+                <div className="logo-icon hidden sm:flex">
+                    <Image className="object-contain" width="50px" height="50px" src="/brand-logo-icon.png" alt="logo" />
+                </div>
+            </a>
+            <div className="Search-otr relative flex w-[600px] 2xl:w-[350px] xl:w-[400px] lg:w-[100%] lg:flex-1">
+                <SearchInput />
             </div>
-            <div className="menu-action-otr flex items-center gap-[32px]">
-                <ul className="menu-ul flex items-center gap-[32px]">
+            <div className="menu-action-otr flex items-center gap-[32px] 2xl:gap-[20px] lg:hidden">
+                <ul className="menu-ul flex items-center gap-[32px] 2xl:gap-[20px]">
                     <li className="menu-li flex items-center gap-[8px]">
-                        <a href="" className="menu-a heading-S text-dark">
+                        <a href="" className="menu-a heading-S text-primary-dark">
                             Screener
                         </a>
-                        <p className="heading-XXS text-green bg-greenlight rounded-16 pt-[4px] pb-[5px] px-[8px]">
+                        <p className="heading-XXS text-green-default bg-green-light rounded-16 pt-[4px] pb-[5px] px-[8px]">
                             Coming Soon
                         </p>
                     </li>
                     <li className="menu-li">
-                        <a href="" className="menu-a heading-S text-dark">
+                        <a href="" className="menu-a heading-S text-primary-dark">
                             Watchlist
                         </a>
                     </li>
                     <li className="menu-li">
-                        <a href="" className="menu-a heading-S text-dark">
+                        <a href="" className="menu-a heading-S text-primary-dark">
                             About
                         </a>
                     </li>
