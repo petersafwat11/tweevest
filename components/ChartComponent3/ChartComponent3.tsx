@@ -11,12 +11,6 @@ const data = [
         amt: 2400
     },
     {
-        name: "Page B",
-        uv: 3000,
-        pv: 1398,
-        amt: 2210
-    },
-    {
         name: "Q2.19",
         uv: 2000,
         pv: 9800,
@@ -50,7 +44,7 @@ const data = [
 export const ChartComponent3 = () => {
     return (
         <>
-            <ResponsiveContainer width="100%" height={610}>
+            <ResponsiveContainer width="100%" height="100%">
                 <AreaChart
                     data={data}
                     margin={{
@@ -61,8 +55,8 @@ export const ChartComponent3 = () => {
                     }}
                 >
                     <CartesianGrid stroke="#F4F5F8" />
-                    <XAxis dataKey="name" />
-                    <YAxis />
+                    <XAxis dataKey="name" tick={{ fontSize: 12 }} />
+                    <YAxis tick={{ fontSize: 12 }} />
                     <Area type="monotone" dataKey="uv" stroke="#376FFF" fill="#EFF2FE" />
                 </AreaChart>
             </ResponsiveContainer>

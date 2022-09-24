@@ -26,7 +26,7 @@ export const ForcastComponent = () => {
                                         15%
                                     </a>
                                 </div>
-                                <p className="heading-XS text-primary-dark2">
+                                <p className="heading-XS text-primary-dark2 3xl:text-xs">
                                     2023-Revenue
                                 </p>
                             </div>
@@ -42,7 +42,7 @@ export const ForcastComponent = () => {
                                         15%
                                     </a>
                                 </div>
-                                <p className="heading-XS text-primary-dark2">
+                                <p className="heading-XS text-primary-dark2 3xl:text-xs">
                                     2023-EPS
                                 </p>
                             </div>
@@ -58,7 +58,7 @@ export const ForcastComponent = () => {
                                         15%
                                     </a>
                                 </div>
-                                <p className="heading-XS text-primary-dark2">
+                                <p className="heading-XS text-primary-dark2 3xl:text-xs">
                                     2023-EBIT
                                 </p>
                             </div>
@@ -89,8 +89,10 @@ export const ForcastComponent = () => {
                                 </div>
                                 <Image className="object-contain" width="230px" height="130px" src="/chart-circle.svg" alt="Shape" />
                                 <div className="circle-line absolute left-[48%] bottom-0 flex flex-col items-center justify-end h-[100%]">
-                                    <div className="line h-[60%] w-[4px] bg-primary-dark rounded-[60px] mb-[8px]"></div>
-                                    <div className="circle w-[12px] h-[12px] border-[3px] border-primary-dark rounded-[100%]"></div>
+                                    <div className="circle-line-inr flex flex-col-reverse items-center rotate-[-15deg]">
+                                        <div className="circle w-[12px] h-[12px] border-[3px] border-primary-dark rounded-[100%]"></div>
+                                        <div className="line h-[60px] w-[4px] bg-primary-dark rounded-[60px] mb-[8px]"></div>
+                                    </div>
                                 </div>
                             </div>
                             <p className="neutral-text heading-LB text-primary-dark text-center">
