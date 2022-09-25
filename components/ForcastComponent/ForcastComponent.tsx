@@ -89,7 +89,7 @@ export const ForcastComponent = () => {
                                 </div>
                                 <Image className="object-contain" width="230px" height="130px" src="/chart-circle.svg" alt="Shape" />
                                 <div className="circle-line absolute left-[48%] bottom-0 flex flex-col items-center justify-end h-[100%]">
-                                    <div className="circle-line-inr flex flex-col-reverse items-center rotate-[-15deg]">
+                                    <div className="circle-line-inr flex flex-col-reverse items-center rotate-[-60deg]">
                                         <div className="circle w-[12px] h-[12px] border-[3px] border-primary-dark rounded-[100%]"></div>
                                         <div className="line h-[60px] w-[4px] bg-primary-dark rounded-[60px] mb-[8px]"></div>
                                     </div>
