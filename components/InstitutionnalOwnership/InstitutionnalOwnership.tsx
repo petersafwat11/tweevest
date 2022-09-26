@@ -141,18 +141,18 @@ export const InstitutionnalOwnership = () => {
                                         </button>
                                     </div>
                                     <div className="Fundamentals-boxes-otr flex items-center flex-wrap gap-[12px]">
-                                        <FundamentalBox boxData={data} />
+                                        <FundamentalBox boxData={data} group={value.val} />
                                     </div>
                                 </div>
                             )
                         })}
                     </div>
                     <div className="Institutionnal-chart-otr w-[50%] lg:w-[100%]">
-                        <div className="Institutionnal-chart pt-[24px] pr-[24px] pb-[32px] pl-[24px] bg-white border-[1px] border-border-shade1 rounded-16">
-                            <h4 className="heading heading-LB text-primary-dark">
+                        <div className="Institutionnal-chart pt-[24px] pr-[24px] pb-[32px] pl-[24px] bg-white border-[1px] border-border-shade1 rounded-16 sm:pl-[0px] sm:pr-[0px] sm:pb-[16px]">
+                            <h4 className="heading heading-LB text-primary-dark sm:pl-[16px] sm:pr-[16px]">
                                 Institutionnal Ownership
                             </h4>
-                            <div className="chart-otr mt-[52px]">
+                            <div className="chart-otr w-[100%] h-[600px] mt-[52px] lg:h-[400px] sm:h-[350px] sm:mt-[24px]">
                                 <Chart3 />
                             </div>
                         </div>

@@ -7,6 +7,7 @@ module.exports = {
   ],
   theme: {
     screens: {
+      '3xl': { 'max': '1735px' },
       '2xl': { 'max': '1535px' },
       'xl': { 'max': '1279px' },
       'lg': { 'max': '1023px' },
@@ -152,7 +153,7 @@ module.exports = {
           width: "100%",
           border: "none",
           outline: "none",
-          padding: "16px",
+          padding: "10px",
           borderRadius: "8px",
           transition: ".3s",
         },
@@ -220,7 +221,7 @@ module.exports = {
           fontSize: "16px",
           lineHeight: "28px",
           fontFamily: 'GilmerBold',
-          padding: "16px 24px",
+          padding: "10px 24px",
           color: "white",
           backgroundColor: "#376FFF",
           borderRadius: "8px",
@@ -234,7 +235,7 @@ module.exports = {
           fontSize: "16px",
           lineHeight: "28px",
           fontFamily: 'GilmerBold',
-          padding: "16px 24px",
+          padding: "10px 24px",
           color: "#376FFF",
           backgroundColor: "white",
           border: "none",
@@ -252,7 +253,7 @@ module.exports = {
           padding: "0 75px !important",
           borderTop: "1px solid #ECEEF1",
           borderBottom: "1px solid #ECEEF1",
-          marginBottom: "58px",
+          marginBottom: "40px",
         },
         ".InstitutionnalOwnership-main .Show-Graph .graph-icon2": {
           left: "8px",
@@ -326,7 +327,7 @@ module.exports = {
         },
         ".TabsComponent-main .ant-tabs .ant-tabs-nav .ant-tabs-tab": {
           position: "relative",
-          padding: "24px 0",
+          padding: "16px 0",
           marginLeft: "0",
         },
         ".TabsComponent-main .ant-tabs .ant-tabs-nav .ant-tabs-tab-btn": {
@@ -437,9 +438,13 @@ module.exports = {
           backgroundColor: "#FFC221",
         },
         ".dropdown-chart-otr .drop-chart-inr .line-text-otr": {
+          
           '&:last-child': {
             marginBottom: "0px",
-          }
+          },
+        },
+        ".analyst-rating-otr .circle-line .circle-line-inr": {
+          transformOrigin: "bottom",
         },
       };
       addUtilities(dropdownHome, ["responsive", "hover"]);

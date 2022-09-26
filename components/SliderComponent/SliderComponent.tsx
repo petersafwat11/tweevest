@@ -48,7 +48,25 @@ export const SliderComponent = () => {
                 <p className='heading-S text-primary-dark'>
                     Market Closed (as of Jul 25, 19:59 EDT)
                 </p>
+                <div className="heading-otr flex items-end gap-[10px] my-[4px]">
+                    <div className='heading flex items-center gap-[4px] heading-S text-primary-dark'>
+                        <Image className="object-cover" width="16px" height="16px" src="/svg/sun-icon.svg" alt="Shape" />
+                        <span className='heading-S ml-[4px]'>
+                            150.98 USD
+                        </span>
+                    </div>
+                    <a href='' className='heading-S flex items-center text-red-default'>
+                        <span className='flex'>
+                            <Image className="object-cover" width="16px" height="16px" src="/svg/arrow-left-down.svg" alt="Shape" />
+                        </span>
+                        2.14 (1.74%)
+                    </a>
+                </div>
+                <p className='heading-XS text-primary-dark'>
+                    Pre-Market: Sep 6, 2022 5:20 AM EDT
+                </p>
             </div>
+
             <div className="performance-otr py-[40px] border-b-[1px] border-b-border-shade1">
                 <p className='Performance-heading heading-SB text-primary-dark mb-[16px]'>
                     Performance
