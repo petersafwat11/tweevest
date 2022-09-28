@@ -10,11 +10,8 @@ export const Header = () => {
                 <div className="burger-icon-otr hidden lg:flex cursor-pointer">
                     <Image className="object-contain" width="36px" height="36px" src="/menu-icon.svg" alt="menu-icon" />
                 </div>
-                <div className="logo-img flex sm:hidden">
+                <div className="logo-img sm:hidden md:flex">
                     <Image className="object-contain object-left" width="140px" height="38px" src="/brand-logo.png" alt="logo" />
-                </div>
-                <div className="logo-icon hidden sm:flex">
-                    <Image className="object-contain" width="36px" height="36px" src="/brand-logo-icon.png" alt="logo" />
                 </div>
             </a>
             <div className="Search-otr relative flex w-[600px] 2xl:w-[350px] xl:w-[400px] lg:w-[100%] lg:flex-1">
