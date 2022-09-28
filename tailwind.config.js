@@ -332,9 +332,9 @@ module.exports = {
         },
         ".TabsComponent-main .ant-tabs .ant-tabs-nav .ant-tabs-tab-btn": {
           position: "relative",
-          fontSize: "18px",
+          fontSize: "16px",
           lineHeight: "28px",
-          fontFamily: 'GilmerBold',
+          fontFamily: 'GilmerMedium',
           color: "#727FA4",
         },
         ".TabsComponent-main .ant-tabs .ant-tabs-tab-active .ant-tabs-tab-btn": {
