@@ -5,7 +5,7 @@ import { SearchInput } from "..";
 
 export const Header = () => {
     return (
-        <header className="header-main flex items-center gap-[32px] justify-between px-[75px] py-[16px] xl:px-[15px] sm:gap-[20px] lg:flex-row-reverse sticky top-0 z-50 bg-white">
+        <header className="header-main flex items-center gap-[32px] justify-between px-[75px] py-[10px] xl:px-[15px] sm:gap-[20px] lg:flex-row-reverse sticky top-0 z-50 bg-white">
             <a href='' className='logo-otr flex items-center gap-[24px]'>
                 <div className="burger-icon-otr hidden lg:flex cursor-pointer">
                     <Image className="object-contain" width="36px" height="36px" src="/menu-icon.svg" alt="menu-icon" />
