@@ -14,7 +14,7 @@ export const Header = () => {
                     <Image className="object-contain object-left" width="140px" height="38px" src="/brand-logo.png" alt="logo" />
                 </div>
             </a>
-            <div className="Search-otr relative flex w-[600px] 2xl:w-[350px] xl:w-[400px] lg:w-[100%] lg:flex-1">
+            <div className="Search-otr relative flex w-[600px] lg:w-[100%] lg:flex-1">
                 <SearchInput />
             </div>
             <div className="menu-action-otr flex items-center gap-[32px] 2xl:gap-[20px] lg:hidden">
