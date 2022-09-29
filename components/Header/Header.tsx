@@ -28,7 +28,7 @@ export const Header = () => {
                         </p>
                     </li>
                     <li className="menu-li">
-                        <a href="" className="md:ml-5 menu-a heading-S text-primary-dark ml-3">
+                        <a href="" className="md:ml-3 menu-a heading-S text-primary-dark">
                             Watchlist
                         </a>
                     </li>
