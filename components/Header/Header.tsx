@@ -23,12 +23,12 @@ export const Header = () => {
                         <a href="" className="menu-a heading-S text-primary-dark">
                             Screener
                         </a>
-                        <p className="heading-XXS text-green-default bg-green-light rounded-16 pt-[4px] pb-[5px] px-[8px]">
+                        <p className="flex-none heading-XXS text-green-default bg-green-light rounded-16 pt-[4px] pb-[5px] px-[8px]">
                             Coming Soon
                         </p>
                     </li>
                     <li className="menu-li">
-                        <a href="" className="menu-a heading-S text-primary-dark">
+                        <a href="" className="menu-a heading-S text-primary-dark md:ml-20">
                             Watchlist
                         </a>
                     </li>
