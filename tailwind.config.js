@@ -7,6 +7,7 @@ module.exports = {
   ],
   theme: {
     screens: {
+      '4xl': { 'max': '1920px' },
       '3xl': { 'max': '1735px' },
       '2xl': { 'max': '1535px' },
       'xl': { 'max': '1279px' },
@@ -255,6 +256,19 @@ module.exports = {
           borderBottom: "1px solid #ECEEF1",
           marginBottom: "40px",
         },
+        ".overlay-main": {
+          transition: "1s",
+        },
+        ".Open-overlay .overlay-box": {
+          right: "0px",
+          opacity: "1",
+          visibility: "visible",
+        },
+        ".overlay-box": {
+          opacity: "0",
+          visibility: "hidden",
+          transition: "1s",
+        },
         ".InstitutionnalOwnership-main .Show-Graph .graph-icon2": {
           left: "8px",
           top: "50%",
@@ -438,7 +452,7 @@ module.exports = {
           backgroundColor: "#FFC221",
         },
         ".dropdown-chart-otr .drop-chart-inr .line-text-otr": {
-          
+
           '&:last-child': {
             marginBottom: "0px",
           },

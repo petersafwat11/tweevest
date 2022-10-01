@@ -58,35 +58,6 @@
   background-color: white;
 }
 
-/* 
-.BarChart-box-otr .earning-revenue-otr .chart-otr .recharts-bar-rectangle:nth-child(1) .recharts-rectangle {
-  fill: #00C2FF;
-}
-
-.BarChart-box-otr .earning-revenue-otr .chart-otr .recharts-bar-rectangle:nth-child(2) .recharts-rectangle {
-  fill: #376FFF;
-}
-
-.BarChart-box-otr .dropdown-chart-otr .recharts-bar-rectangle:nth-child(1) .recharts-rectangle {
-  fill: #00C2FF;
-}
-
-.BarChart-box-otr .dropdown-chart-otr .recharts-bar-rectangle:nth-child(2) .recharts-rectangle {
-  fill: #FFC221;
-}
-
-.BarChart-box-otr .dropdown-chart-otr .recharts-bar-rectangle:nth-child(3) .recharts-rectangle {
-  fill: #EB5757;
-}
-
-.BarChart-box-otr .dropdown-chart-otr .recharts-bar-rectangle:nth-child(4) .recharts-rectangle {
-  fill: #55C2A3;
-}
-
-.BarChart-box-otr .dropdown-chart-otr .recharts-bar-rectangle:nth-child(5) .recharts-rectangle {
-  fill: #376FFF;
-} */
-
 .Institutionnal-chart-otr .recharts-layer .recharts-cartesian-axis-tick-line,
 .Institutionnal-chart-otr .recharts-layer .recharts-cartesian-axis-line,
 .Institutionnal-chart-otr .recharts-cartesian-grid .recharts-cartesian-grid-vertical,
