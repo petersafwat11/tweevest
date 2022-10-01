@@ -13,17 +13,19 @@ export const ForcastComponent = () => {
                                 <Image className="object-contain" width="16px" height="16px" src="/svg/info-circle.svg" alt="Shape" />
                             </span>
                         </p>
-                        <div className="static-boxes-otr flex items-center flex-wrap gap-[7px] mt-[16px]">
+                        <div className="static-boxes-otr flex items-center flex-wrap justify-between gap-[4px] 2xl:gap-[8px] mt-[16px]">
                             <div className="static-box w-[32%] 2xl:w-[48%]">
                                 <div className="heading-otr mb-[8px] flex items-end">
-                                    <h3 className="heading-h3 text-primary-dark">
+                                    <h3 className="heading-h3 text-primary-dark 4xl:text-[18px] 4xl:leading-[24px]">
                                         34B
                                     </h3>
                                     <a href='' className='heading-S flex items-center text-green-default'>
-                                        <span className='flex'>
+                                        <span className='flex w-[16px] h-[16px]'>
                                             <Image className="object-cover" width="16px" height="16px" src="/svg/arrow-right-up.svg" alt="Shape" />
                                         </span>
-                                        15%
+                                        <span className="4xl:text-[13px] 4xl:leading-[20px] flex-1">
+                                            15%
+                                        </span>
                                     </a>
                                 </div>
                                 <p className="heading-XS text-primary-dark2 3xl:text-xs">
@@ -32,14 +34,16 @@ export const ForcastComponent = () => {
                             </div>
                             <div className="static-box w-[32%] 2xl:w-[48%]">
                                 <div className="heading-otr mb-[8px] flex items-end">
-                                    <h3 className="heading-h3 text-primary-dark">
+                                    <h3 className="heading-h3 text-primary-dark 4xl:text-[18px] 4xl:leading-[24px]">
                                         $1.2
                                     </h3>
                                     <a href='' className='heading-S flex items-center text-green-default'>
-                                        <span className='flex'>
+                                        <span className='flex w-[16px] h-[16px]'>
                                             <Image className="object-cover" width="16px" height="16px" src="/svg/arrow-right-up.svg" alt="Shape" />
                                         </span>
-                                        15%
+                                        <span className="4xl:text-[13px] 4xl:leading-[20px] flex-1">
+                                            15%
+                                        </span>
                                     </a>
                                 </div>
                                 <p className="heading-XS text-primary-dark2 3xl:text-xs">
@@ -48,14 +52,16 @@ export const ForcastComponent = () => {
                             </div>
                             <div className="static-box w-[31%] 2xl:w-[48%]">
                                 <div className="heading-otr mb-[8px] flex items-end">
-                                    <h3 className="heading-h3 text-primary-dark">
+                                    <h3 className="heading-h3 text-primary-dark 4xl:text-[18px] 4xl:leading-[24px]">
                                         650M
                                     </h3>
                                     <a href='' className='heading-S flex items-center text-green-default'>
-                                        <span className='flex'>
+                                        <span className='flex w-[16px] h-[16px]'>
                                             <Image className="object-cover" width="16px" height="16px" src="/svg/arrow-right-up.svg" alt="Shape" />
                                         </span>
-                                        15%
+                                        <span className="4xl:text-[13px] 4xl:leading-[20px] flex-1">
+                                            15%
+                                        </span>
                                     </a>
                                 </div>
                                 <p className="heading-XS text-primary-dark2 3xl:text-xs">
