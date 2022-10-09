@@ -17,12 +17,12 @@ export const Header = () => {
         isSearch: false,
         resultFound: false,
     });
-    const debounce = (func: () => void, wait: number) => {
+    const debounce = (func: (v: string) => void, wait: number) => {
         let timerId: any;
-        return (...args) => {
+        return (val: string) => {
             if (timerId) clearTimeout(timerId);
             timerId = setTimeout(() => {
-                func(...args);
+                func(val);
             }, wait);
         };
     };
@@ -59,7 +59,7 @@ export const Header = () => {
                 </div>
                 <div className="Search-otr relative flex w-[600px] lg:w-[100%] lg:flex-1">
                     <SearchInput
-                        handleChange={debounce((v) => {
+                        handleChange={debounce((v: string) => {
                             setSearch(v);
                         }, 1000)}
                         filteredData={filteredData}

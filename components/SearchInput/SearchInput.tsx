@@ -1,7 +1,11 @@
-import React from "react";
+import React, { FC } from "react";
 import Image from 'next/image';
 
-export const SearchInput = ({ handleChange, filteredData }) => {
+interface SearchProps {
+    handleChange: any,
+    filteredData: any,
+}
+export const SearchInput: FC<SearchProps> = ({ handleChange, filteredData }) => {
     return (
         <>
             <form className="w-[100%] flex">
@@ -13,7 +17,7 @@ export const SearchInput = ({ handleChange, filteredData }) => {
             {filteredData.data.length !== 0 && (
                 <div className="drop-down-otr search-result absolute top-[52px] w-[100%] h-[400px] overflow-y-auto overflow-x-hidden left-0 z-[999] shadow-Shadow2">
                     <ul className="drop-down-ul w-[100%] bg-white border-[1px] border-border-shade1 rounded-8 overflow-hidden">
-                        {filteredData?.data?.map((data, index) => {
+                        {filteredData?.data?.map((data: any, index: number) => {
                             return (
                                 <li key={index} className="drop-down-li text-left w-[100%] flex border-b-[1px] border-b-border-shade1">
                                     <a href="#" className="drop-down-a heading-S p-[16px] text-primary-dark w-[100%] bg-white flex items-center gap-[24px] hover:bg-primary-default hover:text-white">
