@@ -1,7 +1,7 @@
-import React, { useState } from "react";
+import React, { useState, useEffect } from "react";
 import Image from 'next/image';
 import { SearchInput } from "..";
-
+import { api } from "../../utils";
 
 export const Header = () => {
     const [openMenu, setOpenMenu] = useState(false);
@@ -11,6 +11,41 @@ export const Header = () => {
     const handleCloseMenu = () => {
         setOpenMenu(false);
     };
+    const [search, setSearch] = useState("");
+    const [filteredData, setFilteredData] = useState({
+        data: [],
+        isSearch: false,
+        resultFound: false,
+    });
+    const debounce = (func: () => void, wait: number) => {
+        let timerId: any;
+        return (...args) => {
+            if (timerId) clearTimeout(timerId);
+            timerId = setTimeout(() => {
+                func(...args);
+            }, wait);
+        };
+    };
+    const filterData = async () => {
+        let fData: any = [];
+        let resultFound = false;
+        if (search) {
+            const data = await api.get(`/stocks/search/${search}`);
+            fData = [...data.data];
+            if (fData.length > 0) {
+                resultFound = true;
+            }
+        }
+        setFilteredData({
+            ...fData,
+            data: [...fData],
+            isSearch: search.trim().length > 0,
+            resultFound: resultFound,
+        });
+    };
+    useEffect(() => {
+        filterData();
+    }, [search]);
     return (
         <>
             <header className="header-main flex items-center gap-[32px] justify-between px-[75px] py-[10px] xl:px-[15px] sm:gap-[20px] lg:flex-row-reverse sticky top-0 z-50 bg-white">
@@ -23,7 +58,12 @@ export const Header = () => {
                     </a>
                 </div>
                 <div className="Search-otr relative flex w-[600px] lg:w-[100%] lg:flex-1">
-                    <SearchInput />
+                    <SearchInput
+                        handleChange={debounce((v) => {
+                            setSearch(v);
+                        }, 1000)}
+                        filteredData={filteredData}
+                    />
                 </div>
                 <div className="menu-action-otr flex items-center gap-[32px] 2xl:gap-[20px] lg:hidden">
                     <ul className="menu-ul flex items-center gap-[32px] 2xl:gap-[20px]">
