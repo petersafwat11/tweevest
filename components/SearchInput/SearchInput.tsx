@@ -15,7 +15,7 @@ export const SearchInput: FC<SearchProps> = ({ handleChange, filteredData }) => 
                 <input onChange={(e) => handleChange(e.target.value)} className="search-input heading-S py-[10px] pl-[48px] pr-[16px] w-[100%] bg-grey-shade1 rounded-8 lg:pt-[10px] lg:pr-[16px] lg:pb-[10px] lg:pl-[48px]" type="search" name="search" placeholder="Search  Company Status" />
             </form>
             {filteredData.data.length !== 0 && (
-                <div className="drop-down-otr search-result absolute top-[52px] w-[100%] h-[400px] overflow-y-auto overflow-x-hidden left-0 z-[999] shadow-Shadow2">
+                <div className="drop-down-otr search-result absolute top-[52px] w-[100%] max-h-[400px] overflow-y-auto overflow-x-hidden left-0 z-[999] shadow-Shadow2">
                     <ul className="drop-down-ul w-[100%] bg-white border-[1px] border-border-shade1 rounded-8 overflow-hidden">
                         {filteredData?.data?.map((data: any, index: number) => {
                             return (
@@ -28,7 +28,8 @@ export const SearchInput: FC<SearchProps> = ({ handleChange, filteredData }) => 
                         })}
                     </ul>
                 </div>
-            )}
+            )
+            }
         </>
     )
 }
