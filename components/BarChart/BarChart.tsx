@@ -14,11 +14,24 @@ const links = [
 ];
 
 export const BarChart = () => {
+  function convertToInternationalCurrencySystem(labelValue: any) {
+    // Nine Zeroes for Billions
+    return Math.abs(Number(labelValue)) >= 1.0e9
+      ? (Math.abs(Number(labelValue)) / 1.0e9).toFixed(2) + "B"
+      : // Six Zeroes for Millions
+      Math.abs(Number(labelValue)) >= 1.0e6
+      ? (Math.abs(Number(labelValue)) / 1.0e6).toFixed(2) + "M"
+      : // Three Zeroes for Thousands
+      Math.abs(Number(labelValue)) >= 1.0e3
+      ? (Math.abs(Number(labelValue)) / 1.0e3).toFixed(2) + "K"
+      : Math.abs(Number(labelValue));
+  }
   const API8Data = useSelector(selectAPI8Data);
   const API9Data = useSelector(selectAPI9Data);
 
-  console.log("API8Data: ", API8Data);
+  // console.log("API8Data: ", API8Data);
   console.log("API9Data: ", API9Data);
+
   return (
     <>
       <div className="BarChart-box-otr">
@@ -46,7 +59,7 @@ export const BarChart = () => {
               <div className="static-box w-[31%] 2xl:w-[48%]">
                 <h3 className="heading-h3 text-primary-dark">
                   {" "}
-                  {Number(API8Data.pe).toFixed(2)}x
+                  {Number(API8Data.priceToSales).toFixed(2)}x
                 </h3>
                 <p className="heading-XS text-primary-dark2">P/S Ratio</p>
               </div>
@@ -67,11 +80,17 @@ export const BarChart = () => {
             </div>
             <div className="chart-otr relative z-10 pt-[20px] pb-[1px] border-l-[1px] border-primary-dark2 w-[100%]">
               <BartextChart2 type={1} value={"80"} text={"380"} />
-              <BartextChart2 type={2} value={"100"} text={"30B"} />
+              <BartextChart2
+                type={2}
+                value={API8Data.revenue}
+                text={convertToInternationalCurrencySystem(
+                  API8Data.revenue
+                ).toString()}
+              />
             </div>
           </div>
           <p className="heading-MB text-primary-default mb-[40px]">
-            How AAPL compre to sector?
+            How {API9Data[0]?.symbol} compre to sector?
           </p>
           <div className="drop-chart-otr relative overflow-hidden">
             <div className="drop-inr flex items-center justify-end">
@@ -107,65 +126,39 @@ export const BarChart = () => {
             </div>
 
             <div className="content-otr text-center mr-[40px] mb-[16px]">
-              <p className="heading-MB text-primary-dark">APPL</p>
-              <p className="heading-MB text-primary-dark2">25x</p>
+              <p className="heading-MB text-primary-dark">
+                {API9Data[0]?.symbol}
+              </p>
+              <p className="heading-MB text-primary-dark2">
+                {Math.round(API9Data[0]?.pe)}x
+              </p>
             </div>
             <div className="dropdown-chart-otr relative pt-[8px] pb-[8px] border-l-[1px] border-primary-dark2">
               <div className="line-dash absolute h-[100%]"></div>
               <div className="drop-chart-inr relative z-10">
                 <BartextChart
-                  value={"50"}
-                  text={Number(API9Data[0]?.priceToSales).toFixed(2)}
+                  value={Math.round(Number(API9Data[1]?.pe)).toString()}
+                  text={"Meta " + Math.round(Number(API9Data[1]?.pe)) + "x"}
                   color={"red"}
                 />
                 <BartextChart
-                  value={"70"}
-                  text={Number(API9Data[1]?.priceToSales).toFixed(2)}
+                  value={Math.round(Number(API9Data[2]?.pe)).toString()}
+                  text={"Meta " + Math.round(Number(API9Data[2]?.pe)) + "x"}
                   color={"secondary-blue"}
                 />
                 <BartextChart
-                  value={"60"}
-                  text={Number(API9Data[2]?.priceToSales).toFixed(2)}
+                  value={Math.round(Number(API9Data[3]?.pe)).toString()}
+                  text={"Meta " + Math.round(Number(API9Data[3]?.pe)) + "x"}
                   color={"tertiary-yellow"}
                 />
                 <BartextChart
-                  value={"55"}
-                  text={Number(API9Data[3]?.priceToSales).toFixed(2)}
+                  value={Math.round(Number(API9Data[4]?.pe)).toString()}
+                  text={"Meta " + Math.round(Number(API9Data[4]?.pe)) + "x"}
                   color={"state-success"}
                 />
                 <BartextChart
-                  value={"80"}
-                  text={Number(API9Data[4]?.priceToSales).toFixed(2)}
-                  color={"primary-blue"}
-                />
-                <BartextChart
-                  value={"80"}
-                  text={Number(API9Data[5]?.priceToSales).toFixed(2)}
-                  color={"primary-blue"}
-                />
-                <BartextChart
-                  value={"80"}
-                  text={Number(API9Data[6]?.priceToSales).toFixed(2)}
-                  color={"primary-blue"}
-                />
-                <BartextChart
-                  value={"80"}
-                  text={Number(API9Data[7]?.priceToSales).toFixed(2)}
-                  color={"primary-blue"}
-                />
-                <BartextChart
-                  value={"80"}
-                  text={Number(API9Data[8]?.priceToSales).toFixed(2)}
-                  color={"primary-blue"}
-                />
-                <BartextChart
-                  value={"80"}
-                  text={Number(API9Data[9]?.priceToSales).toFixed(2)}
-                  color={"primary-blue"}
-                />
-                <BartextChart
-                  value={"80"}
-                  text={Number(API9Data[10]?.priceToSales).toFixed(2)}
+                  value={Math.round(Number(API9Data[5]?.pe)).toString()}
+                  text={"Meta " + Math.round(Number(API9Data[5]?.pe)) + "x"}
                   color={"primary-blue"}
                 />
               </div>

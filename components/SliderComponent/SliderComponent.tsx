@@ -129,7 +129,7 @@ export const SliderComponent = () => {
               return Number(API6Data[element]) > 0 ? (
                 <div className="performance-box bg-green-light p-[8px] rounded-8 w-[30.5%] 2xl:w-[30%]">
                   <p className="performance-box-text heading-SB text-green-default text-center mb-[4px]">
-                    {API6Data[element]}%
+                    {API6Data[element]?.toFixed(2)}%
                   </p>
                   <p className="heading-XXS text-primary-dark2 text-center">
                     {element}
@@ -138,7 +138,7 @@ export const SliderComponent = () => {
               ) : (
                 <div className="performance-box bg-red-light p-[8px] rounded-8 w-[30.5%] 2xl:w-[30%]">
                   <p className="performance-box-text heading-SB text-red-default text-center mb-[4px]">
-                    {API6Data[element]}%
+                    {API6Data[element]?.toFixed(2)}%
                   </p>
                   <p className="heading-XXS text-primary-dark2 text-center">
                     {element}
