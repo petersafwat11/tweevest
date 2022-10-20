@@ -7,10 +7,9 @@ import { useSelector } from "react-redux";
 import { selectAPI8Data, selectAPI9Data } from "../../store/stockSlice";
 
 const links = [
-  { title: "Price to sales", link: "" },
-  { title: "Price to sales", link: "" },
-  { title: "Price to sales", link: "" },
-  { title: "Price to sales", link: "" },
+  { title: "pe", link: "" },
+  { title: "priceToSales", link: "" },
+  { title: "priceToBook", link: "" },
 ];
 
 export const BarChart = () => {
@@ -95,6 +94,7 @@ export const BarChart = () => {
           <div className="drop-chart-otr relative overflow-hidden">
             <div className="drop-inr flex items-center justify-end">
               <Dropdown
+                onOpenChange={(e) => console.log(e)}
                 placement="bottomRight"
                 overlay={
                   <div>
@@ -112,7 +112,7 @@ export const BarChart = () => {
               >
                 <div className="cursor-pointer flex items-center gap-[8px] pt-[6px] pr-[8px] pb-[8px] pl-[8px] border-[1px] border-border-shade1 rounded-8">
                   <p className="heading-XS text-primary-dark2">
-                    Price to sales
+                    {links[0].title}
                   </p>
                   <Image
                     className="object-contain"

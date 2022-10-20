@@ -15,6 +15,9 @@ import {
   setAPI8Data,
   setAPI9Data,
   setAPI10Data,
+  setAPI11Data,
+  setAPI12Data,
+  setAPI13Data,
 } from "../../store/stockSlice";
 interface SearchProps {
   handleChange: any;
@@ -39,6 +42,9 @@ export const SearchInput: FC<SearchProps> = ({
     let eight = `/stocks/fundamentals-snapshot/${symbol}`;
     let nine = `/stocks/fundamentals-snapshot-vs-peers/${symbol}`;
     let tenth = `/markets/status/${exchange}`;
+    let eleventh = `/stocks/analyst-consensus/${symbol}`;
+    let twelth = `/stocks/price-target/${symbol}`;
+    let thirteen = `/stocks/upgrades-downgrades/${symbol}`;
     const requestOne = api.get(one);
     const requestTwo = api.get(two);
     const requestThree = api.get(three);
@@ -49,6 +55,9 @@ export const SearchInput: FC<SearchProps> = ({
     const requestEight = api.get(eight);
     const requestNine = api.get(nine);
     const requestTenth = api.get(tenth);
+    const requestEleventh = api.get(eleventh);
+    const requestTwelth = api.get(twelth);
+    const requestThirteen = api.get(thirteen);
     await axios
       .all([
         requestOne,
@@ -61,6 +70,9 @@ export const SearchInput: FC<SearchProps> = ({
         requestEight,
         requestNine,
         requestTenth,
+        requestEleventh,
+        requestTwelth,
+        requestThirteen,
       ])
       .then(
         axios.spread((...responses) => {
@@ -74,6 +86,9 @@ export const SearchInput: FC<SearchProps> = ({
           const responseEight = responses[7];
           const responseNine = responses[8];
           const responseTenth = responses[9];
+          const responseEleventh = responses[10];
+          const responseTwelth = responses[11];
+          const responseThirteen = responses[12];
           dispatch(setAPI1Data(responseOne.data));
           dispatch(setAPI2Data(responseTwo.data));
           dispatch(setAPI3Data(responseThree.data));
@@ -84,6 +99,9 @@ export const SearchInput: FC<SearchProps> = ({
           dispatch(setAPI8Data(responseEight.data));
           dispatch(setAPI9Data(responseNine.data));
           dispatch(setAPI10Data(responseTenth.data));
+          dispatch(setAPI11Data(responseEleventh.data));
+          dispatch(setAPI12Data(responseTwelth.data));
+          dispatch(setAPI13Data(responseThirteen.data));
           console.log("HERE2", responses);
           dispatch(setLoader(false));
         })

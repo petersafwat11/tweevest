@@ -11,6 +11,9 @@ const initialState = {
   api8: {},
   api9: {},
   api10: {},
+  api11: {},
+  api12: {},
+  api13: {},
   loader: false,
 };
 
@@ -51,6 +54,15 @@ export const stockSlice = createSlice({
     setAPI10Data: (state, action) => {
       state.api10 = action.payload;
     },
+    setAPI11Data: (state, action) => {
+      state.api11 = action.payload;
+    },
+    setAPI12Data: (state, action) => {
+      state.api12 = action.payload;
+    },
+    setAPI13Data: (state, action) => {
+      state.api13 = action.payload;
+    },
   },
 });
 
@@ -67,6 +79,9 @@ export const {
   setAPI8Data,
   setAPI9Data,
   setAPI10Data,
+  setAPI11Data,
+  setAPI12Data,
+  setAPI13Data,
 } = stockSlice.actions;
 
 // Selectors - used to fetch global state
@@ -80,6 +95,9 @@ export const selectAPI7Data = (state) => state.stock.api7;
 export const selectAPI8Data = (state) => state.stock.api8;
 export const selectAPI9Data = (state) => state.stock.api9;
 export const selectAPI10Data = (state) => state.stock.api10;
+export const selectAPI11Data = (state) => state.stock.api11;
+export const selectAPI12Data = (state) => state.stock.api12;
+export const selectAPI13Data = (state) => state.stock.api13;
 export const selectLoader = (state) => state.stock.loader;
 
 export default stockSlice.reducer;
