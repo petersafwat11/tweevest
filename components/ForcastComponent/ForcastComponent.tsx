@@ -1,4 +1,4 @@
-import React from "react";
+import React, { useState } from "react";
 import Image from "next/image";
 import { useSelector } from "react-redux";
 import {
@@ -7,15 +7,17 @@ import {
   selectAPI13Data,
   selectAPI2Data,
 } from "../../store/stockSlice";
+import moment from "moment";
 
 export const ForcastComponent = () => {
   const API2Data = useSelector(selectAPI2Data);
   const API11Data = useSelector(selectAPI11Data);
   const API12Data = useSelector(selectAPI12Data);
   const API13Data = useSelector(selectAPI13Data);
-  console.log("API11Data: ", API11Data);
-  console.log("API12Data: ", API12Data);
+  // console.log("API11Data: ", API11Data);
+  // console.log("API12Data: ", API12Data);
   console.log("API13Data: ", API13Data);
+  const [upDownData, setUpDownData] = useState(API13Data);
 
   return (
     <>
@@ -223,6 +225,99 @@ export const ForcastComponent = () => {
                 </th>
               </thead>
               <tbody>
+                {Object.keys(API13Data).length > 0 &&
+                  API13Data?.map((element: any) => {
+                    return (
+                      <tr key={element.gradingCompany}>
+                        <td scope="col" key={element}>
+                          <div className="body-text-otr pr-[8px] py-[10px] body-text-otr1">
+                            <p
+                              className="heading-XS text-primary-dark2 body-text text-left"
+                              title="22-01-2022"
+                            >
+                              {moment(element.publishedDate).format(
+                                "DD-MM-YYYY"
+                              )}
+                              {}
+                            </p>
+                          </div>
+                        </td>
+                        <td scope="col">
+                          <div className="body-text-otr pr-[8px] py-[10px] body-text-otr1">
+                            <p
+                              className="heading-XS text-primary-dark2 body-text text-left"
+                              title="Barclays"
+                            >
+                              {element.gradingCompany}
+                            </p>
+                          </div>
+                        </td>
+                        <td scope="col">
+                          <div className="body-text-otr pr-[8px] py-[10px] body-text-otr1">
+                            <p
+                              className="heading-XS text-primary-dark2 body-text text-left"
+                              title="Buy"
+                            >
+                              {element.newGrade}
+                            </p>
+                          </div>
+                        </td>
+                        <td scope="col">
+                          <div className="body-text-otr pr-[8px] py-[10px] body-text-otr1">
+                            <p
+                              className="heading-XS text-primary-dark2 body-text text-center"
+                              title="$156"
+                            >
+                              $156
+                            </p>
+                          </div>
+                        </td>
+                      </tr>
+                    );
+                  })}
+
+                {/* <tr className="bg-[#F8F8F8]">
+                  <td scope="col">
+                    <div className="body-text-otr pr-[8px] py-[10px] body-text-otr1">
+                      <p
+                        className="heading-XS text-primary-dark2 body-text text-left"
+                        title="22-01-2022"
+                      >
+                        22-01-2022
+                      </p>
+                    </div>
+                  </td>
+                  <td scope="col">
+                    <div className="body-text-otr pr-[8px] py-[10px] body-text-otr1">
+                      <p
+                        className="heading-XS text-primary-dark2 body-text text-left"
+                        title="Barclays"
+                      >
+                        Barclays
+                      </p>
+                    </div>
+                  </td>
+                  <td scope="col">
+                    <div className="body-text-otr pr-[8px] py-[10px] body-text-otr1">
+                      <p
+                        className="heading-XS text-primary-dark2 body-text text-left"
+                        title="Buy"
+                      >
+                        Buy
+                      </p>
+                    </div>
+                  </td>
+                  <td scope="col">
+                    <div className="body-text-otr pr-[8px] py-[10px] body-text-otr1">
+                      <p
+                        className="heading-XS text-primary-dark2 body-text text-center"
+                        title="$156"
+                      >
+                        $156
+                      </p>
+                    </div>
+                  </td>
+                </tr>
                 <tr>
                   <td scope="col">
                     <div className="body-text-otr pr-[8px] py-[10px] body-text-otr1">
@@ -306,91 +401,7 @@ export const ForcastComponent = () => {
                       </p>
                     </div>
                   </td>
-                </tr>
-                <tr>
-                  <td scope="col">
-                    <div className="body-text-otr pr-[8px] py-[10px] body-text-otr1">
-                      <p
-                        className="heading-XS text-primary-dark2 body-text text-left"
-                        title="22-01-2022"
-                      >
-                        22-01-2022
-                      </p>
-                    </div>
-                  </td>
-                  <td scope="col">
-                    <div className="body-text-otr pr-[8px] py-[10px] body-text-otr1">
-                      <p
-                        className="heading-XS text-primary-dark2 body-text text-left"
-                        title="Barclays"
-                      >
-                        Barclays
-                      </p>
-                    </div>
-                  </td>
-                  <td scope="col">
-                    <div className="body-text-otr pr-[8px] py-[10px] body-text-otr1">
-                      <p
-                        className="heading-XS text-primary-dark2 body-text text-left"
-                        title="Buy"
-                      >
-                        Buy
-                      </p>
-                    </div>
-                  </td>
-                  <td scope="col">
-                    <div className="body-text-otr pr-[8px] py-[10px] body-text-otr1">
-                      <p
-                        className="heading-XS text-primary-dark2 body-text text-center"
-                        title="$156"
-                      >
-                        $156
-                      </p>
-                    </div>
-                  </td>
-                </tr>
-                <tr className="bg-[#F8F8F8]">
-                  <td scope="col">
-                    <div className="body-text-otr pr-[8px] py-[10px] body-text-otr1">
-                      <p
-                        className="heading-XS text-primary-dark2 body-text text-left"
-                        title="22-01-2022"
-                      >
-                        22-01-2022
-                      </p>
-                    </div>
-                  </td>
-                  <td scope="col">
-                    <div className="body-text-otr pr-[8px] py-[10px] body-text-otr1">
-                      <p
-                        className="heading-XS text-primary-dark2 body-text text-left"
-                        title="Barclays"
-                      >
-                        Barclays
-                      </p>
-                    </div>
-                  </td>
-                  <td scope="col">
-                    <div className="body-text-otr pr-[8px] py-[10px] body-text-otr1">
-                      <p
-                        className="heading-XS text-primary-dark2 body-text text-left"
-                        title="Buy"
-                      >
-                        Buy
-                      </p>
-                    </div>
-                  </td>
-                  <td scope="col">
-                    <div className="body-text-otr pr-[8px] py-[10px] body-text-otr1">
-                      <p
-                        className="heading-XS text-primary-dark2 body-text text-center"
-                        title="$156"
-                      >
-                        $156
-                      </p>
-                    </div>
-                  </td>
-                </tr>
+                </tr> */}
               </tbody>
             </table>
           </div>
