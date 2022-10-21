@@ -164,7 +164,7 @@ export const ForcastComponent = () => {
                 1 Year Price Target
               </p>
               <p className="heading-S text-primary-dark2 flex items-center">
-                {API12Data.target.toFixed(2)}
+                {Number(API12Data.target).toFixed(2)}
                 <span className="text-green-default ml-[10px]">
                   (
                   {(
