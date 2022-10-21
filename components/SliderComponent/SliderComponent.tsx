@@ -5,6 +5,7 @@ import { useSelector } from "react-redux";
 import {
   selectAPI10Data,
   selectAPI2Data,
+  selectAPI4Data,
   selectAPI6Data,
 } from "../../store/stockSlice";
 import moment from "moment";
@@ -14,6 +15,7 @@ export const SliderComponent = () => {
     console.log(currentSlide);
   };
   const API2Data = useSelector(selectAPI2Data);
+  const API4Data = useSelector(selectAPI4Data);
   const API6Data = useSelector(selectAPI6Data);
   const API10Data = useSelector(selectAPI10Data);
   const [performanceList, setPerformanceList] = useState([
@@ -24,12 +26,15 @@ export const SliderComponent = () => {
     "ytd",
     "1Y",
   ]);
+  const [textColor, setTextColor] = useState(
+    Number(API2Data.changesPercentage) < 0 ? "red" : "green"
+  );
   const MarketClosedDate = moment
     .unix(API2Data.timestamp)
     .format("dddd, MMMM Do YYYY, h:mm:ss a");
 
-  //   console.log("API2Data: ", API2Data);
-  console.log("API6Data: ", API6Data);
+  console.log("API2Data: ", API2Data);
+  // console.log("API6Data: ", API6Data);
   //   console.log("API10Data: ", API10Data);
   return (
     <div className="bg-white px-[32px] pt-[32px] pb-[40px]">
@@ -39,8 +44,9 @@ export const SliderComponent = () => {
             className="object-contain"
             width="80px"
             height="80px"
-            src="/apple-icon.png"
+            src={API4Data.image}
             alt="Shape"
+            loader={() => API4Data.image}
           />
         </div>
         <div className="apple-content-otr">
@@ -73,7 +79,8 @@ export const SliderComponent = () => {
             <span className="heading-S ml-[4px]">USD</span>
           </h3>
           <a href="" className="heading-S flex items-center text-red-default">
-            <span className="flex">
+            <span className="flex"></span>
+            {Number(API2Data.changesPercentage) < 0 && (
               <Image
                 className="object-cover"
                 width="16px"
@@ -81,9 +88,23 @@ export const SliderComponent = () => {
                 src="/svg/arrow-left-down.svg"
                 alt="Shape"
               />
+            )}
+            {Number(API2Data.changesPercentage) > 0 && (
+              <Image
+                className="object-cover"
+                width="16px"
+                height="16px"
+                src="/svg/arrow-right-up.svg"
+                alt="Shape"
+              />
+            )}
+            <span style={{ color: textColor }}>
+              {Number(API2Data.change).toFixed(2)}{" "}
             </span>
-            {Number(API2Data.change).toFixed(2)} (
-            {Number(API2Data.changesPercentage).toFixed(2)}%)
+            &nbsp;
+            <span style={{ color: textColor }}>
+              ({Number(API2Data.changesPercentage).toFixed(2)}%)
+            </span>
           </a>
         </div>
         <p className="heading-S text-primary-dark">
