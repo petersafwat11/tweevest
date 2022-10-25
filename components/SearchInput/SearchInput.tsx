@@ -18,6 +18,7 @@ import {
   setAPI11Data,
   setAPI12Data,
   setAPI13Data,
+  setAPI14Data,
 } from "../../store/stockSlice";
 interface SearchProps {
   handleChange: any;
@@ -32,7 +33,7 @@ export const SearchInput: FC<SearchProps> = ({
   const callAPIs = async (symbol: string, exchange: string) => {
     dispatch(setLoader(true));
     console.log("HERE1");
-    let one = `/stocks/overview/${symbol}`;
+    let one = `/stocks/live-quote/${symbol}`;
     let two = `/stocks/live-quote/${symbol}`;
     let three = `/stocks/shares-float/${symbol}`;
     let four = `/stocks/company-profile/${symbol}`;
@@ -45,6 +46,7 @@ export const SearchInput: FC<SearchProps> = ({
     let eleventh = `/stocks/analyst-consensus/${symbol}`;
     let twelth = `/stocks/price-target/${symbol}`;
     let thirteen = `/stocks/upgrades-downgrades/${symbol}`;
+    let fourteen = `/stocks/quarterly-data/all/${symbol}?limit=10`;
     const requestOne = api.get(one);
     const requestTwo = api.get(two);
     const requestThree = api.get(three);
@@ -58,6 +60,7 @@ export const SearchInput: FC<SearchProps> = ({
     const requestEleventh = api.get(eleventh);
     const requestTwelth = api.get(twelth);
     const requestThirteen = api.get(thirteen);
+    const requestFourteen = api.get(fourteen);
     await axios
       .all([
         requestOne,
@@ -73,6 +76,7 @@ export const SearchInput: FC<SearchProps> = ({
         requestEleventh,
         requestTwelth,
         requestThirteen,
+        requestFourteen,
       ])
       .then(
         axios.spread((...responses) => {
@@ -89,6 +93,7 @@ export const SearchInput: FC<SearchProps> = ({
           const responseEleventh = responses[10];
           const responseTwelth = responses[11];
           const responseThirteen = responses[12];
+          const responseFourteen = responses[13];
           dispatch(setAPI1Data(responseOne.data));
           dispatch(setAPI2Data(responseTwo.data));
           dispatch(setAPI3Data(responseThree.data));
@@ -102,6 +107,7 @@ export const SearchInput: FC<SearchProps> = ({
           dispatch(setAPI11Data(responseEleventh.data));
           dispatch(setAPI12Data(responseTwelth.data));
           dispatch(setAPI13Data(responseThirteen.data));
+          dispatch(setAPI14Data(responseFourteen.data));
           console.log("HERE2", responses);
           dispatch(setLoader(false));
         })

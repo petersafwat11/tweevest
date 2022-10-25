@@ -21,6 +21,7 @@ import {
   selectAPI11Data,
   selectAPI12Data,
   selectAPI13Data,
+  selectAPI14Data,
 } from "../store/stockSlice";
 const Home: NextPage = () => {
   const API1Data = useSelector(selectAPI1Data);
@@ -36,6 +37,7 @@ const Home: NextPage = () => {
   const API11Data = useSelector(selectAPI11Data);
   const API12Data = useSelector(selectAPI12Data);
   const API13Data = useSelector(selectAPI13Data);
+  const API14Data = useSelector(selectAPI14Data);
   const loader = useSelector(selectLoader);
 
   let temp = [
@@ -52,6 +54,7 @@ const Home: NextPage = () => {
     API11Data,
     API12Data,
     API13Data,
+    API14Data,
   ];
   console.log("DATA", temp);
   if (loader) {

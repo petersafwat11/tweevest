@@ -262,7 +262,7 @@ export const ForcastComponent = () => {
                             </p>
                           </div>
                         </td>
-                        <td scope="col">
+                        {/* <td scope="col">
                           <div className="body-text-otr pr-[8px] py-[10px] body-text-otr1">
                             <p
                               className="heading-XS text-primary-dark2 body-text text-center"
@@ -271,7 +271,7 @@ export const ForcastComponent = () => {
                               $156
                             </p>
                           </div>
-                        </td>
+                        </td> */}
                       </tr>
                     );
                   })}

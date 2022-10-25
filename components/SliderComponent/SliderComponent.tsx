@@ -44,9 +44,9 @@ export const SliderComponent = () => {
             className="object-contain"
             width="80px"
             height="80px"
-            src={API4Data.image}
+            src={API4Data?.image}
             alt="Shape"
-            loader={() => API4Data.image}
+            loader={() => API4Data?.image}
           />
         </div>
         <div className="apple-content-otr">
