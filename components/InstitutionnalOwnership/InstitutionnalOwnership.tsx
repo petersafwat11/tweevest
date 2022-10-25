@@ -260,8 +260,6 @@ export const InstitutionnalOwnership = () => {
                     </button>
                   </div>
                   <div className="Fundamentals-boxes-otr flex items-center flex-wrap gap-[12px]">
-                    {console.log(reversedAPI14Data.eps)}
-                    {console.log(insOwnership[index])}
                     <FundamentalBox
                       boxData={reversedAPI14Data[insOwnership[index]]}
                       group={value.val}
