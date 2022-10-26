@@ -6,7 +6,7 @@ type BarChartProps = {
   color: string;
 };
 export const BartextChart = ({ value, text, color }: BarChartProps) => {
-  console.log(value);
+  console.log("nio: ", color);
   //   value = value + "%";
   // console.log("valye :", value);
   // const customcss = `line-text-otr w-[${value}] linechart-bg-${color} rounded-r-[50px] mb-[32px]`;

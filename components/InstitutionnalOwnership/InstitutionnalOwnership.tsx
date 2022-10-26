@@ -24,10 +24,10 @@ export const InstitutionnalOwnership = () => {
     "eps",
     "revenue",
     "roe",
-    "epsAdjusted",
-    "evToSales",
-    "grossProfitMargin",
     "institutionalOwnership",
+    "epsAdjusted",
+    "grossProfitMargin",
+    "evToSales",
   ]);
 
   // console.log("NOT reversedAPI14Data :", API14Data);
@@ -36,7 +36,7 @@ export const InstitutionnalOwnership = () => {
   const valArray = [
     {
       id: 1,
-      val: "Earnings G rowth",
+      val: "Earnings Growth",
     },
     {
       id: 2,
@@ -263,7 +263,7 @@ export const InstitutionnalOwnership = () => {
                     <FundamentalBox
                       boxData={reversedAPI14Data[insOwnership[index]]}
                       group={value.val}
-                      // reversedAPI14Data={reversedAPI14Data}
+                      dataType={insOwnership[index]}
                     />
                   </div>
                 </div>

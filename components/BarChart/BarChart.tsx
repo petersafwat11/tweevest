@@ -132,8 +132,9 @@ export const BarChart = () => {
             <div className="dropdown-chart-otr relative pt-[8px] pb-[8px] border-l-[1px] border-primary-dark2">
               <div className="line-dash absolute h-[100%]"></div>
               <div className="drop-chart-inr relative z-10">
+                {/* {console.log("jacj: ", Number(API9Data[2]?.pe).toString())} */}
                 <BartextChart
-                  value={Number(API9Data[1]?.pe).toString()}
+                  value={Number(API9Data[2]?.pe).toString()}
                   text={"Meta " + Math.round(Number(API9Data[1]?.pe)) + "x"}
                   color={"red"}
                 />

@@ -22,14 +22,60 @@ type reversedAPI14DataProps = {
 type BoxProps = {
   boxData: Array<any>;
   group: string;
-  // reversedAPI14Data: Array<any>;
+  dataType: string;
 };
-
+function convertToInternationalCurrencySystem(labelValue: any) {
+  // Nine Zeroes for Billions
+  return Math.abs(Number(labelValue)) >= 1.0e9
+    ? (Math.abs(Number(labelValue)) / 1.0e9).toFixed(2) + "B"
+    : // Six Zeroes for Millions
+    Math.abs(Number(labelValue)) >= 1.0e6
+    ? (Math.abs(Number(labelValue)) / 1.0e6).toFixed(2) + "M"
+    : // Three Zeroes for Thousands
+    Math.abs(Number(labelValue)) >= 1.0e3
+    ? (Math.abs(Number(labelValue)) / 1.0e3).toFixed(2) + "K"
+    : Math.abs(Number(labelValue));
+}
+const institutional_Ownership = (value: Number) => {
+  return Number(value) > 0 ? (
+    <p className="percent-text text-center heading-SB text-green-default mb-[6px]">
+      {Math.round(Number(value))}
+    </p>
+  ) : (
+    <p className="percent-text text-center heading-SB text-red-default mb-[6px]">
+      {Math.round(Number(value))}
+    </p>
+  );
+};
+const roe = (value: Number) => {
+  return Number(value) > 0 ? (
+    <p className="percent-text text-center heading-SB text-green-default mb-[6px]">
+      +{Math.round(Number(value) * 100)}%
+    </p>
+  ) : (
+    <p className="percent-text text-center heading-SB text-red-default mb-[6px]">
+      {Math.round(Number(value) * 100)}%
+    </p>
+  );
+};
+const others = (changePercent: any) => {
+  return Number(changePercent) > 0 ? (
+    <p className="percent-text text-center heading-SB text-green-default mb-[6px]">
+      +{Math.round(Number(changePercent))}%
+    </p>
+  ) : (
+    <p className="percent-text text-center heading-SB text-red-default mb-[6px]">
+      {Math.round(Number(changePercent))}%
+    </p>
+  );
+};
 export const FundamentalBox = ({
   boxData,
   group,
+  dataType,
 }: // reversedAPI14Data,
 BoxProps) => {
+  console.log("dataType : ", dataType);
   console.log("reversedAPI14Data in box: ", boxData);
   console.log("group: ", group);
   return (
@@ -76,22 +122,36 @@ BoxProps) => {
                 alt="arrow"
               />
             </div>
-            {Number(Item?.changePercent) > 0 ? (
-              <p className="percent-text text-center heading-SB text-green-default mb-[6px]">
-                {Math.round(Number(Item?.changePercent))}%
+            {dataType == "roe"
+              ? roe(Item?.value)
+              : dataType == "institutionalOwnership"
+              ? institutional_Ownership(Item?.value)
+              : others(Item?.changePercent)}
+            <p className="percent-text2 text-center heading-XXS text-primary-dark2">
+              {convertToInternationalCurrencySystem(
+                Number(Item.value).toFixed(2)
+              )}
+              &nbsp; vs&nbsp;
+              {convertToInternationalCurrencySystem(
+                Number(Item.prevValue).toFixed(2)
+              )}
+            </p>
+            {Item?.changePercent > 0 ? (
+              <p className="percent-text3 text-center heading-XXS text-green-default">
+                {dataType == "institutionalOwnership" &&
+                  Math.round(Item?.changePercent)}
+                %
               </p>
             ) : (
-              <p className="percent-text text-center heading-SB text-red-default mb-[6px]">
-                {Math.round(Number(Item?.changePercent))}%
+              <p
+                className="percent-text3 text-center heading-XXS"
+                style={{ color: "red" }}
+              >
+                {dataType == "institutionalOwnership" &&
+                  Math.round(Item?.changePercent)}
+                %
               </p>
             )}
-            <p className="percent-text2 text-center heading-XXS text-primary-dark2">
-              {Number(Item.value).toFixed(2)} vs{" "}
-              {Number(Item.prevValue).toFixed(2)}
-            </p>
-            <p className="percent-text3 text-center heading-XXS text-green-default">
-              +16%
-            </p>
           </div>
         </div>
       ))}
