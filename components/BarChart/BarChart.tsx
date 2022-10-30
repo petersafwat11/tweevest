@@ -1,4 +1,4 @@
-import React from "react";
+import React, { useEffect, useState } from "react";
 import Image from "next/image";
 import { BartextChart } from "..";
 import { BartextChart2 } from "..";
@@ -7,10 +7,10 @@ import { useSelector } from "react-redux";
 import { selectAPI8Data, selectAPI9Data } from "../../store/stockSlice";
 
 const links = [
-  { title: "Select" },
-  { title: "pe" },
-  { title: "price To Sales" },
-  { title: "price To Book" },
+  { title: "PE" },
+  { title: "Price To Sales" },
+  { title: "Price To Book" },
+  { title: "Revenue" },
 ];
 
 export const BarChart = () => {
@@ -26,11 +26,17 @@ export const BarChart = () => {
       ? (Math.abs(Number(labelValue)) / 1.0e3).toFixed(2) + "K"
       : Math.abs(Number(labelValue));
   }
+
+  const [selectedValue, setSelectedValue] = useState("pe");
   const API8Data = useSelector(selectAPI8Data);
   const API9Data = useSelector(selectAPI9Data);
 
-  // console.log("API8Data: ", API8Data);
+  console.log("API8Data: ", API8Data);
   console.log("API9Data: ", API9Data);
+
+  useEffect(() => {
+    console.log("selectedValueselectedValue : ", selectedValue);
+  }, [selectedValue]);
 
   return (
     <>
@@ -114,11 +120,12 @@ export const BarChart = () => {
                     focus:border-[1px] 
                     focus:border-border-shade1 focus:shadow-none focus:outline-none"
                 aria-label="Default select example"
+                onChange={(e) => setSelectedValue(e.target.value)}
               >
-                <option selected>{links[0].title}</option>
-                <option value="1">{links[1].title}</option>
-                <option value="2">{links[2].title}</option>
-                <option value="3">{links[3].title}</option>
+                <option value="pe">{links[0].title}</option>
+                <option value="priceToSales">{links[1].title}</option>
+                <option value="priceToBook">{links[2].title}</option>
+                <option value="revenue">{links[3].title}</option>
               </select>
             </div>
             <div className="content-otr text-center mr-[40px] mb-[16px]">
@@ -126,36 +133,67 @@ export const BarChart = () => {
                 {API9Data[0]?.symbol}
               </p>
               <p className="heading-MB text-primary-dark2">
-                {Math.round(API9Data[0]?.pe)}
+                {convertToInternationalCurrencySystem(
+                  Math.round(API9Data[0]?.[selectedValue])
+                )}
               </p>
             </div>
             <div className="dropdown-chart-otr relative pt-[8px] pb-[8px] border-l-[1px] border-primary-dark2">
               <div className="line-dash absolute h-[100%]"></div>
               <div className="drop-chart-inr relative z-10">
-                {/* {console.log("jacj: ", Number(API9Data[2]?.pe).toString())} */}
                 <BartextChart
-                  value={Number(API9Data[2]?.pe).toString()}
-                  text={"Meta " + Math.round(Number(API9Data[1]?.pe)) + "x"}
+                  value={Number(API9Data[1]?.[selectedValue]).toString()}
+                  text={
+                    "Meta " +
+                    convertToInternationalCurrencySystem(
+                      Math.round(Number(API9Data[1]?.[selectedValue]))
+                    ) +
+                    "x"
+                  }
                   color={"red"}
                 />
                 <BartextChart
-                  value={Number(API9Data[2]?.pe).toString()}
-                  text={"Meta " + Math.round(Number(API9Data[2]?.pe)) + "x"}
+                  value={Number(API9Data[2]?.[selectedValue]).toString()}
+                  text={
+                    "Meta " +
+                    convertToInternationalCurrencySystem(
+                      Math.round(Number(API9Data[2]?.[selectedValue]))
+                    ) +
+                    "x"
+                  }
                   color={"secondary-blue"}
                 />
                 <BartextChart
-                  value={Number(API9Data[3]?.pe).toString()}
-                  text={"Meta " + Math.round(Number(API9Data[3]?.pe)) + "x"}
+                  value={Number(API9Data[3]?.[selectedValue]).toString()}
+                  text={
+                    "Meta " +
+                    convertToInternationalCurrencySystem(
+                      Math.round(Number(API9Data[3]?.[selectedValue]))
+                    ) +
+                    "x"
+                  }
                   color={"tertiary-yellow"}
                 />
                 <BartextChart
-                  value={Number(API9Data[4]?.pe).toString()}
-                  text={"Meta " + Math.round(Number(API9Data[4]?.pe)) + "x"}
+                  value={Number(API9Data[4]?.[selectedValue]).toString()}
+                  text={
+                    "Meta " +
+                    convertToInternationalCurrencySystem(
+                      Math.round(Number(API9Data[4]?.[selectedValue]))
+                    ) +
+                    "x"
+                  }
                   color={"state-success"}
                 />
                 <BartextChart
-                  value={Number(API9Data[5]?.pe).toString()}
-                  text={"Meta " + Math.round(Number(API9Data[5]?.pe)) + "x"}
+                  value={Number(API9Data[5]?.[selectedValue]).toString()}
+                  text={
+                    "Meta " +
+                    convertToInternationalCurrencySystem(
+                      Math.round(Number(API9Data[5]?.[selectedValue]))
+                    ) +
+                    "x"
+                  }
                   color={"primary-blue"}
                 />
               </div>

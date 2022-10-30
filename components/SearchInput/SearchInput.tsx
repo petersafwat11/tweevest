@@ -19,6 +19,9 @@ import {
   setAPI12Data,
   setAPI13Data,
   setAPI14Data,
+  setAPI15Data,
+  setAPI16Data,
+  setAPI17Data,
 } from "../../store/stockSlice";
 interface SearchProps {
   handleChange: any;
@@ -47,6 +50,9 @@ export const SearchInput: FC<SearchProps> = ({
     let twelth = `/stocks/price-target/${symbol}`;
     let thirteen = `/stocks/upgrades-downgrades/${symbol}`;
     let fourteen = `/stocks/quarterly-data/all/${symbol}?limit=10`;
+    let fifteen = `/stocks/pre-post-market-quote/${symbol}`;
+    let sixteen = `/stocks/relative-strength-vs-sector/${symbol}?limitDays=7&limitTopRs=5`;
+    let seventeen = `/stocks/next-year-estimates/${symbol}`;
     const requestOne = api.get(one);
     const requestTwo = api.get(two);
     const requestThree = api.get(three);
@@ -61,6 +67,9 @@ export const SearchInput: FC<SearchProps> = ({
     const requestTwelth = api.get(twelth);
     const requestThirteen = api.get(thirteen);
     const requestFourteen = api.get(fourteen);
+    const requestFifteen = api.get(fifteen);
+    const requestSixteen = api.get(sixteen);
+    const requestSeventeen = api.get(seventeen);
     await axios
       .all([
         requestOne,
@@ -77,6 +86,9 @@ export const SearchInput: FC<SearchProps> = ({
         requestTwelth,
         requestThirteen,
         requestFourteen,
+        requestFifteen,
+        requestSixteen,
+        requestSeventeen,
       ])
       .then(
         axios.spread((...responses) => {
@@ -94,6 +106,9 @@ export const SearchInput: FC<SearchProps> = ({
           const responseTwelth = responses[11];
           const responseThirteen = responses[12];
           const responseFourteen = responses[13];
+          const responseFifteen = responses[14];
+          const responseSixteen = responses[15];
+          const responseSeventeen = responses[16];
           dispatch(setAPI1Data(responseOne.data));
           dispatch(setAPI2Data(responseTwo.data));
           dispatch(setAPI3Data(responseThree.data));
@@ -108,6 +123,9 @@ export const SearchInput: FC<SearchProps> = ({
           dispatch(setAPI12Data(responseTwelth.data));
           dispatch(setAPI13Data(responseThirteen.data));
           dispatch(setAPI14Data(responseFourteen.data));
+          dispatch(setAPI15Data(responseFifteen.data));
+          dispatch(setAPI16Data(responseSixteen.data));
+          dispatch(setAPI17Data(responseSeventeen.data));
           console.log("HERE2", responses);
           dispatch(setLoader(false));
         })

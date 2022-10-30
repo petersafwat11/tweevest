@@ -4,6 +4,7 @@ import Image from "next/image";
 import { useSelector } from "react-redux";
 import {
   selectAPI10Data,
+  selectAPI15Data,
   selectAPI2Data,
   selectAPI4Data,
   selectAPI6Data,
@@ -18,6 +19,9 @@ export const SliderComponent = () => {
   const API4Data = useSelector(selectAPI4Data);
   const API6Data = useSelector(selectAPI6Data);
   const API10Data = useSelector(selectAPI10Data);
+  const API15Data = useSelector(selectAPI15Data);
+  console.log("API2Data :", API2Data);
+  console.log("API15Data :", API15Data);
   const [performanceList, setPerformanceList] = useState([
     "5D",
     "1M",
@@ -31,6 +35,10 @@ export const SliderComponent = () => {
   );
   const MarketClosedDate = moment
     .unix(API2Data.timestamp)
+    .format("dddd, MMMM Do YYYY, h:mm:ss a");
+  console.log("API15Data.timestamp : ", API15Data.timestamp);
+  const PreMarketClosedDate = moment
+    .unix(API15Data.timestamp)
     .format("dddd, MMMM Do YYYY, h:mm:ss a");
 
   console.log("API2Data: ", API2Data);
@@ -111,7 +119,40 @@ export const SliderComponent = () => {
           Market {API10Data.marketStatus} (as {MarketClosedDate} EDT)
         </p>
         <div className="heading-otr flex items-end gap-[10px] my-[4px]">
-          <div className="heading flex items-center gap-[4px] heading-S text-primary-dark">
+          <h3 className="heading heading-h3 text-primary-dark">
+            {Number(API15Data.bid).toFixed(2)}
+            <span className="heading-S ml-[4px]">USD</span>
+          </h3>
+          <a href="" className="heading-S flex items-center text-red-default">
+            <span className="flex"></span>
+            {Number(API10Data.changesPercentage) < 0 && (
+              <Image
+                className="object-cover"
+                width="16px"
+                height="16px"
+                src="/svg/arrow-left-down.svg"
+                alt="Shape"
+              />
+            )}
+            {Number(API10Data.changesPercentage) > 0 && (
+              <Image
+                className="object-cover"
+                width="16px"
+                height="16px"
+                src="/svg/arrow-right-up.svg"
+                alt="Shape"
+              />
+            )}
+            <span style={{ color: textColor }}>
+              {Number(API10Data.change).toFixed(2)}{" "}
+            </span>
+            &nbsp;
+            <span style={{ color: textColor }}>
+              ({Number(API10Data.changesPercentage).toFixed(2)}%)
+            </span>
+          </a>
+
+          {/* <div className="heading flex items-center gap-[4px] heading-S text-primary-dark">
             <Image
               className="object-cover"
               width="16px"
@@ -119,7 +160,7 @@ export const SliderComponent = () => {
               src="/svg/sun-icon.svg"
               alt="Shape"
             />
-            <span className="heading-S ml-[4px]">150.98 USD</span>
+            <span className="heading-S ml-[4px]">{API15Data.bid} USD</span>
           </div>
           <a href="" className="heading-S flex items-center text-red-default">
             <span className="flex">
@@ -132,10 +173,10 @@ export const SliderComponent = () => {
               />
             </span>
             2.14 (1.74%)
-          </a>
+          </a> */}
         </div>
         <p className="heading-XS text-primary-dark">
-          Pre-Market: Sep 6, 2022 5:20 AM EDT
+          Pre-Market: {PreMarketClosedDate} EDT
         </p>
       </div>
 

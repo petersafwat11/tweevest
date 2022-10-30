@@ -5,6 +5,7 @@ import {
   selectAPI11Data,
   selectAPI12Data,
   selectAPI13Data,
+  selectAPI17Data,
   selectAPI2Data,
 } from "../../store/stockSlice";
 import moment from "moment";
@@ -14,11 +15,34 @@ export const ForcastComponent = () => {
   const API11Data = useSelector(selectAPI11Data);
   const API12Data = useSelector(selectAPI12Data);
   const API13Data = useSelector(selectAPI13Data);
-  // console.log("API11Data: ", API11Data);
+  const API17Data = useSelector(selectAPI17Data);
+  function convertToInternationalCurrencySystem(labelValue: any) {
+    // Nine Zeroes for Billions
+    return Math.abs(Number(labelValue)) >= 1.0e9
+      ? (Math.abs(Number(labelValue)) / 1.0e9).toFixed(2) + "B"
+      : // Six Zeroes for Millions
+      Math.abs(Number(labelValue)) >= 1.0e6
+      ? (Math.abs(Number(labelValue)) / 1.0e6).toFixed(2) + "M"
+      : // Three Zeroes for Thousands
+      Math.abs(Number(labelValue)) >= 1.0e3
+      ? (Math.abs(Number(labelValue)) / 1.0e3).toFixed(2) + "K"
+      : Math.abs(Number(labelValue));
+  }
+  const rotate_degree: any = {
+    "Strong Sell": -70,
+    Sell: -45,
+    Neutral: 0,
+    Buy: 60,
+    "Strong Buy": 70,
+  };
+  console.log("API11Data: ", API11Data);
   // console.log("API12Data: ", API12Data);
-  console.log("API13Data: ", API13Data);
+  console.log("API17Data: ", API17Data);
   const [upDownData, setUpDownData] = useState(API13Data);
-
+  console.log(
+    "  rotate_degree[API11Data.consensus]:",
+    rotate_degree[API11Data.consensus]
+  );
   return (
     <>
       <div className="ForcastComponent-box-otr">
@@ -40,7 +64,10 @@ export const ForcastComponent = () => {
               <div className="static-box w-[32%] 2xl:w-[48%]">
                 <div className="heading-otr mb-[8px] flex items-end">
                   <h3 className="heading-h3 text-primary-dark 4xl:text-[18px] 4xl:leading-[24px]">
-                    34B
+                    $
+                    {convertToInternationalCurrencySystem(
+                      API17Data.estimatedRevenue
+                    )}
                   </h3>
                   <a
                     href=""
@@ -56,18 +83,21 @@ export const ForcastComponent = () => {
                       />
                     </span>
                     <span className="4xl:text-[13px] 4xl:leading-[20px] flex-1">
-                      15%
+                      {API17Data.estimatedRevenueChangePercent}%
                     </span>
                   </a>
                 </div>
                 <p className="heading-XS text-primary-dark2 3xl:text-xs">
-                  2023-Revenue
+                  {API17Data ? API17Data?.date?.split("-")[0] : ""}-Revenue
                 </p>
               </div>
               <div className="static-box w-[32%] 2xl:w-[48%]">
                 <div className="heading-otr mb-[8px] flex items-end">
                   <h3 className="heading-h3 text-primary-dark 4xl:text-[18px] 4xl:leading-[24px]">
-                    $1.2
+                    $
+                    {convertToInternationalCurrencySystem(
+                      API17Data.estimatedEps
+                    )}
                   </h3>
                   <a
                     href=""
@@ -83,18 +113,21 @@ export const ForcastComponent = () => {
                       />
                     </span>
                     <span className="4xl:text-[13px] 4xl:leading-[20px] flex-1">
-                      15%
+                      {API17Data.estimatedEpsChangePercent}%
                     </span>
                   </a>
                 </div>
                 <p className="heading-XS text-primary-dark2 3xl:text-xs">
-                  2023-EPS
+                  {API17Data ? API17Data?.date?.split("-")[0] : ""}-EPS
                 </p>
               </div>
               <div className="static-box w-[31%] 2xl:w-[48%]">
                 <div className="heading-otr mb-[8px] flex items-end">
                   <h3 className="heading-h3 text-primary-dark 4xl:text-[18px] 4xl:leading-[24px]">
-                    650M
+                    $
+                    {convertToInternationalCurrencySystem(
+                      API17Data.estimatedEbitda
+                    )}
                   </h3>
                   <a
                     href=""
@@ -110,12 +143,12 @@ export const ForcastComponent = () => {
                       />
                     </span>
                     <span className="4xl:text-[13px] 4xl:leading-[20px] flex-1">
-                      15%
+                      {API17Data.estimatedEbitdaChangePercent}%
                     </span>
                   </a>
                 </div>
                 <p className="heading-XS text-primary-dark2 3xl:text-xs">
-                  2023-EBIT
+                  {API17Data ? API17Data?.date?.split("-")[0] : ""}-EBIT
                 </p>
               </div>
             </div>
@@ -149,7 +182,11 @@ export const ForcastComponent = () => {
                   alt="Shape"
                 />
                 <div className="circle-line absolute left-[48%] bottom-0 flex flex-col items-center justify-end h-[100%]">
-                  <div className="circle-line-inr flex flex-col-reverse items-center rotate-[-60deg]">
+                  <div
+                    className={`circle-line-inr flex flex-col-reverse items-center rotate-[${
+                      rotate_degree[API11Data.consensus]
+                    }deg]`}
+                  >
                     <div className="circle w-[12px] h-[12px] border-[3px] border-primary-dark rounded-[100%]"></div>
                     <div className="line h-[60px] w-[4px] bg-primary-dark rounded-[60px] mb-[8px]"></div>
                   </div>
@@ -262,146 +299,9 @@ export const ForcastComponent = () => {
                             </p>
                           </div>
                         </td>
-                        {/* <td scope="col">
-                          <div className="body-text-otr pr-[8px] py-[10px] body-text-otr1">
-                            <p
-                              className="heading-XS text-primary-dark2 body-text text-center"
-                              title="$156"
-                            >
-                              $156
-                            </p>
-                          </div>
-                        </td> */}
                       </tr>
                     );
                   })}
-
-                {/* <tr className="bg-[#F8F8F8]">
-                  <td scope="col">
-                    <div className="body-text-otr pr-[8px] py-[10px] body-text-otr1">
-                      <p
-                        className="heading-XS text-primary-dark2 body-text text-left"
-                        title="22-01-2022"
-                      >
-                        22-01-2022
-                      </p>
-                    </div>
-                  </td>
-                  <td scope="col">
-                    <div className="body-text-otr pr-[8px] py-[10px] body-text-otr1">
-                      <p
-                        className="heading-XS text-primary-dark2 body-text text-left"
-                        title="Barclays"
-                      >
-                        Barclays
-                      </p>
-                    </div>
-                  </td>
-                  <td scope="col">
-                    <div className="body-text-otr pr-[8px] py-[10px] body-text-otr1">
-                      <p
-                        className="heading-XS text-primary-dark2 body-text text-left"
-                        title="Buy"
-                      >
-                        Buy
-                      </p>
-                    </div>
-                  </td>
-                  <td scope="col">
-                    <div className="body-text-otr pr-[8px] py-[10px] body-text-otr1">
-                      <p
-                        className="heading-XS text-primary-dark2 body-text text-center"
-                        title="$156"
-                      >
-                        $156
-                      </p>
-                    </div>
-                  </td>
-                </tr>
-                <tr>
-                  <td scope="col">
-                    <div className="body-text-otr pr-[8px] py-[10px] body-text-otr1">
-                      <p
-                        className="heading-XS text-primary-dark2 body-text text-left"
-                        title="22-01-2022"
-                      >
-                        22-01-2022
-                      </p>
-                    </div>
-                  </td>
-                  <td scope="col">
-                    <div className="body-text-otr pr-[8px] py-[10px] body-text-otr1">
-                      <p
-                        className="heading-XS text-primary-dark2 body-text text-left"
-                        title="Barclays"
-                      >
-                        Barclays
-                      </p>
-                    </div>
-                  </td>
-                  <td scope="col">
-                    <div className="body-text-otr pr-[8px] py-[10px] body-text-otr1">
-                      <p
-                        className="heading-XS text-primary-dark2 body-text text-left"
-                        title="Buy"
-                      >
-                        Buy
-                      </p>
-                    </div>
-                  </td>
-                  <td scope="col">
-                    <div className="body-text-otr pr-[8px] py-[10px] body-text-otr1">
-                      <p
-                        className="heading-XS text-primary-dark2 body-text text-center"
-                        title="$156"
-                      >
-                        $156
-                      </p>
-                    </div>
-                  </td>
-                </tr>
-                <tr className="bg-[#F8F8F8]">
-                  <td scope="col">
-                    <div className="body-text-otr pr-[8px] py-[10px] body-text-otr1">
-                      <p
-                        className="heading-XS text-primary-dark2 body-text text-left"
-                        title="22-01-2022"
-                      >
-                        22-01-2022
-                      </p>
-                    </div>
-                  </td>
-                  <td scope="col">
-                    <div className="body-text-otr pr-[8px] py-[10px] body-text-otr1">
-                      <p
-                        className="heading-XS text-primary-dark2 body-text text-left"
-                        title="Barclays"
-                      >
-                        Barclays
-                      </p>
-                    </div>
-                  </td>
-                  <td scope="col">
-                    <div className="body-text-otr pr-[8px] py-[10px] body-text-otr1">
-                      <p
-                        className="heading-XS text-primary-dark2 body-text text-left"
-                        title="Buy"
-                      >
-                        Buy
-                      </p>
-                    </div>
-                  </td>
-                  <td scope="col">
-                    <div className="body-text-otr pr-[8px] py-[10px] body-text-otr1">
-                      <p
-                        className="heading-XS text-primary-dark2 body-text text-center"
-                        title="$156"
-                      >
-                        $156
-                      </p>
-                    </div>
-                  </td>
-                </tr> */}
               </tbody>
             </table>
           </div>
