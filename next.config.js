@@ -4,8 +4,6 @@ const nextConfig = {
   swcMinify: true,
   env: {
     NEXT_PUBLIC_API_URL: "https://staging.api.tweevest.com",
-    USERNAME: "tweevest-nextjs-server",
-    PASSWORD: "vbpx8divic#caq*28y354c&wjhhzvx6t",
     TOKEN: "f7129b85fb2f977b7fb5564ba064012b",
   },
 };
