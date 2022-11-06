@@ -120,7 +120,7 @@ export async function getServerSideProps(context: any) {
 
   };
 
-  const response = await callAPIs(symbol, exchange);
+  const response: any = await callAPIs(symbol, exchange);
   const data = [...response];
   return {
     props: {
@@ -129,7 +129,7 @@ export async function getServerSideProps(context: any) {
   };
 }
 
-const Home: NextPage = (data) => {
+const Home: NextPage = (data: any) => {
   const dispatch = useDispatch()
   useEffect(() => {
     if (data?.data) {
