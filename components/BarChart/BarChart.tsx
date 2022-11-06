@@ -1,4 +1,4 @@
-import React from "react";
+import React, { useEffect, useState } from "react";
 import Image from "next/image";
 import { BartextChart } from "..";
 import { BartextChart2 } from "..";
@@ -7,9 +7,10 @@ import { useSelector } from "react-redux";
 import { selectAPI8Data, selectAPI9Data } from "../../store/stockSlice";
 
 const links = [
-  { title: "pe", link: "" },
-  { title: "priceToSales", link: "" },
-  { title: "priceToBook", link: "" },
+  { title: "PE" },
+  { title: "Price To Sales" },
+  { title: "Price To Book" },
+  { title: "Revenue" },
 ];
 
 export const BarChart = () => {
@@ -25,11 +26,17 @@ export const BarChart = () => {
       ? (Math.abs(Number(labelValue)) / 1.0e3).toFixed(2) + "K"
       : Math.abs(Number(labelValue));
   }
+
+  const [selectedValue, setSelectedValue] = useState("pe");
   const API8Data = useSelector(selectAPI8Data);
   const API9Data = useSelector(selectAPI9Data);
 
-  // console.log("API8Data: ", API8Data);
+  console.log("API8Data: ", API8Data);
   console.log("API9Data: ", API9Data);
+
+  useEffect(() => {
+    console.log("selectedValueselectedValue : ", selectedValue);
+  }, [selectedValue]);
 
   return (
     <>
@@ -78,10 +85,11 @@ export const BarChart = () => {
               <p className="heading-XS text-primary-dark2">Sales</p>
             </div>
             <div className="chart-otr relative z-10 pt-[20px] pb-[1px] border-l-[1px] border-primary-dark2 w-[100%]">
-              <BartextChart2 type={1} value={"80"} text={"380"} />
+              <BartextChart2 type={1} value="80" text={"380"} />
               <BartextChart2
                 type={2}
-                value={API8Data.revenue}
+                value="50"
+                // value={API8Data.revenue}
                 text={convertToInternationalCurrencySystem(
                   API8Data.revenue
                 ).toString()}
@@ -93,72 +101,99 @@ export const BarChart = () => {
           </p>
           <div className="drop-chart-otr relative overflow-hidden">
             <div className="drop-inr flex items-center justify-end">
-              <Dropdown
-                onOpenChange={(e) => console.log(e)}
-                placement="bottomRight"
-                overlay={
-                  <div>
-                    {links?.map(({ title, link }) => (
-                      <div
-                        className="bg-white first:rounded-t-[8px] last:rounded-b-[8px] min-w-[204px] min-h-[45px] flex items-center shadow-Shadow1 hover:bg-primary-default hover:text-white transition-all cursor-pointer border-[1px]"
-                        key={title}
-                      >
-                        <span className="ml-[16px]">{title}</span>
-                      </div>
-                    ))}
-                  </div>
-                }
-                trigger={["click"]}
+              <select
+                className="form-select appearance-none
+                    block
+                    w-[auto]
+                    pt-[6px] pr-[32px] pb-[8px] pl-[8px]
+                    border-[1px] 
+                    border-border-shade1 
+                    rounded-8
+                    heading-XS 
+                    text-primary-dark2
+                    bg-white 
+                    bg-clip-padding 
+                    bg-no-repeat
+                    transition
+                    ease-in-out
+                    m-0
+                    focus:border-[1px] 
+                    focus:border-border-shade1 focus:shadow-none focus:outline-none"
+                aria-label="Default select example"
+                onChange={(e) => setSelectedValue(e.target.value)}
               >
-                <div className="cursor-pointer flex items-center gap-[8px] pt-[6px] pr-[8px] pb-[8px] pl-[8px] border-[1px] border-border-shade1 rounded-8">
-                  <p className="heading-XS text-primary-dark2">
-                    {links[0].title}
-                  </p>
-                  <Image
-                    className="object-contain"
-                    src="/svg/arrow-down.svg"
-                    alt="menu"
-                    width="20px"
-                    height="20px"
-                  />
-                </div>
-              </Dropdown>
+                <option value="pe">{links[0].title}</option>
+                <option value="priceToSales">{links[1].title}</option>
+                <option value="priceToBook">{links[2].title}</option>
+                <option value="revenue">{links[3].title}</option>
+              </select>
             </div>
-
             <div className="content-otr text-center mr-[40px] mb-[16px]">
               <p className="heading-MB text-primary-dark">
                 {API9Data[0]?.symbol}
               </p>
               <p className="heading-MB text-primary-dark2">
-                {Math.round(API9Data[0]?.pe)}x
+                {convertToInternationalCurrencySystem(
+                  Math.round(API9Data[0]?.[selectedValue])
+                )}
               </p>
             </div>
             <div className="dropdown-chart-otr relative pt-[8px] pb-[8px] border-l-[1px] border-primary-dark2">
               <div className="line-dash absolute h-[100%]"></div>
               <div className="drop-chart-inr relative z-10">
                 <BartextChart
-                  value={Math.round(Number(API9Data[1]?.pe)).toString()}
-                  text={"Meta " + Math.round(Number(API9Data[1]?.pe)) + "x"}
+                  value={Number(API9Data[1]?.[selectedValue]).toString()}
+                  text={
+                    "Meta " +
+                    convertToInternationalCurrencySystem(
+                      Math.round(Number(API9Data[1]?.[selectedValue]))
+                    ) +
+                    "x"
+                  }
                   color={"red"}
                 />
                 <BartextChart
-                  value={Math.round(Number(API9Data[2]?.pe)).toString()}
-                  text={"Meta " + Math.round(Number(API9Data[2]?.pe)) + "x"}
+                  value={Number(API9Data[2]?.[selectedValue]).toString()}
+                  text={
+                    "Meta " +
+                    convertToInternationalCurrencySystem(
+                      Math.round(Number(API9Data[2]?.[selectedValue]))
+                    ) +
+                    "x"
+                  }
                   color={"secondary-blue"}
                 />
                 <BartextChart
-                  value={Math.round(Number(API9Data[3]?.pe)).toString()}
-                  text={"Meta " + Math.round(Number(API9Data[3]?.pe)) + "x"}
+                  value={Number(API9Data[3]?.[selectedValue]).toString()}
+                  text={
+                    "Meta " +
+                    convertToInternationalCurrencySystem(
+                      Math.round(Number(API9Data[3]?.[selectedValue]))
+                    ) +
+                    "x"
+                  }
                   color={"tertiary-yellow"}
                 />
                 <BartextChart
-                  value={Math.round(Number(API9Data[4]?.pe)).toString()}
-                  text={"Meta " + Math.round(Number(API9Data[4]?.pe)) + "x"}
+                  value={Number(API9Data[4]?.[selectedValue]).toString()}
+                  text={
+                    "Meta " +
+                    convertToInternationalCurrencySystem(
+                      Math.round(Number(API9Data[4]?.[selectedValue]))
+                    ) +
+                    "x"
+                  }
                   color={"state-success"}
                 />
                 <BartextChart
-                  value={Math.round(Number(API9Data[5]?.pe)).toString()}
-                  text={"Meta " + Math.round(Number(API9Data[5]?.pe)) + "x"}
+                  value={Number(API9Data[5]?.[selectedValue]).toString()}
+                  text={
+                    "Meta " +
+                    convertToInternationalCurrencySystem(
+                      Math.round(Number(API9Data[5]?.[selectedValue]))
+                    ) +
+                    "x"
+                  }
                   color={"primary-blue"}
                 />
               </div>
