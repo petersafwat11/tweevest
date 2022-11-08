@@ -150,7 +150,7 @@ export const BarChart = () => {
                     ) +
                     "x"
                   }
-                  color={"red"}
+                  color={"-red"}
                 />
                 <BartextChart
                   value={Number(API9Data[2]?.[selectedValue]).toString()}

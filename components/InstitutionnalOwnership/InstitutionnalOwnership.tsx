@@ -1,4 +1,4 @@
-import React, { useState } from "react";
+import React, { useEffect, useState } from "react";
 import Image from "next/image";
 import { Chart3 } from "..";
 import { FundamentalBox } from "..";
@@ -8,7 +8,7 @@ import { selectAPI14Data } from "../../store/stockSlice";
 export const InstitutionnalOwnership = () => {
   const API14Data = useSelector(selectAPI14Data);
   const [selectedGraph, setSelectedGraph] = useState("Earnings Growth");
-  console.log("API14Data ", API14Data);
+  console.log("API14Data here:", API14Data);
   // const [reversedAPI14Data, setReversedAPI14Data] = useState(() => {
   //   const arr: string[] = [];
 
@@ -27,11 +27,9 @@ export const InstitutionnalOwnership = () => {
     "grossProfitMargin",
     "evToSales",
   ]);
+  useEffect(() => {}, []);
   const [reversedAPI14Data, setReversedAPI14Data] = useState(API14Data);
-  const [lineData, setLineData] = useState(reversedAPI14Data[insOwnership[0]]);
-  //   const reverse = () => {};
-
-  // console.log("NOT reversedAPI14Data :", API14Data);
+  const [lineData, setLineData] = useState(API14Data[insOwnership[0]]);
 
   console.log("reversedAPI14Data11 :", reversedAPI14Data);
   const valArray = [
@@ -260,7 +258,7 @@ export const InstitutionnalOwnership = () => {
                       <div
                         onClick={() => {
                           setSelectedGraph(value.val);
-                          setLineData(reversedAPI14Data[insOwnership[index]]);
+                          setLineData(API14Data[insOwnership[index]]);
                         }}
                       >
                         <p className="heading-S text-primary-dark">
@@ -271,7 +269,7 @@ export const InstitutionnalOwnership = () => {
                   </div>
                   <div className="Fundamentals-boxes-otr flex items-center flex-wrap gap-[12px]">
                     <FundamentalBox
-                      boxData={reversedAPI14Data[insOwnership[index]]}
+                      boxData={API14Data[insOwnership[index]]}
                       group={value.val}
                       dataType={insOwnership[index]}
                     />

@@ -37,7 +37,7 @@ export const ForcastComponent = () => {
   };
   console.log("API11Data: ", API11Data);
   // console.log("API12Data: ", API12Data);
-  console.log("API17Data: ", API17Data);
+  console.log("API17Data: check ", API17Data);
   const [upDownData, setUpDownData] = useState(API13Data);
   console.log(
     "  rotate_degree[API11Data.consensus]:",
