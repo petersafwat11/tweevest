@@ -1,28 +1,6 @@
 import React, { FC } from "react";
 import Image from "next/image";
-import { api } from "../../utils";
-import axios from "axios";
-import { useDispatch } from "react-redux";
-import {
-  setLoader,
-  setAPI1Data,
-  setAPI2Data,
-  setAPI3Data,
-  setAPI4Data,
-  setAPI5Data,
-  setAPI6Data,
-  setAPI7Data,
-  setAPI8Data,
-  setAPI9Data,
-  setAPI10Data,
-  setAPI11Data,
-  setAPI12Data,
-  setAPI13Data,
-  setAPI14Data,
-  setAPI15Data,
-  setAPI16Data,
-  setAPI17Data,
-} from "../../store/stockSlice";
+import { useRouter } from "next/router";
 interface SearchProps {
   handleChange: any;
   filteredData: any;
@@ -32,109 +10,7 @@ export const SearchInput: FC<SearchProps> = ({
   handleChange,
   filteredData,
 }) => {
-  const dispatch = useDispatch();
-  const callAPIs = async (symbol: string, exchange: string) => {
-    dispatch(setLoader(true));
-    console.log("HERE1");
-    let one = `/stocks/live-quote/${symbol}`;
-    let two = `/stocks/live-quote/${symbol}`;
-    let three = `/stocks/shares-float/${symbol}`;
-    let four = `/stocks/company-profile/${symbol}`;
-    let five = `/stocks/peers/${symbol}`;
-    let six = `/stocks/price-change/${symbol}`;
-    let seven = `/stocks/institutional-ownership/${symbol}`;
-    let eight = `/stocks/fundamentals-snapshot/${symbol}`;
-    let nine = `/stocks/fundamentals-snapshot-vs-peers/${symbol}`;
-    let tenth = `/markets/status/${exchange}`;
-    let eleventh = `/stocks/analyst-consensus/${symbol}`;
-    let twelth = `/stocks/price-target/${symbol}`;
-    let thirteen = `/stocks/upgrades-downgrades/${symbol}`;
-    let fourteen = `/stocks/quarterly-data/all/${symbol}?limit=10`;
-    let fifteen = `/stocks/pre-post-market-quote/${symbol}`;
-    let sixteen = `/stocks/relative-strength-vs-sector/${symbol}?limitDays=7&limitTopRs=5`;
-    let seventeen = `/stocks/next-year-estimates/${symbol}`;
-    const requestOne = api.get(one);
-    const requestTwo = api.get(two);
-    const requestThree = api.get(three);
-    const requestFour = api.get(four);
-    const requestFive = api.get(five);
-    const requestSix = api.get(six);
-    const requestSeven = api.get(seven);
-    const requestEight = api.get(eight);
-    const requestNine = api.get(nine);
-    const requestTenth = api.get(tenth);
-    const requestEleventh = api.get(eleventh);
-    const requestTwelth = api.get(twelth);
-    const requestThirteen = api.get(thirteen);
-    const requestFourteen = api.get(fourteen);
-    const requestFifteen = api.get(fifteen);
-    const requestSixteen = api.get(sixteen);
-    const requestSeventeen = api.get(seventeen);
-    await axios
-      .all([
-        requestOne,
-        requestTwo,
-        requestThree,
-        requestFour,
-        requestFive,
-        requestSix,
-        requestSeven,
-        requestEight,
-        requestNine,
-        requestTenth,
-        requestEleventh,
-        requestTwelth,
-        requestThirteen,
-        requestFourteen,
-        requestFifteen,
-        requestSixteen,
-        requestSeventeen,
-      ])
-      .then(
-        axios.spread((...responses) => {
-          const responseOne = responses[0];
-          const responseTwo = responses[1];
-          const responseThree = responses[2];
-          const responseFour = responses[3];
-          const responseFive = responses[4];
-          const responseSix = responses[5];
-          const responseSeven = responses[6];
-          const responseEight = responses[7];
-          const responseNine = responses[8];
-          const responseTenth = responses[9];
-          const responseEleventh = responses[10];
-          const responseTwelth = responses[11];
-          const responseThirteen = responses[12];
-          const responseFourteen = responses[13];
-          const responseFifteen = responses[14];
-          const responseSixteen = responses[15];
-          const responseSeventeen = responses[16];
-          dispatch(setAPI1Data(responseOne.data));
-          dispatch(setAPI2Data(responseTwo.data));
-          dispatch(setAPI3Data(responseThree.data));
-          dispatch(setAPI4Data(responseFour.data));
-          dispatch(setAPI5Data(responseFive.data));
-          dispatch(setAPI6Data(responseSix.data));
-          dispatch(setAPI7Data(responseSeven.data));
-          dispatch(setAPI8Data(responseEight.data));
-          dispatch(setAPI9Data(responseNine.data));
-          dispatch(setAPI10Data(responseTenth.data));
-          dispatch(setAPI11Data(responseEleventh.data));
-          dispatch(setAPI12Data(responseTwelth.data));
-          dispatch(setAPI13Data(responseThirteen.data));
-          dispatch(setAPI14Data(responseFourteen.data));
-          dispatch(setAPI15Data(responseFifteen.data));
-          dispatch(setAPI16Data(responseSixteen.data));
-          dispatch(setAPI17Data(responseSeventeen.data));
-          console.log("HERE2", responses);
-          dispatch(setLoader(false));
-        })
-      )
-      .catch((errors) => {
-        // react on errors.
-        console.log("HERE3", errors);
-      });
-  };
+  const router = useRouter();
   return (
     <>
       <form className="w-[100%] flex">
@@ -161,7 +37,7 @@ export const SearchInput: FC<SearchProps> = ({
             {filteredData?.data?.map((data: any, index: number) => {
               return (
                 <li
-                  onClick={() => callAPIs(data.symbol, data.exchangeShortName)}
+                  onClick={() => router.push(`/${data.symbol}?exchangeName=${data.exchangeShortName}`)}
                   key={index}
                   className="drop-down-li text-left w-[100%] flex border-b-[1px] border-b-border-shade1"
                 >
