@@ -35,19 +35,19 @@ export async function getServerSideProps(context: any) {
 
   const callAPIs = async (symbol: string, exchange: string) => {
     return new Promise(async (resolve) => {
-      let one = `/stocks/live-quote/${symbol}`;
-      let two = `/stocks/live-quote/${symbol}`;
-      let three = `/stocks/shares-float/${symbol}`;
-      let four = `/stocks/company-profile/${symbol}`;
-      let five = `/stocks/peers/${symbol}`;
-      let six = `/stocks/price-change/${symbol}`;
-      let seven = `/stocks/institutional-ownership/${symbol}`;
-      let eight = `/stocks/fundamentals-snapshot/${symbol}`;
-      let nine = `/stocks/fundamentals-snapshot-vs-peers/${symbol}`;
+      let one = `/stocks/live-quote/${symbol.toUpperCase()}`;
+      let two = `/stocks/live-quote/${symbol.toUpperCase()}`;
+      let three = `/stocks/shares-float/${symbol.toUpperCase()}`;
+      let four = `/stocks/company-profile/${symbol.toUpperCase()}`;
+      let five = `/stocks/peers/${symbol.toUpperCase()}`;
+      let six = `/stocks/price-change/${symbol.toUpperCase()}`;
+      let seven = `/stocks/institutional-ownership/${symbol.toUpperCase()}`;
+      let eight = `/stocks/fundamentals-snapshot/${symbol.toUpperCase()}`;
+      let nine = `/stocks/fundamentals-snapshot-vs-peers/${symbol.toUpperCase()}`;
       let tenth = `/markets/status/${exchange}`;
-      let eleventh = `/stocks/analyst-consensus/${symbol}`;
-      let twelth = `/stocks/price-target/${symbol}`;
-      let thirteen = `/stocks/upgrades-downgrades/${symbol}`;
+      let eleventh = `/stocks/analyst-consensus/${symbol.toUpperCase()}`;
+      let twelth = `/stocks/price-target/${symbol.toUpperCase()}`;
+      let thirteen = `/stocks/upgrades-downgrades/${symbol.toUpperCase()}`;
       let fourteen = `/stocks/quarterly-data/all/${symbol.toUpperCase()}?limit=10`;
       let fifteen = `/stocks/pre-post-market-quote/${symbol.toUpperCase()}`;
       let sixteen = `/stocks/relative-strength-vs-sector/${symbol.toUpperCase()}?limitDays=7&limitTopRs=5`;
