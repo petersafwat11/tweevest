@@ -1964,24 +1964,17 @@ mkdirp-classic@^0.5.2, mkdirp-classic@^0.5.3:
   resolved "https://registry.npmjs.org/mkdirp-classic/-/mkdirp-classic-0.5.3.tgz"
   integrity sha512-gKLcREMhtuZRwRAfqP3RFW+TK4JqApVBtOIftVgjuABpAtpxhPGaDcfvbhNvD0B8iD1oUr/txX35NjcaY6Ns/A==
 
-<<<<<<< HEAD
-"moment-timezone@^0.5.38":
-  "integrity" "sha512-nMIrzGah4+oYZPflDvLZUgoVUO4fvAqHstvG3xAUnMolWncuAiLDWNnJZj6EwJGMGfb1ZcuTFE6GI3hNOVWI/Q=="
-  "resolved" "https://registry.npmjs.org/moment-timezone/-/moment-timezone-0.5.38.tgz"
-  "version" "0.5.38"
+moment-timezone@^0.5.38:
+  version "0.5.38"
+  resolved "https://registry.npmjs.org/moment-timezone/-/moment-timezone-0.5.38.tgz"
+  integrity sha512-nMIrzGah4+oYZPflDvLZUgoVUO4fvAqHstvG3xAUnMolWncuAiLDWNnJZj6EwJGMGfb1ZcuTFE6GI3hNOVWI/Q==
   dependencies:
-    "moment" ">= 2.9.0"
+    moment ">= 2.9.0"
 
-"moment@^2.24.0", "moment@^2.29.2", "moment@^2.29.4", "moment@>= 2.9.0":
-  "integrity" "sha512-5LC9SOxjSc2HF6vO2CyuTDNivEdoz2IvyJJGj6X8DJ0eFyfszE0QiEd+iXmBvUP3WHxSjFH/vIsA0EN00cgr8w=="
-  "resolved" "https://registry.npmjs.org/moment/-/moment-2.29.4.tgz"
-  "version" "2.29.4"
-=======
-moment@^2.24.0, moment@^2.29.2, moment@^2.29.4:
+"moment@>= 2.9.0", moment@^2.24.0, moment@^2.29.2, moment@^2.29.4:
   version "2.29.4"
   resolved "https://registry.npmjs.org/moment/-/moment-2.29.4.tgz"
   integrity sha512-5LC9SOxjSc2HF6vO2CyuTDNivEdoz2IvyJJGj6X8DJ0eFyfszE0QiEd+iXmBvUP3WHxSjFH/vIsA0EN00cgr8w==
->>>>>>> dc718ff46d8f0a092c67f964a193782bb64c9f96
 
 ms@2.0.0:
   version "2.0.0"
