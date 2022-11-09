@@ -1,4 +1,4 @@
-import React, { useState } from "react";
+import React, { useEffect, useState } from "react";
 import Image from "next/image";
 import { Chart3 } from "..";
 import { FundamentalBox } from "..";
@@ -7,7 +7,8 @@ import { selectAPI14Data } from "../../store/stockSlice";
 
 export const InstitutionnalOwnership = () => {
   const API14Data = useSelector(selectAPI14Data);
-  console.log("API14Data ", API14Data);
+  const [selectedGraph, setSelectedGraph] = useState("Earnings Growth");
+  console.log("API14Data here:", API14Data);
   // const [reversedAPI14Data, setReversedAPI14Data] = useState(() => {
   //   const arr: string[] = [];
 
@@ -17,9 +18,6 @@ export const InstitutionnalOwnership = () => {
   //   arr.shift();
   //   return arr;
   // });
-  const [reversedAPI14Data, setReversedAPI14Data] = useState(API14Data);
-  //   const reverse = () => {};
-
   const [insOwnership, setInsOwnership] = useState([
     "eps",
     "revenue",
@@ -29,8 +27,9 @@ export const InstitutionnalOwnership = () => {
     "grossProfitMargin",
     "evToSales",
   ]);
-
-  // console.log("NOT reversedAPI14Data :", API14Data);
+  useEffect(() => {}, []);
+  const [reversedAPI14Data, setReversedAPI14Data] = useState(API14Data);
+  const [lineData, setLineData] = useState(API14Data[insOwnership[0]]);
 
   console.log("reversedAPI14Data11 :", reversedAPI14Data);
   const valArray = [
@@ -256,12 +255,21 @@ export const InstitutionnalOwnership = () => {
                           alt="Shape"
                         />
                       </div>
-                      <p className="heading-S text-primary-dark">Show Graph</p>
+                      <div
+                        onClick={() => {
+                          setSelectedGraph(value.val);
+                          setLineData(API14Data[insOwnership[index]]);
+                        }}
+                      >
+                        <p className="heading-S text-primary-dark">
+                          Show Graph
+                        </p>
+                      </div>
                     </button>
                   </div>
                   <div className="Fundamentals-boxes-otr flex items-center flex-wrap gap-[12px]">
                     <FundamentalBox
-                      boxData={reversedAPI14Data[insOwnership[index]]}
+                      boxData={API14Data[insOwnership[index]]}
                       group={value.val}
                       dataType={insOwnership[index]}
                     />
@@ -270,16 +278,37 @@ export const InstitutionnalOwnership = () => {
               );
             })}
           </div>
-          <div className="Institutionnal-chart-otr w-[50%] lg:w-[100%]">
-            <div className="Institutionnal-chart pt-[24px] pr-[24px] pb-[32px] pl-[24px] bg-white border-[1px] border-border-shade1 rounded-16 sm:pl-[0px] sm:pr-[0px] sm:pb-[16px]">
-              <h4 className="heading heading-LB text-primary-dark sm:pl-[16px] sm:pr-[16px]">
-                Institutionnal Ownership
-              </h4>
-              <div className="chart-otr w-[100%] h-[600px] mt-[52px] lg:h-[400px] sm:h-[350px] sm:mt-[24px]">
-                <Chart3 />
+          {selectedGraph.length > 0 ? (
+            <div className="Institutionnal-chart-otr w-[50%] lg:w-[100%]">
+              <div className="Institutionnal-chart pt-[24px] pr-[24px] pb-[32px] pl-[24px] bg-white border-[1px] border-border-shade1 rounded-16 sm:pl-[0px] sm:pr-[0px] sm:pb-[16px]">
+                <h4 className="heading heading-LB text-primary-dark sm:pl-[16px] sm:pr-[16px]">
+                  {selectedGraph}
+                </h4>
+                <div className="chart-otr w-[100%] h-[600px] mt-[52px] lg:h-[400px] sm:h-[350px] sm:mt-[24px]">
+                  <Chart3
+                    selectedGraph={selectedGraph}
+                    boxData={lineData?.slice(0, 6)}
+                  />
+                </div>
               </div>
             </div>
-          </div>
+          ) : (
+            <>
+              <div className="Institutionnal-chart-otr w-[50%] lg:w-[100%]">
+                <div className="Institutionnal-chart pt-[24px] pr-[24px] pb-[32px] pl-[24px] bg-white border-[1px] border-border-shade1 rounded-16 sm:pl-[0px] sm:pr-[0px] sm:pb-[16px]">
+                  <h4 className="heading heading-LB text-primary-dark sm:pl-[16px] sm:pr-[16px]">
+                    {selectedGraph}
+                  </h4>
+                  <div className="chart-otr w-[100%] h-[600px] mt-[52px] lg:h-[400px] sm:h-[350px] sm:mt-[24px]">
+                    <Chart3
+                      selectedGraph={selectedGraph}
+                      boxData={lineData?.slice(0, 6)}
+                    />
+                  </div>
+                </div>
+              </div>
+            </>
+          )}
         </div>
       </div>
     </>

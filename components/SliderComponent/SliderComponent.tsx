@@ -20,8 +20,28 @@ export const SliderComponent = () => {
   const API6Data = useSelector(selectAPI6Data);
   const API10Data = useSelector(selectAPI10Data);
   const API15Data = useSelector(selectAPI15Data);
+
+  var moment = require("moment-timezone");
+  var current_time_est = moment().tz("EST").format("hh:mm:ss a");
+  console.log(" ", current_time_est);
   console.log("API2Data :", API2Data);
   console.log("API15Data :", API15Data);
+
+  var startTime: any;
+  var endTime: any;
+  startTime = 4 * 3600;
+  endTime = 9 * 3600;
+  var curr: any;
+  curr = Number(current_time_est.toString().split(":")[0]) * 3600;
+  console.log("ccccc: ");
+  // var now = moment();
+  console.log(startTime, curr, endTime);
+  console.log(
+    "ttt : ",
+    current_time_est.toString().split(" ")[1] === "am"
+      ? startTime >= curr && curr <= endTime
+      : false
+  );
   const [performanceList, setPerformanceList] = useState([
     "5D",
     "1M",
@@ -118,66 +138,58 @@ export const SliderComponent = () => {
         <p className="heading-S text-primary-dark">
           Market {API10Data.marketStatus} (as {MarketClosedDate} EDT)
         </p>
-        <div className="heading-otr flex items-end gap-[10px] my-[4px]">
-          <h3 className="heading heading-h3 text-primary-dark">
-            {Number(API15Data.bid).toFixed(2)}
-            <span className="heading-S ml-[4px]">USD</span>
-          </h3>
-          <a href="" className="heading-S flex items-center text-red-default">
-            <span className="flex"></span>
-            {Number(API10Data.changesPercentage) < 0 && (
-              <Image
-                className="object-cover"
-                width="16px"
-                height="16px"
-                src="/svg/arrow-left-down.svg"
-                alt="Shape"
-              />
-            )}
-            {Number(API10Data.changesPercentage) > 0 && (
-              <Image
-                className="object-cover"
-                width="16px"
-                height="16px"
-                src="/svg/arrow-right-up.svg"
-                alt="Shape"
-              />
-            )}
-            <span style={{ color: textColor }}>
-              {Number(API10Data.change).toFixed(2)}{" "}
-            </span>
-            &nbsp;
-            <span style={{ color: textColor }}>
-              ({Number(API10Data.changesPercentage).toFixed(2)}%)
-            </span>
-          </a>
 
-          {/* <div className="heading flex items-center gap-[4px] heading-S text-primary-dark">
-            <Image
-              className="object-cover"
-              width="16px"
-              height="16px"
-              src="/svg/sun-icon.svg"
-              alt="Shape"
-            />
-            <span className="heading-S ml-[4px]">{API15Data.bid} USD</span>
-          </div>
-          <a href="" className="heading-S flex items-center text-red-default">
-            <span className="flex">
-              <Image
-                className="object-cover"
-                width="16px"
-                height="16px"
-                src="/svg/arrow-left-down.svg"
-                alt="Shape"
-              />
-            </span>
-            2.14 (1.74%)
-          </a> */}
-        </div>
-        <p className="heading-XS text-primary-dark">
-          Pre-Market: {PreMarketClosedDate} EDT
-        </p>
+        {current_time_est.toString().split(" ")[1] === "pm" ? (
+          startTime >= curr && curr <= endTime ? (
+            <>
+              {" "}
+              <div className="heading-otr flex items-end gap-[10px] my-[4px]">
+                <h3 className="heading heading-h3 text-primary-dark">
+                  {Number(API15Data.bid).toFixed(2)}
+                  <span className="heading-S ml-[4px]">USD</span>
+                </h3>
+                <a
+                  href=""
+                  className="heading-S flex items-center text-red-default"
+                >
+                  <span className="flex"></span>
+                  {Number(API10Data.changesPercentage) < 0 && (
+                    <Image
+                      className="object-cover"
+                      width="16px"
+                      height="16px"
+                      src="/svg/arrow-left-down.svg"
+                      alt="Shape"
+                    />
+                  )}
+                  {Number(API10Data.changesPercentage) > 0 && (
+                    <Image
+                      className="object-cover"
+                      width="16px"
+                      height="16px"
+                      src="/svg/arrow-right-up.svg"
+                      alt="Shape"
+                    />
+                  )}
+                  <span style={{ color: textColor }}>
+                    {Number(API15Data.change).toFixed(2)}{" "}
+                  </span>
+                  &nbsp;
+                  <span style={{ color: textColor }}>
+                    ({Number(API15Data.changesPercentage).toFixed(2)}%)
+                  </span>
+                </a>
+              </div>
+              <p className="heading-XS text-primary-dark">
+                Pre-Market: {PreMarketClosedDate} EDT
+              </p>
+            </>
+          ) : (
+            <></>
+          )
+        ) : (
+          <></>
+        )}
       </div>
 
       <div className="performance-otr py-[40px] border-b-[1px] border-b-border-shade1">
@@ -209,43 +221,6 @@ export const SliderComponent = () => {
               );
             }
           })}
-
-          {/* <div className="performance-box bg-green-light p-[8px] rounded-8 w-[30.5%] 2xl:w-[30%]">
-            <p className="performance-box-text heading-SB text-green-default text-center mb-[4px]">
-              {API6Data["5D"]}%
-            </p>
-            <p className="heading-XXS text-primary-dark2 text-center">5 D</p>
-          </div>
-          <div className="performance-box bg-green-light p-[8px] rounded-8 w-[30.5%] 2xl:w-[30%]">
-            <p className="performance-box-text heading-SB text-green-default text-center mb-[4px]">
-              {API6Data["1M"]}%
-            </p>
-            <p className="heading-XXS text-primary-dark2 text-center">1 M</p>
-          </div>
-          <div className="performance-box bg-green-light p-[8px] rounded-8 w-[30.5%] 2xl:w-[30%]">
-            <p className="performance-box-text heading-SB text-green-default text-center mb-[4px]">
-              {API6Data["3M"]}%
-            </p>
-            <p className="heading-XXS text-primary-dark2 text-center">3 M</p>
-          </div>
-          <div className="performance-box bg-green-light p-[8px] rounded-8 w-[30.5%] 2xl:w-[30%]">
-            <p className="performance-box-text heading-SB text-green-default text-center mb-[4px]">
-              {API6Data["6M"]}%
-            </p>
-            <p className="heading-XXS text-primary-dark2 text-center">6 M</p>
-          </div>
-          <div className="performance-box bg-green-light p-[8px] rounded-8 w-[30.5%] 2xl:w-[30%]">
-            <p className="performance-box-text heading-SB text-green-default text-center mb-[4px]">
-              {API6Data["ytd"]}%
-            </p>
-            <p className="heading-XXS text-primary-dark2 text-center">YTD</p>
-          </div> */}
-          {/* <div className="performance-box bg-red-light p-[8px] rounded-8 w-[30.5%] 2xl:w-[30%]">
-            <p className="performance-box-text heading-SB text-red-default text-center mb-[4px]">
-              {API6Data["1Y"]}%
-            </p>
-            <p className="heading-XXS text-primary-dark2 text-center">1 Y</p>
-          </div> */}
         </div>
       </div>
       <Carousel afterChange={onChange} autoplay>

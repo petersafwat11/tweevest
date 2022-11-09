@@ -34,7 +34,7 @@ export async function getServerSideProps(context: any) {
   const exchange = context.query.exchangeName;
 
   const callAPIs = async (symbol: string, exchange: string) => {
-    return new Promise(async resolve => {
+    return new Promise(async (resolve) => {
       let one = `/stocks/live-quote/${symbol}`;
       let two = `/stocks/live-quote/${symbol}`;
       let three = `/stocks/shares-float/${symbol}`;
@@ -48,10 +48,10 @@ export async function getServerSideProps(context: any) {
       let eleventh = `/stocks/analyst-consensus/${symbol}`;
       let twelth = `/stocks/price-target/${symbol}`;
       let thirteen = `/stocks/upgrades-downgrades/${symbol}`;
-      let fourteen = `/stocks/quarterly-data/all/${symbol}?limit=10`;
-      let fifteen = `/stocks/pre-post-market-quote/${symbol}`;
-      let sixteen = `/stocks/relative-strength-vs-sector/${symbol}?limitDays=7&limitTopRs=5`;
-      let seventeen = `/stocks/next-year-estimates/${symbol}`;
+      let fourteen = `/stocks/quarterly-data/all/${symbol.toUpperCase()}?limit=10`;
+      let fifteen = `/stocks/pre-post-market-quote/${symbol.toUpperCase()}`;
+      let sixteen = `/stocks/relative-strength-vs-sector/${symbol.toUpperCase()}?limitDays=7&limitTopRs=5`;
+      let seventeen = `/stocks/next-year-estimates/${symbol.toUpperCase()}`;
       const requestOne = api.get(one);
       const requestTwo = api.get(two);
       const requestThree = api.get(three);
@@ -69,25 +69,26 @@ export async function getServerSideProps(context: any) {
       const requestFifteen = api.get(fifteen);
       const requestSixteen = api.get(sixteen);
       const requestSeventeen = api.get(seventeen);
-      axios.all([
-        requestOne,
-        requestTwo,
-        requestThree,
-        requestFour,
-        requestFive,
-        requestSix,
-        requestSeven,
-        requestEight,
-        requestNine,
-        requestTenth,
-        requestEleventh,
-        requestTwelth,
-        requestThirteen,
-        requestFourteen,
-        requestFifteen,
-        requestSixteen,
-        requestSeventeen,
-      ])
+      axios
+        .all([
+          requestOne,
+          requestTwo,
+          requestThree,
+          requestFour,
+          requestFive,
+          requestSix,
+          requestSeven,
+          requestEight,
+          requestNine,
+          requestTenth,
+          requestEleventh,
+          requestTwelth,
+          requestThirteen,
+          requestFourteen,
+          requestFifteen,
+          requestSixteen,
+          requestSeventeen,
+        ])
         .then(
           axios.spread((...responses) => {
             const responseOne = responses[0].data;
@@ -107,17 +108,32 @@ export async function getServerSideProps(context: any) {
             const responseFifteen = responses[14].data;
             const responseSixteen = responses[15].data;
             const responseSeventeen = responses[16].data;
-            const finalRes = [responseOne, responseTwo, responseThree, responseFour, responseFive,
-              responseSix, responseSeven, responseEight, responseNine, responseTenth, responseEleventh,
-              responseTwelth, responseThirteen, responseFourteen, responseFifteen, responseSixteen, responseSeventeen]
-            resolve([...finalRes])
+            const finalRes = [
+              responseOne,
+              responseTwo,
+              responseThree,
+              responseFour,
+              responseFive,
+              responseSix,
+              responseSeven,
+              responseEight,
+              responseNine,
+              responseTenth,
+              responseEleventh,
+              responseTwelth,
+              responseThirteen,
+              responseFourteen,
+              responseFifteen,
+              responseSixteen,
+              responseSeventeen,
+            ];
+            resolve([...finalRes]);
           })
         )
         .catch((errors) => {
-          resolve(null)
+          resolve(null);
         });
     });
-
   };
 
   const response: any = await callAPIs(symbol, exchange);
@@ -130,7 +146,7 @@ export async function getServerSideProps(context: any) {
 }
 
 const Home: NextPage = (data: any) => {
-  const dispatch = useDispatch()
+  const dispatch = useDispatch();
   useEffect(() => {
     if (data?.data) {
       dispatch(setAPI1Data(data?.data[0]));
@@ -151,7 +167,7 @@ const Home: NextPage = (data: any) => {
       dispatch(setAPI16Data(data?.data[15]));
       dispatch(setAPI17Data(data?.data[16]));
     }
-  }, [data?.data])
+  }, [data?.data]);
   if (!data) return null;
   return (
     <div className={styles.container}>

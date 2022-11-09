@@ -75,8 +75,17 @@ export const FundamentalBox = ({
   dataType,
 }: // reversedAPI14Data,
 BoxProps) => {
+  console.log("data in box: ", boxData);
+  boxData = boxData?.map((obj) => {
+    return { ...obj, date: new Date(obj.date) };
+  });
+  boxData = boxData?.sort(
+    (objA, objB) => objA.date.getTime() - objB.date.getTime()
+  );
+
   console.log("dataType : ", dataType);
-  console.log("reversedAPI14Data in box: ", boxData);
+
+  console.log("sortedAsc in box: ", boxData);
   console.log("group: ", group);
   return (
     <div className="FundamentalBox flex items-center flex-wrap gap-[12px]">
@@ -94,12 +103,10 @@ BoxProps) => {
               `red-text-box`
             } ${
               group === "Return on Equity" &&
-              (Item.question_text === "Q2.19" || Item.question_text === "Q4.19"
-                ? `red-arrow-box`
-                : `green-arrow-box`)
+              (Item?.changePercent < 0 ? `red-arrow-box` : `green-arrow-box`)
             } ${
               group === "Institutionnal Ownership" &&
-              (Item.question_text === "Q1.20" || Item.question_text === "Q4.19"
+              (Item?.changePercent < 0
                 ? `red-arrow-box-text`
                 : `green-arrow-box-text`)
             } py-[12px] px-[9px] bg-grey-shade1 rounded-8`}
