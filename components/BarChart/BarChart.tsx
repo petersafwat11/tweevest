@@ -20,11 +20,11 @@ export const BarChart = () => {
       ? (Math.abs(Number(labelValue)) / 1.0e9).toFixed(2) + "B"
       : // Six Zeroes for Millions
       Math.abs(Number(labelValue)) >= 1.0e6
-      ? (Math.abs(Number(labelValue)) / 1.0e6).toFixed(2) + "M"
-      : // Three Zeroes for Thousands
-      Math.abs(Number(labelValue)) >= 1.0e3
-      ? (Math.abs(Number(labelValue)) / 1.0e3).toFixed(2) + "K"
-      : Math.abs(Number(labelValue));
+        ? (Math.abs(Number(labelValue)) / 1.0e6).toFixed(2) + "M"
+        : // Three Zeroes for Thousands
+        Math.abs(Number(labelValue)) >= 1.0e3
+          ? (Math.abs(Number(labelValue)) / 1.0e3).toFixed(2) + "K"
+          : Math.abs(Number(labelValue));
   }
 
   const [selectedValue, setSelectedValue] = useState("pe");
@@ -150,7 +150,7 @@ export const BarChart = () => {
                     ) +
                     "x"
                   }
-                  color={"red"}
+                  color={"linechart-bg-red"}
                 />
                 <BartextChart
                   value={Number(API9Data[2]?.[selectedValue]).toString()}
@@ -161,7 +161,7 @@ export const BarChart = () => {
                     ) +
                     "x"
                   }
-                  color={"secondary-blue"}
+                  color={"linechart-bg-secondary-blue"}
                 />
                 <BartextChart
                   value={Number(API9Data[3]?.[selectedValue]).toString()}
@@ -172,7 +172,7 @@ export const BarChart = () => {
                     ) +
                     "x"
                   }
-                  color={"tertiary-yellow"}
+                  color={"linechart-bg-tertiary-yellow"}
                 />
                 <BartextChart
                   value={Number(API9Data[4]?.[selectedValue]).toString()}
@@ -183,7 +183,7 @@ export const BarChart = () => {
                     ) +
                     "x"
                   }
-                  color={"state-success"}
+                  color={"linechart-bg-state-success"}
                 />
                 <BartextChart
                   value={Number(API9Data[5]?.[selectedValue]).toString()}
@@ -194,7 +194,7 @@ export const BarChart = () => {
                     ) +
                     "x"
                   }
-                  color={"primary-blue"}
+                  color={"linechart-bg-primary-blue"}
                 />
               </div>
             </div>

@@ -72,13 +72,13 @@ export const ChartComponent1 = (lineData: any) => {
   //   console.log("yellowLine: ", yellowLine);
   return (
     <>
-      <ResponsiveContainer width="100%" height={233}>
-        <LineChart data={data}>
-          <Line type="monotone" dataKey="pv" stroke="#FFC221" strokeWidth={2} />
-          <Line type="monotone" dataKey="uv" stroke="#00C2FF" strokeWidth={2} />
-          <XAxis dataKey="name" />
+      <ResponsiveContainer width="100%" height={250}>
+        <LineChart data={data} margin={{ top: 0, right: 0, left: 0, bottom: 0 }}>
+          <Line type="monotone" dot={false} dataKey="pv" stroke="#FFC221" strokeWidth={2} />
+          <Line type="monotone" dot={false} dataKey="uv" stroke="#00C2FF" strokeWidth={2} />
+          {/* <XAxis dataKey="name" /> */}
           {/* <Legend /> */}
-          <YAxis />
+          {/* <YAxis /> */}
 
           <Tooltip />
         </LineChart>

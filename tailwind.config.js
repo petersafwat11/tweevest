@@ -287,6 +287,17 @@ module.exports = {
         ".InstitutionnalOwnership-main .Show-Graph:hover p": {
           color: "white",
         },
+        ".InstitutionnalOwnership-main .AddFilter p": {
+          color: "white",
+        },
+        ".InstitutionnalOwnership-main .AddFilter:hover .close-icon": {
+          opacity: "1 !important",
+          visibility: "visible !important",
+        },
+        ".InstitutionnalOwnership-main .AddFilter:hover .plus-icon": {
+          opacity: "0 !important",
+          visibility: "hidden !important",
+        },
         ".InstitutionnalOwnership-main .filter-btn .drop-down-ul .drop-down-li:not(:last-child)": {
           borderBottom: "1px solid #ECEEF1",
         },

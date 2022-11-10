@@ -27,7 +27,7 @@ export const InstitutionnalOwnership = () => {
     "grossProfitMargin",
     "evToSales",
   ]);
-  useEffect(() => {}, []);
+  useEffect(() => { }, []);
   const [reversedAPI14Data, setReversedAPI14Data] = useState(API14Data);
   const [lineData, setLineData] = useState(API14Data[insOwnership[0]]);
 
@@ -155,18 +155,9 @@ export const InstitutionnalOwnership = () => {
               </button>
             </li>
             <li className="filter-li">
-              <button className="filter-btn relative flex items-center bg-grey-shade2 hover:bg-primary-light px-[16px] py-[8px] rounded-[50px] gap-[8px]">
+              <button className="filter-btn AddFilter relative flex items-center bg-primary-light hover:bg-primary-light px-[16px] py-[8px] rounded-[50px] gap-[8px]">
                 <p className="heading-S text-textcolor">Add</p>
                 <div className="close-icon flex">
-                  <Image
-                    className="object-cover"
-                    width="20px"
-                    height="20px"
-                    src="/svg/close-circle.svg"
-                    alt="Shape"
-                  />
-                </div>
-                <div className="plus-icon absolute flex">
                   <Image
                     className="object-cover"
                     width="20px"
@@ -175,6 +166,15 @@ export const InstitutionnalOwnership = () => {
                     alt="Shape"
                   />
                 </div>
+                {/* <div className="plus-icon absolute flex">
+                  <Image
+                    className="object-cover"
+                    width="20px"
+                    height="20px"
+                    src="/svg/plus-icon.svg"
+                    alt="Shape"
+                  />
+                </div> */}
                 <div className="drop-down-otr absolute top-[70px] left-0 pt-[24px] z-[999] sm:left-[-45px] xs:left-[-16px]">
                   <ul className="drop-down-ul w-[220px] bg-white border-[1px] border-border-shade1 rounded-8 overflow-hidden shadow-Shadow2 sm:w-[160px]">
                     <li className="drop-down-li text-left flex">
@@ -205,9 +205,8 @@ export const InstitutionnalOwnership = () => {
               return (
                 <div
                   key={index}
-                  className={`Fundamentals-otr ${
-                    value.id !== 4 && "mb-[40px]"
-                  }`}
+                  className={`Fundamentals-otr ${value.id !== 4 && "mb-[40px]"
+                    }`}
                 >
                   <div className="Fundamentals-heading-otr flex items-center justify-between mb-[24px] gap-[16px] sm:flex-col sm:items-start">
                     <div className="Fundamentals-heading-inr flex-1 flex items-center gap-[16px]">
