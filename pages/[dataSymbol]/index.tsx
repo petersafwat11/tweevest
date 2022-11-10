@@ -52,6 +52,7 @@ export async function getServerSideProps(context: any) {
       let fifteen = `/stocks/pre-post-market-quote/${symbol.toUpperCase()}`;
       let sixteen = `/stocks/relative-strength-vs-sector/${symbol.toUpperCase()}?limitDays=7&limitTopRs=5`;
       let seventeen = `/stocks/next-year-estimates/${symbol.toUpperCase()}`;
+
       const requestOne = api.get(one);
       const requestTwo = api.get(two);
       const requestThree = api.get(three);
@@ -69,6 +70,7 @@ export async function getServerSideProps(context: any) {
       const requestFifteen = api.get(fifteen);
       const requestSixteen = api.get(sixteen);
       const requestSeventeen = api.get(seventeen);
+
       axios
         .all([
           requestOne,
@@ -108,6 +110,7 @@ export async function getServerSideProps(context: any) {
             const responseFifteen = responses[14].data;
             const responseSixteen = responses[15].data;
             const responseSeventeen = responses[16].data;
+
             const finalRes = [
               responseOne,
               responseTwo,
