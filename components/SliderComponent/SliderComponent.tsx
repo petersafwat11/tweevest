@@ -50,9 +50,8 @@ export const SliderComponent = () => {
     "ytd",
     "1Y",
   ]);
-  const [textColor, setTextColor] = useState(
-    Number(API2Data.changesPercentage) < 0 ? "red" : "green"
-  );
+
+  console.log("textColor: ", Number(API2Data.changesPercentage));
   const MarketClosedDate = moment
     .unix(API2Data.timestamp)
     .format("dddd, MMMM Do YYYY, h:mm:ss a");
@@ -126,13 +125,28 @@ export const SliderComponent = () => {
                 alt="Shape"
               />
             )}
-            <span style={{ color: textColor }}>
-              {Number(API2Data.change).toFixed(2)}{" "}
-            </span>
+            {Number(API2Data.changesPercentage) > 0 ? (
+              <span style={{ color: "green" }}>
+                {Number(API2Data.change).toFixed(2)}
+              </span>
+            ) : (
+              <span style={{ color: "red" }}>
+                {Number(API2Data.change).toFixed(2)}
+              </span>
+            )}
             &nbsp;
-            <span style={{ color: textColor }}>
+            {Number(API2Data.changesPercentage) > 0 ? (
+              <span style={{ color: "green" }}>
+                ( {Number(API2Data.changesPercentage).toFixed(2)}%)
+              </span>
+            ) : (
+              <span style={{ color: "red" }}>
+                ({Number(API2Data.changesPercentage).toFixed(2)}%)
+              </span>
+            )}
+            {/* <span style={{ color: textColor }}>
               ({Number(API2Data.changesPercentage).toFixed(2)}%)
-            </span>
+            </span> */}
           </a>
         </div>
         <p className="heading-S text-primary-dark">
@@ -142,7 +156,6 @@ export const SliderComponent = () => {
         {current_time_est.toString().split(" ")[1] === "pm" ? (
           startTime >= curr && curr <= endTime ? (
             <>
-              {" "}
               <div className="heading-otr flex items-end gap-[10px] my-[4px]">
                 <h3 className="heading heading-h3 text-primary-dark">
                   {Number(API15Data.bid).toFixed(2)}
@@ -171,13 +184,25 @@ export const SliderComponent = () => {
                       alt="Shape"
                     />
                   )}
-                  <span style={{ color: textColor }}>
-                    {Number(API15Data.change).toFixed(2)}{" "}
-                  </span>
+                  {Number(API15Data.changesPercentage) > 0 ? (
+                    <span style={{ color: "green" }}>
+                      {Number(API15Data.change).toFixed(2)}
+                    </span>
+                  ) : (
+                    <span style={{ color: "red" }}>
+                      {Number(API15Data.change).toFixed(2)}
+                    </span>
+                  )}
                   &nbsp;
-                  <span style={{ color: textColor }}>
-                    ({Number(API15Data.changesPercentage).toFixed(2)}%)
-                  </span>
+                  {Number(API15Data.changesPercentage) > 0 ? (
+                    <span style={{ color: "green" }}>
+                      ( {Number(API15Data.changesPercentage).toFixed(2)}%)
+                    </span>
+                  ) : (
+                    <span style={{ color: "red" }}>
+                      ( {Number(API15Data.changesPercentage).toFixed(2)}%)
+                    </span>
+                  )}
                 </a>
               </div>
               <p className="heading-XS text-primary-dark">

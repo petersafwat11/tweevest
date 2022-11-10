@@ -74,9 +74,11 @@ export const stockSlice = createSlice({
       state.api15 = action.payload;
     },
     setAPI16Data: (state, action) => {
+      console.log("api16 action.payload : ", action.payload);
       state.api16 = action.payload;
     },
     setAPI17Data: (state, action) => {
+      console.log("api17 action.payload : ", action.payload);
       state.api17 = action.payload;
     },
   },
