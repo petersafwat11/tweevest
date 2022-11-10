@@ -15,7 +15,7 @@ export const BartextChart = ({ value, text, color }: BarChartProps) => {
       <>
         <div
           style={{ width: `${value}%` }}
-          className={`line-text-otr lineChart1 linechart-bg-${color} rounded-r-[50px] mb-[32px]`}
+          className={`line-text-otr lineChart1 ${color} rounded-r-[50px] mb-[32px]`}
         >
           <p className="line-text heading-XS text-right text-white px-[8px] py-[2px]">
             {text}

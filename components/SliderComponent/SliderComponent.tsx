@@ -67,11 +67,11 @@ export const SliderComponent = () => {
   return (
     <div className="bg-white px-[32px] pt-[32px] pb-[40px]">
       <div className="heading-icon-otr flex items-center gap-[18px] pb-[12px] border-b-[1px] border-b-border-shade1">
-        <div className="apple-img-otr flex">
+        <div className="apple-img-otr w-[80px] h-[80px] rounded-[100%] flex items-center justify-center bg-white shadow-Shadow2">
           <Image
             className="object-contain"
-            width="80px"
-            height="80px"
+            width="40px"
+            height="40px"
             src={API4Data?.image}
             alt="Shape"
             loader={() => API4Data?.image}
