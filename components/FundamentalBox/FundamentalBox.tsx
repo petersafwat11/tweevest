@@ -1,4 +1,4 @@
-import React from "react";
+import React, { useEffect } from "react";
 import Image from "next/image";
 import Item from "antd/lib/list/Item";
 
@@ -82,10 +82,15 @@ BoxProps) => {
   boxData = boxData?.sort(
     (objA, objB) => objA.date.getTime() - objB.date.getTime()
   );
+  console.log("sortedAsc in box: ", boxData);
+  useEffect(() => {
+    if (dataType == "roe" || dataType == "institutionalOwnership") {
+      boxData = boxData?.slice(0, 7);
+    }
+  }, []);
 
   console.log("dataType : ", dataType);
 
-  console.log("sortedAsc in box: ", boxData);
   console.log("group: ", group);
   return (
     <div className="FundamentalBox flex items-center flex-wrap gap-[12px]">
