@@ -24,35 +24,47 @@ import {
 // };
 
 const getIntroOfPage = (label: any) => {
-  if (label === 'Page A') {
+  if (label === "Page A") {
     return "Page A is about men's clothing";
   }
-  if (label === 'Page B') {
+  if (label === "Page B") {
     return "Page B is about women's dress";
   }
-  if (label === 'Page C') {
+  if (label === "Page C") {
     return "Page C is about women's bag";
   }
-  if (label === 'Page D') {
-    return 'Page D is about household goods';
+  if (label === "Page D") {
+    return "Page D is about household goods";
   }
-  if (label === 'Page E') {
-    return 'Page E is about food';
+  if (label === "Page E") {
+    return "Page E is about food";
   }
-  if (label === 'Page F') {
-    return 'Page F is about baby food';
+  if (label === "Page F") {
+    return "Page F is about baby food";
   }
-  return '';
+  return "";
 };
-const CustomTooltip = ({ active, payload, label }:any) => {
-
-  console.log('hello')
+const CustomTooltip = ({ active, payload, label }: any) => {
+  console.log("hello");
   if (active && payload && payload.length) {
+    console.log("payloadppp : ", payload);
     return (
       <div className="custom-tooltip border border-[#ECEEF1] bg-white">
-        <p className="label heading-XS py-2 px-4 border-b border-[#ECEEF1] text-primary-dark2">{`${label} : ${payload[0].value}`}</p>
-        <p className="intro heading-XS py-2 px-4 border-b border-[#ECEEF1] text-primary-dark2"> <span className="text-[#FFC221]">xs :</span> Add Here</p>
-        <p className="desc heading-XS py-2 px-4 border-[#ECEEF1] text-primary-dark2"><span className="text-[#00C2FF]">xs :</span> Add Here</p>
+        {/* <p className="label heading-XS py-2 px-4 border-b border-[#ECEEF1] text-primary-dark2">{`${payload[0].payload["name"]}`}</p> */}
+
+        <p className="intro heading-XS py-2 px-4 border-b border-[#ECEEF1] text-primary-dark2">
+          <span className="text-[red]">Date : </span>
+          {payload[0].payload["name"]}
+        </p>
+
+        <p className="intro heading-XS py-2 px-4 border-b border-[#ECEEF1] text-primary-dark2">
+          <span className="text-[#FFC221]">Stock RS :</span> $
+          {payload[0].payload["Stock RS"]}
+        </p>
+        <p className="desc heading-XS py-2 px-4 border-[#ECEEF1] text-primary-dark2">
+          <span className="text-[#00C2FF]">Sector RS :</span> $
+          {payload[0].payload["Sector RS"]}
+        </p>
       </div>
     );
   }
