@@ -78,6 +78,7 @@ export const Header = () => {
               setSearch(v);
             }, 1000)}
             filteredData={filteredData}
+            setFilteredData={setFilteredData}
           />
         </div>
         <div className="menu-action-otr flex items-center gap-[32px] 2xl:gap-[20px] lg:hidden">

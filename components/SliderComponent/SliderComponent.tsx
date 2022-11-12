@@ -77,7 +77,7 @@ export const SliderComponent = () => {
           />
         </div>
         <div className="apple-content-otr">
-          <h3 className="heading heading-h3 text-primary-dark mb-[8px]">
+          <h3 className="line-clamp-1 heading heading-h3 text-primary-dark mb-[8px]">
             {API2Data.name}
           </h3>
           <div className="country-text-otr flex items-end gap-[12px]">
@@ -119,8 +119,8 @@ export const SliderComponent = () => {
             {Number(API2Data.changesPercentage) > 0 && (
               <Image
                 className="object-cover"
-                width="16px"
-                height="16px"
+                width="24px"
+                height="24px"
                 src="/svg/arrow-right-up.svg"
                 alt="Shape"
               />

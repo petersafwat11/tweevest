@@ -19,11 +19,11 @@ export const InstitutionnalOwnership = () => {
   //   return arr;
   // });
   const [insOwnership, setInsOwnership] = useState([
-    "eps",
+    "epsAdjusted",
     "revenue",
     "roe",
     "institutionalOwnership",
-    "epsAdjusted",
+    "eps",
     "grossProfitMargin",
     "evToSales",
   ]);

@@ -60,10 +60,10 @@ export const ForcastComponent = () => {
                 />
               </span>
             </p>
-            <div className="static-boxes-otr flex items-center flex-wrap justify-between gap-[4px] 2xl:gap-[8px] mt-[16px]">
+            <div className="static-boxes-otr flex flex-wrap justify-between gap-[4px] 2xl:gap-[8px] mt-[16px]">
               <div className="static-box w-[32%] 2xl:w-[48%]">
-                <div className="heading-otr mb-[8px] flex items-end">
-                  <h3 className="heading-h3 text-primary-dark 4xl:text-[18px] 4xl:leading-[24px]">
+                <div className="heading-otr flex-wrap mb-[8px] flex items-end">
+                  <h3 className="heading-h3 line-clamp-1 break-all text-primary-dark 4xl:text-[18px] 4xl:leading-[24px]">
                     $
                     {convertToInternationalCurrencySystem(
                       API17Data.estimatedRevenue
@@ -74,16 +74,41 @@ export const ForcastComponent = () => {
                     className="heading-S flex items-center text-green-default"
                   >
                     <span className="flex w-[16px] h-[16px]">
-                      <Image
-                        className="object-cover"
-                        width="16px"
-                        height="16px"
-                        src="/svg/arrow-right-up.svg"
-                        alt="Shape"
-                      />
+                      {Number(API17Data.estimatedRevenueChangePercent) < 0 && (
+                        <Image
+                          className="object-cover"
+                          width="16px"
+                          height="16px"
+                          src="/svg/arrow-left-down.svg"
+                          alt="Shape"
+                        />
+                      )}
+                      {Number(API17Data.estimatedRevenueChangePercent) > 0 && (
+                        <Image
+                          className="object-cover"
+                          width="16px"
+                          height="16px"
+                          src="/svg/arrow-right-up.svg"
+                          alt="Shape"
+                        />
+                      )}
                     </span>
                     <span className="4xl:text-[13px] 4xl:leading-[20px] flex-1">
-                      {API17Data.estimatedRevenueChangePercent}%
+                      {Number(API17Data.estimatedRevenueChangePercent) > 0 ? (
+                        <span style={{ color: "green" }}>
+                          {Number(
+                            API17Data.estimatedRevenueChangePercent
+                          ).toFixed(2)}
+                          %
+                        </span>
+                      ) : (
+                        <span style={{ color: "red" }}>
+                          {Number(
+                            API17Data.estimatedRevenueChangePercent
+                          ).toFixed(2)}
+                          %
+                        </span>
+                      )}
                     </span>
                   </a>
                 </div>
@@ -92,8 +117,8 @@ export const ForcastComponent = () => {
                 </p>
               </div>
               <div className="static-box w-[32%] 2xl:w-[48%]">
-                <div className="heading-otr mb-[8px] flex items-end">
-                  <h3 className="heading-h3 text-primary-dark 4xl:text-[18px] 4xl:leading-[24px]">
+                <div className="heading-otr flex-wrap mb-[8px] flex items-end">
+                  <h3 className="heading-h3 line-clamp-1 break-all text-primary-dark 4xl:text-[18px] 4xl:leading-[24px]">
                     $
                     {convertToInternationalCurrencySystem(
                       API17Data.estimatedEps
@@ -104,16 +129,42 @@ export const ForcastComponent = () => {
                     className="heading-S flex items-center text-green-default"
                   >
                     <span className="flex w-[16px] h-[16px]">
-                      <Image
-                        className="object-cover"
-                        width="16px"
-                        height="16px"
-                        src="/svg/arrow-right-up.svg"
-                        alt="Shape"
-                      />
+                      {Number(API17Data.estimatedEpsChangePercent) < 0 && (
+                        <Image
+                          className="object-cover"
+                          width="16px"
+                          height="16px"
+                          src="/svg/arrow-left-down.svg"
+                          alt="Shape"
+                        />
+                      )}
+                      {Number(API17Data.estimatedEpsChangePercent) > 0 && (
+                        <Image
+                          className="object-cover"
+                          width="16px"
+                          height="16px"
+                          src="/svg/arrow-right-up.svg"
+                          alt="Shape"
+                        />
+                      )}
                     </span>
                     <span className="4xl:text-[13px] 4xl:leading-[20px] flex-1">
-                      {API17Data.estimatedEpsChangePercent}%
+                      {/* {API17Data.estimatedEpsChangePercent}% */}
+                      {Number(API17Data.estimatedEpsChangePercent) > 0 ? (
+                        <span style={{ color: "green" }}>
+                          {Number(API17Data.estimatedEpsChangePercent).toFixed(
+                            2
+                          )}
+                          %
+                        </span>
+                      ) : (
+                        <span style={{ color: "red" }}>
+                          {Number(API17Data.estimatedEpsChangePercent).toFixed(
+                            2
+                          )}
+                          %
+                        </span>
+                      )}
                     </span>
                   </a>
                 </div>
@@ -122,8 +173,8 @@ export const ForcastComponent = () => {
                 </p>
               </div>
               <div className="static-box w-[31%] 2xl:w-[48%]">
-                <div className="heading-otr mb-[8px] flex items-end">
-                  <h3 className="heading-h3 text-primary-dark 4xl:text-[18px] 4xl:leading-[24px]">
+                <div className="heading-otr flex-wrap mb-[8px] flex items-end">
+                  <h3 className="heading-h3 line-clamp-1 break-all text-primary-dark 4xl:text-[18px] 4xl:leading-[24px]" title="">
                     $
                     {convertToInternationalCurrencySystem(
                       API17Data.estimatedEbitda
@@ -134,16 +185,42 @@ export const ForcastComponent = () => {
                     className="heading-S flex items-center text-green-default"
                   >
                     <span className="flex w-[16px] h-[16px]">
-                      <Image
-                        className="object-cover"
-                        width="16px"
-                        height="16px"
-                        src="/svg/arrow-right-up.svg"
-                        alt="Shape"
-                      />
+                      {Number(API17Data.estimatedEbitdaChangePercent) < 0 && (
+                        <Image
+                          className="object-cover"
+                          width="16px"
+                          height="16px"
+                          src="/svg/arrow-left-down.svg"
+                          alt="Shape"
+                        />
+                      )}
+                      {Number(API17Data.estimatedEbitdaChangePercent) > 0 && (
+                        <Image
+                          className="object-cover"
+                          width="16px"
+                          height="16px"
+                          src="/svg/arrow-right-up.svg"
+                          alt="Shape"
+                        />
+                      )}
                     </span>
                     <span className="4xl:text-[13px] 4xl:leading-[20px] flex-1">
-                      {API17Data.estimatedEbitdaChangePercent}%
+                      {/* {API17Data.estimatedEbitdaChangePercent}% */}
+                      {Number(API17Data.estimatedEbitdaChangePercent) > 0 ? (
+                        <span style={{ color: "green" }}>
+                          {Number(
+                            API17Data.estimatedEbitdaChangePercent
+                          ).toFixed(2)}
+                          %
+                        </span>
+                      ) : (
+                        <span style={{ color: "red" }}>
+                          {Number(
+                            API17Data.estimatedEbitdaChangePercent
+                          ).toFixed(2)}
+                          %
+                        </span>
+                      )}
                     </span>
                   </a>
                 </div>

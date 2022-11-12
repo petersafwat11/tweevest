@@ -4,11 +4,13 @@ import { useRouter } from "next/router";
 interface SearchProps {
   handleChange: any;
   filteredData: any;
+  setFilteredData: any;
 }
 
 export const SearchInput: FC<SearchProps> = ({
   handleChange,
   filteredData,
+  setFilteredData
 }) => {
   const router = useRouter();
   return (
@@ -37,7 +39,13 @@ export const SearchInput: FC<SearchProps> = ({
             {filteredData?.data?.map((data: any, index: number) => {
               return (
                 <li
-                  onClick={() => router.push(`/${data.symbol}?exchangeName=${data.exchangeShortName}`)}
+                  onClick={() => {
+                    router.push(`/${data.symbol}?exchangeName=${data.exchangeShortName}`)
+                    setFilteredData({
+                      ...filteredData,
+                      data: []
+                    })
+                  }}
                   key={index}
                   className="drop-down-li text-left w-[100%] flex border-b-[1px] border-b-border-shade1"
                 >
@@ -45,7 +53,7 @@ export const SearchInput: FC<SearchProps> = ({
                     href="#"
                     className="drop-down-a heading-S p-[16px] text-primary-dark w-[100%] bg-white flex items-center gap-[24px] hover:bg-primary-default hover:text-white"
                   >
-                    <span className="heading-SB text-primary-dark">
+                    <span className="heading-SB text-primary-dark min-w-[52px]">
                       {data.symbol}
                     </span>{" "}
                     <span className="heading-SB text-primary-dark2 flex-1">
