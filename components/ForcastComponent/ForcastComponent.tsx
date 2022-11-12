@@ -74,16 +74,41 @@ export const ForcastComponent = () => {
                     className="heading-S flex items-center text-green-default"
                   >
                     <span className="flex w-[16px] h-[16px]">
-                      <Image
-                        className="object-cover"
-                        width="16px"
-                        height="16px"
-                        src="/svg/arrow-right-up.svg"
-                        alt="Shape"
-                      />
+                      {Number(API17Data.estimatedRevenueChangePercent) < 0 && (
+                        <Image
+                          className="object-cover"
+                          width="16px"
+                          height="16px"
+                          src="/svg/arrow-left-down.svg"
+                          alt="Shape"
+                        />
+                      )}
+                      {Number(API17Data.estimatedRevenueChangePercent) > 0 && (
+                        <Image
+                          className="object-cover"
+                          width="16px"
+                          height="16px"
+                          src="/svg/arrow-right-up.svg"
+                          alt="Shape"
+                        />
+                      )}
                     </span>
                     <span className="4xl:text-[13px] 4xl:leading-[20px] flex-1">
-                      {API17Data.estimatedRevenueChangePercent}%
+                      {Number(API17Data.estimatedRevenueChangePercent) > 0 ? (
+                        <span style={{ color: "green" }}>
+                          {Number(
+                            API17Data.estimatedRevenueChangePercent
+                          ).toFixed(2)}
+                          %
+                        </span>
+                      ) : (
+                        <span style={{ color: "red" }}>
+                          {Number(
+                            API17Data.estimatedRevenueChangePercent
+                          ).toFixed(2)}
+                          %
+                        </span>
+                      )}
                     </span>
                   </a>
                 </div>
@@ -104,16 +129,42 @@ export const ForcastComponent = () => {
                     className="heading-S flex items-center text-green-default"
                   >
                     <span className="flex w-[16px] h-[16px]">
-                      <Image
-                        className="object-cover"
-                        width="16px"
-                        height="16px"
-                        src="/svg/arrow-right-up.svg"
-                        alt="Shape"
-                      />
+                      {Number(API17Data.estimatedEpsChangePercent) < 0 && (
+                        <Image
+                          className="object-cover"
+                          width="16px"
+                          height="16px"
+                          src="/svg/arrow-left-down.svg"
+                          alt="Shape"
+                        />
+                      )}
+                      {Number(API17Data.estimatedEpsChangePercent) > 0 && (
+                        <Image
+                          className="object-cover"
+                          width="16px"
+                          height="16px"
+                          src="/svg/arrow-right-up.svg"
+                          alt="Shape"
+                        />
+                      )}
                     </span>
                     <span className="4xl:text-[13px] 4xl:leading-[20px] flex-1">
-                      {API17Data.estimatedEpsChangePercent}%
+                      {/* {API17Data.estimatedEpsChangePercent}% */}
+                      {Number(API17Data.estimatedEpsChangePercent) > 0 ? (
+                        <span style={{ color: "green" }}>
+                          {Number(API17Data.estimatedEpsChangePercent).toFixed(
+                            2
+                          )}
+                          %
+                        </span>
+                      ) : (
+                        <span style={{ color: "red" }}>
+                          {Number(API17Data.estimatedEpsChangePercent).toFixed(
+                            2
+                          )}
+                          %
+                        </span>
+                      )}
                     </span>
                   </a>
                 </div>
@@ -134,16 +185,42 @@ export const ForcastComponent = () => {
                     className="heading-S flex items-center text-green-default"
                   >
                     <span className="flex w-[16px] h-[16px]">
-                      <Image
-                        className="object-cover"
-                        width="16px"
-                        height="16px"
-                        src="/svg/arrow-right-up.svg"
-                        alt="Shape"
-                      />
+                      {Number(API17Data.estimatedEbitdaChangePercent) < 0 && (
+                        <Image
+                          className="object-cover"
+                          width="16px"
+                          height="16px"
+                          src="/svg/arrow-left-down.svg"
+                          alt="Shape"
+                        />
+                      )}
+                      {Number(API17Data.estimatedEbitdaChangePercent) > 0 && (
+                        <Image
+                          className="object-cover"
+                          width="16px"
+                          height="16px"
+                          src="/svg/arrow-right-up.svg"
+                          alt="Shape"
+                        />
+                      )}
                     </span>
                     <span className="4xl:text-[13px] 4xl:leading-[20px] flex-1">
-                      {API17Data.estimatedEbitdaChangePercent}%
+                      {/* {API17Data.estimatedEbitdaChangePercent}% */}
+                      {Number(API17Data.estimatedEbitdaChangePercent) > 0 ? (
+                        <span style={{ color: "green" }}>
+                          {Number(
+                            API17Data.estimatedEbitdaChangePercent
+                          ).toFixed(2)}
+                          %
+                        </span>
+                      ) : (
+                        <span style={{ color: "red" }}>
+                          {Number(
+                            API17Data.estimatedEbitdaChangePercent
+                          ).toFixed(2)}
+                          %
+                        </span>
+                      )}
                     </span>
                   </a>
                 </div>
