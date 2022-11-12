@@ -46,7 +46,6 @@ const getIntroOfPage = (label: any) => {
 };
 const CustomTooltip = ({ active, payload, label }:any) => {
 
-  console.log('hello',active,JSON.stringify(payload),label)
   if (active && payload && payload.length) {
     return (
       <div className="custom-tooltip border border-[#ECEEF1] bg-white">
