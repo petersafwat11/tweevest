@@ -145,7 +145,8 @@ export const BarChart = () => {
                 <BartextChart
                   value={Number(API9Data[1]?.[selectedValue]).toString()}
                   text={
-                    "Meta " +
+                    API9Data[1]?.symbol +
+                    " " +
                     convertToInternationalCurrencySystem(
                       Math.round(Number(API9Data[1]?.[selectedValue]))
                     ) +
@@ -156,7 +157,8 @@ export const BarChart = () => {
                 <BartextChart
                   value={Number(API9Data[2]?.[selectedValue]).toString()}
                   text={
-                    "Meta " +
+                    API9Data[2]?.symbol +
+                    " " +
                     convertToInternationalCurrencySystem(
                       Math.round(Number(API9Data[2]?.[selectedValue]))
                     ) +
@@ -167,7 +169,8 @@ export const BarChart = () => {
                 <BartextChart
                   value={Number(API9Data[3]?.[selectedValue]).toString()}
                   text={
-                    "Meta " +
+                    API9Data[3]?.symbol +
+                    " " +
                     convertToInternationalCurrencySystem(
                       Math.round(Number(API9Data[3]?.[selectedValue]))
                     ) +
@@ -178,7 +181,8 @@ export const BarChart = () => {
                 <BartextChart
                   value={Number(API9Data[4]?.[selectedValue]).toString()}
                   text={
-                    "Meta " +
+                    API9Data[4]?.symbol +
+                    " " +
                     convertToInternationalCurrencySystem(
                       Math.round(Number(API9Data[4]?.[selectedValue]))
                     ) +
@@ -189,7 +193,8 @@ export const BarChart = () => {
                 <BartextChart
                   value={Number(API9Data[5]?.[selectedValue]).toString()}
                   text={
-                    "Meta " +
+                    API9Data[5]?.symbol +
+                    " " +
                     convertToInternationalCurrencySystem(
                       Math.round(Number(API9Data[5]?.[selectedValue]))
                     ) +
