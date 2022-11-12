@@ -4,6 +4,10 @@ import { Chart1 } from "..";
 import { useSelector } from "react-redux";
 import { selectAPI16Data } from "../../store/stockSlice";
 
+
+
+
+
 export const LineChart = () => {
   const API16Data = useSelector(selectAPI16Data);
   const blueLine = API16Data.values;
@@ -40,7 +44,9 @@ export const LineChart = () => {
               </div>
             </div>
             <div className="chart-otr mt-[32px] mb-[8px]">
-              <Chart1 blueLine={blueLine} yellowLine={yellowLine} />
+              
+              <Chart1 blueLine={blueLine} yellowLine={yellowLine}  />
+              
             </div>
             <p className="heading-XS text-primary-dark2 text-center">
               Showing graph for last 7 days.

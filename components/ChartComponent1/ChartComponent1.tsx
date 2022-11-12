@@ -54,6 +54,43 @@ const data = [
   },
 ];
 
+const getIntroOfPage = (label: any) => {
+  if (label === 'Page A') {
+    return "Page A is about men's clothing";
+  }
+  if (label === 'Page B') {
+    return "Page B is about women's dress";
+  }
+  if (label === 'Page C') {
+    return "Page C is about women's bag";
+  }
+  if (label === 'Page D') {
+    return 'Page D is about household goods';
+  }
+  if (label === 'Page E') {
+    return 'Page E is about food';
+  }
+  if (label === 'Page F') {
+    return 'Page F is about baby food';
+  }
+  return '';
+};
+const CustomTooltip = ({ active, payload, label }:any) => {
+
+  console.log('hello')
+  if (active && payload && payload.length) {
+    return (
+      <div className="custom-tooltip border border-[#ECEEF1] bg-white">
+        <p className="label heading-XS py-2 px-4 border-b border-[#ECEEF1] text-primary-dark2">{`${label} : ${payload[0].value}`}</p>
+        <p className="intro heading-XS py-2 px-4 border-b border-[#ECEEF1] text-primary-dark2"> <span className="text-[#FFC221]">xs :</span> Add Here</p>
+        <p className="desc heading-XS py-2 px-4 border-[#ECEEF1] text-primary-dark2"><span className="text-[#00C2FF]">xs :</span> Add Here</p>
+      </div>
+    );
+  }
+
+  return null;
+};
+
 export const ChartComponent1 = (lineData: any) => {
   const getValues = () => {
     let new_data = lineData?.blueLine?.map((element: any, index: any) => {
@@ -74,13 +111,14 @@ export const ChartComponent1 = (lineData: any) => {
     <>
       <ResponsiveContainer width="100%" height={250}>
         <LineChart data={data} margin={{ top: 0, right: 0, left: 0, bottom: 0 }}>
-          <Line type="monotone" dot={false} dataKey="pv" stroke="#FFC221" strokeWidth={2} />
+        <Line type="monotone" dot={false} dataKey="pv" stroke="#FFC221" strokeWidth={2} />
+            <span className="absolute right-1 top-1/2 -translate-y-1/2 w-5 h-5 rounded-full flex items-center justify-center bg-[#FFC221]">2</span>
           <Line type="monotone" dot={false} dataKey="uv" stroke="#00C2FF" strokeWidth={2} />
           {/* <XAxis dataKey="name" /> */}
           {/* <Legend /> */}
           {/* <YAxis /> */}
 
-          <Tooltip />
+          <Tooltip content={<CustomTooltip />} />
         </LineChart>
       </ResponsiveContainer>
     </>

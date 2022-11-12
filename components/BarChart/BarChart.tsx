@@ -13,6 +13,7 @@ const links = [
   { title: "Revenue" },
 ];
 
+
 export const BarChart = () => {
   function convertToInternationalCurrencySystem(labelValue: any) {
     // Nine Zeroes for Billions

@@ -60,10 +60,10 @@ export const ForcastComponent = () => {
                 />
               </span>
             </p>
-            <div className="static-boxes-otr flex items-center flex-wrap justify-between gap-[4px] 2xl:gap-[8px] mt-[16px]">
+            <div className="static-boxes-otr flex flex-wrap justify-between gap-[4px] 2xl:gap-[8px] mt-[16px]">
               <div className="static-box w-[32%] 2xl:w-[48%]">
-                <div className="heading-otr mb-[8px] flex items-end">
-                  <h3 className="heading-h3 text-primary-dark 4xl:text-[18px] 4xl:leading-[24px]">
+                <div className="heading-otr flex-wrap mb-[8px] flex items-end">
+                  <h3 className="heading-h3 line-clamp-1 break-all text-primary-dark 4xl:text-[18px] 4xl:leading-[24px]">
                     $
                     {convertToInternationalCurrencySystem(
                       API17Data.estimatedRevenue
@@ -92,8 +92,8 @@ export const ForcastComponent = () => {
                 </p>
               </div>
               <div className="static-box w-[32%] 2xl:w-[48%]">
-                <div className="heading-otr mb-[8px] flex items-end">
-                  <h3 className="heading-h3 text-primary-dark 4xl:text-[18px] 4xl:leading-[24px]">
+                <div className="heading-otr flex-wrap mb-[8px] flex items-end">
+                  <h3 className="heading-h3 line-clamp-1 break-all text-primary-dark 4xl:text-[18px] 4xl:leading-[24px]">
                     $
                     {convertToInternationalCurrencySystem(
                       API17Data.estimatedEps
@@ -122,8 +122,8 @@ export const ForcastComponent = () => {
                 </p>
               </div>
               <div className="static-box w-[31%] 2xl:w-[48%]">
-                <div className="heading-otr mb-[8px] flex items-end">
-                  <h3 className="heading-h3 text-primary-dark 4xl:text-[18px] 4xl:leading-[24px]">
+                <div className="heading-otr flex-wrap mb-[8px] flex items-end">
+                  <h3 className="heading-h3 line-clamp-1 break-all text-primary-dark 4xl:text-[18px] 4xl:leading-[24px]" title="">
                     $
                     {convertToInternationalCurrencySystem(
                       API17Data.estimatedEbitda

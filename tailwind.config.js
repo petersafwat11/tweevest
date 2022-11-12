@@ -88,6 +88,7 @@ module.exports = {
     },
   },
   plugins: [
+    require('@tailwindcss/line-clamp'),
     function ({ addBase, config }) {
       addBase({
         body: {

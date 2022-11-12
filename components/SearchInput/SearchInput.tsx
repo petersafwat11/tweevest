@@ -45,7 +45,7 @@ export const SearchInput: FC<SearchProps> = ({
                     href="#"
                     className="drop-down-a heading-S p-[16px] text-primary-dark w-[100%] bg-white flex items-center gap-[24px] hover:bg-primary-default hover:text-white"
                   >
-                    <span className="heading-SB text-primary-dark">
+                    <span className="heading-SB text-primary-dark min-w-[52px]">
                       {data.symbol}
                     </span>{" "}
                     <span className="heading-SB text-primary-dark2 flex-1">
