@@ -7,10 +7,10 @@ import { useSelector } from "react-redux";
 import { selectAPI8Data, selectAPI9Data } from "../../store/stockSlice";
 
 const links = [
-  { title: "PE" },
-  { title: "Price To Sales" },
-  { title: "Price To Book" },
-  { title: "Revenue" },
+  { title: "P/E Ratio" },
+  { title: "P/S Ratio" },
+  { title: "P/B Ratio" },
+  // { title: "Revenue" },
 ];
 
 
@@ -126,7 +126,7 @@ export const BarChart = () => {
                 <option value="pe">{links[0].title}</option>
                 <option value="priceToSales">{links[1].title}</option>
                 <option value="priceToBook">{links[2].title}</option>
-                <option value="revenue">{links[3].title}</option>
+                {/* <option value="revenue">{links[3].title}</option> */}
               </select>
             </div>
             <div className="content-otr text-center mr-[40px] mb-[16px]">
